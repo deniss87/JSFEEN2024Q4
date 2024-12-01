@@ -1,0 +1,266 @@
+/* MAIN */
+
+/* Main GRID */
+
+.main-section {
+    grid-area: main;
+    background-color: #FF4646;
+    background-image: url("../img/background/bg-snow.png");
+    border-radius: 20px;
+}
+
+/* MAIN elements */
+
+.home-button {
+    background-color: #181C29;
+    width: 235px;
+    border: 0;
+    border-radius: 20px;
+    padding: 20px 32px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.home-button:hover {
+    background-color: white;
+    color: #181C29;
+    cursor: pointer;
+}
+
+.hero-section h1 {
+    text-transform: uppercase;
+}
+
+/* HERO section */
+
+.hero-section {
+    height: 524px;
+    background-image: url("../img/background/bg-ball.png");
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section > div {
+    padding: 20px;
+}
+
+.hero-text {
+    width: 404px;
+    text-align: center;
+    color: white;
+}
+
+
+/* ABOUT section */
+
+.about-section {
+    display: flex;
+    width: 1276px;
+    margin: 60px auto;
+
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-sizing: border-box; 
+}
+
+.about-text-container {
+    display: flex; 
+    width: 50%;
+
+    justify-content: flex-start; 
+    align-items: center; 
+
+}
+
+.about-text {
+    max-width: 348px;
+    margin-left: 60px;
+    font-family: Montserrat;
+
+}
+  
+.about-image {
+    display: flex;
+    width: 50%; 
+    height: 100%; 
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    justify-content: flex-start;
+    align-items: center;
+}
+  
+.about-image img {
+    object-fit: contain; 
+    max-width: 638px; 
+    max-height: 528px; 
+    width: 100%; 
+    height: 100%;
+    border-radius: 20px;
+}
+
+
+/* SLIDER section */
+
+.slider-section {
+    display: flex;
+    flex-direction: column;
+    margin: 60px 82px;
+}
+
+.slider-header {
+    text-align: center;
+    color: white;
+}
+.slider-header h4 {
+    font-family: Allura;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 5%;
+    
+}
+.slider-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 152%;
+    letter-spacing: 16%;
+    text-transform: uppercase;
+}
+
+.slider-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 1400px;
+    overflow: auto;
+}
+
+.slider-main::-webkit-scrollbar {
+    display: none;
+  }
+
+.slider-main-text {
+    color: white;
+    font-size: 80px;
+    font-weight: 600;
+}
+
+.slider-img {
+    padding: 0px 20px;
+    border-radius: 20px;
+}
+.slider-img img {
+    border-radius: 20px;
+}
+
+
+.slider-buttons {
+    text-align: right;
+    padding-top: 20px;
+}
+
+.slider-buttons button {
+    background-color: transparent;
+    width: 56px;
+    height: 56px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    text-decoration: none;
+    font-size: 26px;
+    cursor: pointer;
+    border-radius: 20px;
+
+}
+
+.slider-buttons button:hover {
+    background-color: white;
+}
+
+#slider-btn-left {
+    background-image: url("../img/arrow_left.svg");
+
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+
+#slider-btn-right {
+    background-image: url("../img/arrow_right.svg");
+
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+
+#slider-btn-left:hover {
+    background-image: url("../img/arrow-right_red.svg");
+    transform: rotate(180deg);
+}
+
+#slider-btn-right:hover {
+    background-image: url("../img/arrow-right_red.svg");
+}
+
+/* GIFTS section */
+
+.gifts-section {
+    text-align: center;
+    margin: 60px 82px;
+}
+
+.gifts-cards-container {
+    display: flex;
+    justify-content:space-around;
+}
+
+
+/* CTA section */
+
+.cta-section {
+    background-image: url("../img/background/bg-forest.png");
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    height: 668px;
+}
+
+.cta-container {
+    width: 400px;
+    margin: auto;
+    padding: 60px 0px;
+    text-align: center;
+}
+
+.cta-container h2 {
+    color: white;
+    text-transform: uppercase;
+}
+
+.cta-timer {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.cta-timer > div {
+    width: 80px;
+    padding: 10px;
+}
+
+.cta-timer h2, h4 {
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+
+.cta-timer img {
+    padding-top: 100%;
+}
