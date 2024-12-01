@@ -84,7 +84,11 @@
     font-family: Montserrat;
 
 }
-  
+
+.about-text > span {
+    color: #FF4646;
+}
+
 .about-image {
     display: flex;
     width: 50%; 
