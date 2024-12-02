@@ -81,12 +81,13 @@
 .about-text {
     max-width: 348px;
     margin-left: 60px;
+    font-family: Montserrat;
+
 }
 
 .about-text > span {
     color: #FF4646;
 }
-
 .about-image {
     display: flex;
     width: 50%; 
@@ -178,12 +179,8 @@
     font-size: 26px;
     cursor: pointer;
     border-radius: 20px;
-
 }
 
-.slider-buttons button:hover {
-    background-color: white;
-}
 
 #slider-btn-left {
     background-image: url("../img/arrow_left.svg");
@@ -199,13 +196,9 @@
     background-repeat: no-repeat; 
 }
 
-#slider-btn-left:hover {
-    background-image: url("../img/arrow-right_red.svg");
-    transform: rotate(180deg);
-}
-
 #slider-btn-right:hover {
     background-image: url("../img/arrow-right_red.svg");
+    background-color: white;
 }
 
 /* GIFTS section */
@@ -219,7 +212,12 @@
     display: flex;
     justify-content:space-around;
 }
-
+.gifts-cards-container a {
+    text-decoration: none;
+}
+.gifts-cards-container a:hover {
+    color:#FF4646;
+}
 
 /* CTA section */
 
