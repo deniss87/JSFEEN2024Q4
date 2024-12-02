@@ -56,3 +56,10 @@
     padding: 20px 0px;
 }
 
+.gifts-cards-item:hover {
+    cursor: pointer;
+}
+
+.gifts-cards-item:hover h3 {
+    color:#FF4646;
+}

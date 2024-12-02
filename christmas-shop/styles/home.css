@@ -212,10 +212,12 @@
     display: flex;
     justify-content:space-around;
 }
-.gifts-cards-container a {
-    text-decoration: none;
+
+.gifts-cards-item:hover {
+    cursor: pointer;
 }
-.gifts-cards-container a:hover {
+
+.gifts-cards-item:hover h3 {
     color:#FF4646;
 }
 
