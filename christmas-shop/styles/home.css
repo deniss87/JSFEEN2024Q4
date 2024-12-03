@@ -6,6 +6,7 @@
     grid-area: main;
     background-color: #FF4646;
     background-image: url("../img/background/bg-snow.png");
+    background-position: cover;
     border-radius: 20px;
 }
 
@@ -27,9 +28,6 @@
     cursor: pointer;
 }
 
-.hero-section h1 {
-    text-transform: uppercase;
-}
 
 /* HERO section */
 
@@ -46,14 +44,11 @@
     justify-content: center;
 }
 
-.hero-section > div {
-    /* padding: 20px; */
-}
-
 .hero-container {
-    width: 335px;
+    width: 430px;
     text-align: center;
     color: white;
+    padding-top: 20px;
 }
 
 
@@ -81,6 +76,10 @@
 .about-text {
     max-width: 348px;
     margin-left: 60px;
+}
+
+.about-text p {
+    color: black;
 }
 
 .about-text > span {
@@ -209,6 +208,10 @@
     color:#FF4646;
 }
 
+.gifts-section p {
+    color: white;
+}
+
 /* CTA section */
 
 .cta-section {
@@ -227,9 +230,8 @@
     text-align: center;
 }
 
-.cta-container h2 {
+.cta-container h2, p {
     color: white;
-    text-transform: uppercase;
 }
 
 .cta-timer {

@@ -12,28 +12,28 @@ h1 {
     font-size: 32px;
     font-weight: 600;
     line-height: 150%;
-    letter-spacing: 18%;
+    letter-spacing: 0.18em;
 }
 
 h2 {
     font-size: 24px;
     font-weight: 600;
     line-height: 152%;
-    letter-spacing: 16%;
+    letter-spacing: 0.16em;
 }
 
 h3 {
     font-size: 16px;
     font-weight: 600;
     line-height: 152%;
-    letter-spacing: 8%;
+    letter-spacing: 0.08em;
 }
 
 h4 {
     font-size: 12px;
     font-weight: 600;
     line-height: 130%;
-    letter-spacing: 5%;
+    letter-spacing: 0.05em;
 }
 
 .text-caption {
@@ -41,22 +41,21 @@ h4 {
     font-style: normal;
     font-size: 24px;
     line-height: 100%;
-    letter-spacing: 5%;
-    color: white;
+    letter-spacing: 0.05em;
 }
 
 .action-small {
     font-size: 12px;
     font-weight: 600;
     line-height: 130%;
-    letter-spacing: 5%;
+    letter-spacing: 0.05em;
 }
 
 .action-large {
     font-size: 24px;
     font-weight: 600;
     line-height: 152%;
-    letter-spacing: 16%;
+    letter-spacing: 0.16em;
 }
 
 .container {
@@ -73,6 +72,9 @@ h4 {
 
 }
 
+.home-button, .header-nav, .footer-contacts a {
+    transition: all 0.7s ease;
+}
 
 /* Header */
 
@@ -96,6 +98,7 @@ h4 {
 }
 
 .header-nav {
+    margin: 0px 5px;
     border-radius: 12px;
 }
 .header-nav:hover {
@@ -103,6 +106,11 @@ h4 {
 }
 .header-nav:hover > a {
     color: #FF4646;
+}
+
+.header-nav-active {
+    color: #FF4646;
+    background-color: rgb(255,70,70, 0.1);
 }
 
 .logo {
@@ -130,6 +138,7 @@ h4 {
     margin: 82px 60px;
     text-align: center;
     padding-bottom: 60px;
+    color: #181C29;
 }
 
 .footer-contacts {
@@ -174,6 +183,9 @@ h4 {
     filter: invert(71%) sepia(84%) saturate(6180%) hue-rotate(334deg) brightness(105%) contrast(118%);
 }
 
+.footer-socials p {
+    color: #181C29;
+}
 
 /* GIFTS cards */
 
