@@ -1,0 +1,92 @@
+
+html, body
+{
+    height: 100%;
+    margin: 0;
+    font-family: Montserrat, Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+// FONTS
+
+h1 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 0.18em;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 152%;
+    letter-spacing: 0.16em;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 152%;
+    letter-spacing: 0.08em;
+}
+
+h4 {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 148%;
+}
+
+.text-caption {
+    font-family: Allura;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0.05em;
+}
+
+.text-action-small {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.text-action-large {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 152%;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.text-slider {
+    font-size: 80px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+// COLORS
+
+$color-primary: #FF4646;
+$color-primary-10: #ff46460a;
+
+$color-dark: #181C29;
+
+$color-content-bg: #ECF3F8;
+
+$color-tag-purple: #4361FF;
+$color-tag-pink: #FF43F7;
+$color-tag-green: #06A44F;
+
+// BORDERS
+
+$border-radius-main: 20px;

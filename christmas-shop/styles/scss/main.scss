@@ -1,0 +1,44 @@
+@import 'config';
+
+// main-container
+
+.main-container {
+    width: 1440px;
+    height: 100%;
+    margin: 0px auto;
+
+    display: grid;
+    grid-template-columns: 1440px;
+    grid-template-rows: 64px auto auto;
+    grid-template-areas: "header"
+                         "main"
+                         "footer";
+}
+
+/* Header */
+
+.header {
+    grid-area: header;
+    text-align: center;
+    background-color: red;
+}
+
+// MAIN
+
+.main-section {
+    grid-area: main;
+    background-color: #FF4646;
+    // background-image: url("../img/background/bg-snow.png");
+    // background-position: cover;
+    border-radius: $border-radius-main;
+    text-align: center;
+}
+
+/* FOOTER */
+
+.footer {
+    grid-area: footer;
+    text-align: center;
+
+    background-color: aqua;
+}
