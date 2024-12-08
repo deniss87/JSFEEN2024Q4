@@ -1,0 +1,58 @@
+
+@media screen and (max-width: 1439px) {  
+
+    .main-container {
+        width: 100%;
+        grid-template-columns: auto;
+    }
+
+
+    .slider-container {
+        max-width: 768px;
+    }
+
+}
+
+
+@media screen and (max-width: 768px) {  
+
+    .header-nav-container {
+        display: none;
+    }
+
+    .header-nav-burger {
+        padding-right: 20px;
+    }   
+    .header-nav-burger::before {
+        content: "";
+        transform: translateY(-4px);
+        display: block;
+        width: 20px;
+        height: 1px;
+        background-color: $color-dark;
+    }
+
+    .header-nav-burger::after {
+        content: "";
+        transform: translateY(4px);
+        display: block;
+        width: 20px;
+        height: 1px;
+        background-color: $color-dark;
+    }
+
+    
+    .cta-container {
+        padding-top: 130px;
+
+        button {
+            padding-top: 10px;
+        }
+    }
+
+    .footer-contacts {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+}

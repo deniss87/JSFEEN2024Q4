@@ -4,256 +4,252 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="icon" type="image/x-icon" href="img/snowflake.svg">
-    <title>Christmas Shop (Deniss Patancevs)</title>
+    <title>Christmas Shop (part 2) (Deniss Patancevs)</title>
 </head>
 <body>
-    <div class="container">
+    <div class="main-container">
+        <!-- HEADER -->
 
         <header>  
-            <div class="header action-small">
-                    <div class="logo-container">
-                         <div>
-                            <a href="/deepcd87-JSFEEN2024Q4/christmas-shop/">
-                            <img src="img/snowflake.svg" alt="Snowflake logo" width="24" height="24">
-                            </a> 
-                        </div>
-                        <div>
-                            <a href="/deepcd87-JSFEEN2024Q4/christmas-shop/">
-                            <span class="action-small" id="text">THE GIFTS</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="header-nav"><a href="gifts/">GIFTS</a></div>
-                    <div class="header-nav"><a href="#about">ABOUT</a></div>
-                    <div class="header-nav"><a href="#best-gifts">BEST</a></div>
-                    <div class="header-nav"><a href="#contacts">CONTACTS</a></div>
+            <div class="container header-container">
+                <div class="header-logo-container">
+                       <a class="header-logo" href="/learning/00_Courses/RS_School_Frontend%20/deepcd87-JSFEEN2024Q4/christmas-shop/">
+                       <img id="img-logo" src="img/icons/snowflake.svg" alt="Snowflake logo" width="24" height="24">
+                       <span class="text-action-small">THE GIFTS</span>
+                       </a> 
+               </div>
+               <span class="header-nav-burger">
+                <!-- <img src="img/burger.svg" alt="burger menu" width="40" height="40"> -->
+               </span>
+               <nav class="header-nav-container text-action-small">
+                    <ul>
+                        <li><a href="gifts/">GIFTS</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#best-gifts">BEST</a></li>
+                        <li><a href="#contacts">CONTACTS</a></li>
+                    </ul>
+                </nav>
             </div>
         </header>
 
-         <!-- <main> -->
-            <div class="main-section">
-            <!-- HERO section -->
-            <div class="hero-section">
+        <!-- MAIN  -->
+
+        <main>
+            <!-- HERO SECTION -->
+            <section class="section-hero">
                 <div class="hero-container">
-                    <p class="text-caption">Merry Christmas</p>
+                    <p class="text-caption" id="hero-text">Merry Christmas</p>
                     <h1>GIFT YOURSELF THE MAGIC OF NEW POSSIBILITIES</h1>
                     <form style="display: inline" action="gifts/" method="get">
-                        <button class="home-button action-small">EXPLORE MAGICAL GIFTS</button>
+                        <button class="home-button text-action-small">EXPLORE MAGICAL GIFTS</button>
                     </form>
                     <p class="text-caption">and Happy New Year</p>
                 </div>
-            </div>
+            </section>
 
-            <!-- ABOUT section -->
-            <div class="about-section" id="about">
-                <div class="about-text-container">
+            <!-- ABOUT SECTION -->
+            <section class="section-about" id="section-about">
+                <div class="container about-container">
                     <div class="about-text">
-                        <span class="text-caption">About</span>
+                        <div class="about-text-container">
+                        <p class="text-caption">About</p>
                         <h2>UNLEASH YOUR INNER SUPERHERO!</h2>
                         <p>This New Year marks the beginning of your journey to 
                             inner harmony and new strengths. We offer unique gifts 
                             that will help you improve your life.</p>
+                        </div>
                     </div>
+                    <div class="about-img">
+                        <img src="img/santa.png" alt="Picture of Santa and Snowman"> 
+                    </div>    
                 </div>
-                <div class="about-image">
-                    <img src="img/santa.png" alt="Picture of Santa and Snowman"> 
-                </div>
-            </div>
+            </section>
+            <!-- SLIDER SECTION -->
+            <section class="section-slider">
+                <div class="container slider-container">
+                    <div class="slider-header">
+                        <p class="text-caption">Become Happier!</p>
+                        <h2>IN THE NEW 2025</h2>
+                    </div>
+                    <div class="row">
+                        <div class="slider-main">
+                            <span class="text-slider">LIVE</span>
+                            <img src="img/snowman.png" alt="Picture of Snowman" width="200" height="200"> 
+                            
+                            <span class="text-slider">CREATE</span>
+                            <img src="img/christmas-trees.png" alt="Picture of Snowman" width="200" height="200"> 
+                            
+                            <span class="text-slider">LOVE</span>                    
+                            <img src="img/christmas-tree-ball.png" alt="Picture of Snowman" width="200" height="200"> 
 
-            <!-- SLIDER section -->
-            <div class="slider-section">
-                <div class="slider-header">
-                    <p class="text-caption">Become Happier!</p>
-                    <h2>IN THE NEW 2025</h2>
+                            <span class="text-slider">DREAM</span>                    
+                            <img src="img/fairytale-house.png" alt="Picture of Snowman" width="200" height="200"> 
+                        </div>
+                    </div>    
+                    <div class="slider-buttons">
+                        <button type="button" disabled>
+                            <div>
+                            <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.5 7H1M1 7L7 1M1 7L7 13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            </div>
+                        </button>
+                        <button type="button">
+                            <div>
+                            <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 7H13.5M13.5 7L7.5 1M13.5 7L7.5 13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
-                <div class="slider-main">
-
-                    <div class="slider-main-text">
-                        LIVE
+            </section>
+            <!-- BEST GIFTS SECTION -->
+            <section class="section-best-gifts" id="section-best-gifts">
+                <div class="best-gifts-container">
+                    <div class="best-gifts-header">
+                        <p class="text-caption">Best Gifts</p>
+                        <h2>ESPECIALLY FOR YOU</h2>
                     </div>
-                    <div class="slider-img">
-                        <img src="img/snowman.png" alt="Picture of Snowman" width="200" height="200"> 
+                    <div class="best-gifts-cards">
+                        <!-- gift item 1 -->
+                        <div class="gifts-cards-item">
+                            <div class="gifts-card-img">
+                                <img src="img/gift-for-work.png" alt="gift picture" >
+                            </div>
+                            <div class="gifts-card-text gifts-card-text-work">
+                                <h4>FOR WORK</h4>
+                                <h3>CONSOLE.LOG GURU</h3>
+                            </div>
+                        </div>
+                        <!-- gift item 2 -->   
+                        <div class="gifts-cards-item">
+                            <div class="gifts-card-img">
+                                <img src="img/gift-for-health.png" alt="gift picture" >
+                            </div>
+                            <div class="gifts-card-text gifts-card-text-health">
+                                <h4>FOR HEALTH</h4>
+                                <h3>HYDRATION BOT</h3>
+                            </div>
+                        </div>
+                        <!-- gift item 3 -->   
+                        <div class="gifts-cards-item">
+                            <div class="gifts-card-img">
+                                <img src="img/gift-for-work.png" alt="gift picture" >
+                            </div>
+                            <div class="gifts-card-text gifts-card-text-work">
+                                <h4>FOR WORK</h4>
+                                <h3>MERGE MASTER</h3>
+                            </div>
+                        </div>
+                        <!-- gift item 4 -->   
+                        <div class="gifts-cards-item">
+                            <div class="gifts-card-img">
+                                <img src="img/gift-for-harmony.png" alt="gift picture" >
+                            </div>
+                            <div class="gifts-card-text gifts-card-text-harmony">
+                                <h4>FOR HARMONY</h4>
+                                <h3>SPONTANEOUS CODING PHILOSOPHER</h3>
+                            </div>
+                        </div>                                       
                     </div>
-                    <div class="slider-main-text">
-                        CREATE
-                    </div>
-                    <div class="slider-img">
-                        <img src="img/christmas-trees.png" alt="Picture of Snowman" width="200" height="200"> 
-                    </div>
-                    <div class="slider-main-text">
-                        LOVE
-                    </div>                    
-                    <div class="slider-img">
-                        <img src="img/christmas-tree-ball.png" alt="Picture of Snowman" width="200" height="200"> 
-                    </div>
-                    <div class="slider-main-text">
-                        DREAM
-                    </div>                    
-                    <div class="slider-img">
-                        <img src="img/fairytale-house.png" alt="Picture of Snowman" width="200" height="200"> 
-                    </div>
-                    
                 </div>
-                <div class="slider-buttons">
-                    <button type="button" id="slider-btn-left"></button>
-                    <button type="button" id="slider-btn-right"></button>
-                </div>
-
-            </div>
-
-            <!-- GIFTS section -->
-            <div class="gifts-section" id="best-gifts">
-                <div class="gifts-header">
-                    <p class="text-caption">Best Gifts</p>
-                    <h2>Especially for you</h2>
-                </div>
-                <div class="gifts-cards-container">
-                    <!-- gift item 1 -->
-                    <div class="gifts-cards-item">
-                        <div class="gifts-card-img">
-                            <img src="img/gift-for-work.png" alt="gift picture" >
-                        </div>
-                        <div class="gifts-card-text gifts-card-text-work">
-                            <h4>FOR WORK</h4>
-                            <h3>Console.log Guru</h3>
-                        </div>
-                    </div>
-                    <!-- gift item 2 -->   
-                    <div class="gifts-cards-item">
-                        <div class="gifts-card-img">
-                            <img src="img/gift-for-work.png" alt="gift picture" >
-                        </div>
-                        <div class="gifts-card-text gifts-card-text-health">
-                            <h4>For health</h4>
-                            <h3>Hydration Bot</h3>
-                        </div>
-                    </div>
-                    <!-- gift item 3 -->   
-                    <div class="gifts-cards-item">
-                        <div class="gifts-card-img">
-                            <img src="img/gift-for-work.png" alt="gift picture" >
-                        </div>
-                        <div class="gifts-card-text gifts-card-text-work">
-                            <h4>FOR WORK</h4>
-                            <h3>Merge Master</h3>
-                        </div>
-                    </div>
-                    <!-- gift item 4 -->   
-                    <div class="gifts-cards-item">
-                        <div class="gifts-card-img">
-                            <img src="img/gift-for-work.png" alt="gift picture" >
-                        </div>
-                        <div class="gifts-card-text gifts-card-text-harmony">
-                            <h4>For harmony</h4>
-                            <h3>Spontaneous Coding Philosopher</h3>
-                        </div>
-                    </div>                                       
-                </div>
-                
-            </div>
-
-            <!-- CTA section -->
-            <div class="cta-section">
+            </section>
+             <!-- CTA SECTION -->
+             <section class="section-cta">
                 <div class="cta-container">
-                    <h2>READY TO START YOUR JOURNEY TO A BETTER VERSION OF YOURSELF?</h2>
-                    <form style="display: inline" action="gifts/" method="get">
-                        <button class="home-button action-small">Explore Magical Gifts</button>
-                    </form>
-                    <br><br>
-                    <div class="cta-timer-container">
-                        <p class="text-caption">The New Year is Coming Soon...</p>
-                        <div class="cta-timer">
-                            <div>
-                                <h2>47</h2>
-                                <h4>DAYS</h4>
-                            </div>
-                            <div class="cta-timer-separator">
-                                <img src="img/separator.svg" alt="separator">
-                            </div>
-                            <div>
-                                <h2>5</h2>
-                                <h4>HOURS</h4>
-                            </div>
-                            <div>
-                                <img src="img/separator.svg" alt="separator">
-                            </div>
-                            <div>
-                                <h2>34</h2>
-                                <h4>MINUTES</h4>
-                            </div>
-                            <div>
-                                <img src="img/separator.svg" alt="separator">
-                            </div>
-                            <div>
-                                <h2>12</h2>
-                                <h4>SECONDS</h4>
+                    <div class="cta-content">
+                        <h2>READY TO START YOUR JOURNEY TO A BETTER VERSION OF YOURSELF?</h2>
+                        <form style="display: inline" action="gifts/" method="get">
+                            <button class="home-button action-small">Explore Magical Gifts</button>
+                        </form>
+                        <div class="cta-timer-container">
+                            <p class="text-caption">The New Year is Coming Soon...</p>
+                            <div class="cta-timer">
+                                <div class="cta-timer-column">
+                                    <h2>47</h2>
+                                    <h4>DAYS</h4>
+                                </div>
+                                <div class="cta-separator"></div>
+                                <div class="cta-timer-column">
+                                    <h2>5</h2>
+                                    <h4>HOURS</h4>
+                                </div>
+                                <div class="cta-separator"></div>
+                                <div class="cta-timer-column">
+                                    <h2>34</h2>
+                                    <h4>MINUTES</h4>
+                                </div>
+                                <div class="cta-separator"></div>
+                                <div class="cta-timer-column">
+                                    <h2>12</h2>
+                                    <h4>SECONDS</h4>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+            </main>
+            <!-- FOOTER -->
+        <footer>
+            <div class="container footer-container">
+                <div class="footer-contacts" id="contacts">
+                    <div class="footer-contacts-phone">
+                        <a href="tel:+375-29-111-22-33">
+                        <div><img src="img/icons/footer_santa.svg" alt="small image of Santa Claus" width="80" height="80"></div>
+                        <div class="text-action-large">+375 (29) 111-22-33</div>
+                        <div><h3>CALL US</h3></div>
+                        </a>
+                    </div>
+                    <div class="footer-contacts-address">
+                        <a href="https://www.google.com/maps/place/Magic+forest/@53.496575,23.5893122,17z/data=!3m1!4b1!4m6!3m5!1s0x46e075aea3b8580d:0xda458e9ce8f0eb45!8m2!3d53.496575!4d23.5918871!16s%2Fg%2F11pl6zrc3v?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
+                        <div><img src="img/icons/footer-tree.svg" alt="small image of christmas tree" width="80" height="80"></div>
+                        <div class="text-action-large">Magic forest</div>
+                        <div><h3>MEET US</h3></div>
+                        </a>
+                    </div>
+                    <div class="footer-contacts-email">
+                        <a href="mailto:gifts@magic.com">
+                        <div><img src="img/icons/footer-snake.svg" alt="small image of snake" width="80" height="80"></div>
+                        <div class="text-action-large">gifts@magic.com</div>
+                        <div><h3>WRITE US</h3></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-socials">
+                    <div class="footer-socials-icons">
+                        <div>
+                            <a href="#contacts">
+                            <img src="img/icons/telegram.svg" alt="telegram icon" width="24" height="24">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#contacts">
+                            <img src="img/icons/facebook.svg" alt="telegram icon" width="24" height="24">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#contacts">
+                            <img src="img/icons/instagram.svg" alt="telegram icon" width="24" height="24">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#contacts">
+                            <img src="img/icons/x.svg" alt="telegram icon" width="24" height="24">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-copyright">
+                        <p>&copy; Copyright 2025, All Rights Reserved</p>
+                        <a href="https://rs.school/" target="_blank">
+                        <p class="text-caption">Made in Rolling Scopes School</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer> 
 
-                </div>
-            </div>
-            
-            </div>
-        <!-- </main> -->
-
-        <!-- <footer> -->
-        <div class="footer">
-            <div class="footer-contacts" id="contacts">
-                <div class="footer-contacts-phone">
-                    <a href="tel:+375-29-111-22-33">
-                    <div><img src="img/footer_santa.svg" alt="small image of Santa Claus" width="80" height="80"></div>
-                    <div class="action-large">+375 (29) 111-22-33</div>
-                    <div><h3>CALL US</h3></div>
-                    </a>
-                </div>
-                <div class="footer-contacts-address">
-                    <a href="https://www.google.com/maps/place/Magic+forest/@53.496575,23.5893122,17z/data=!3m1!4b1!4m6!3m5!1s0x46e075aea3b8580d:0xda458e9ce8f0eb45!8m2!3d53.496575!4d23.5918871!16s%2Fg%2F11pl6zrc3v?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
-                    <div><img src="img/footer-tree.svg" alt="small image of christmas tree" width="80" height="80"></div>
-                    <div class="action-large">Magic forest</div>
-                    <div><h3>MEET US</h3></div>
-                    </a>
-                </div>
-                <div class="footer-contacts-email">
-                    <a href="mailto:gifts@magic.com">
-                    <div><img src="img/footer-snake.svg" alt="small image of snake" width="80" height="80"></div>
-                    <div class="action-large">gifts@magic.com</div>
-                    <div><h3>WRITE US</h3></div>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-socials">
-                <div class="footer-socials-icons">
-                    <div>
-                        <a href="#contacts">
-                        <img src="img/icons/telegram.svg" alt="telegram icon" width="24" height="24">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#contacts">
-                        <img src="img/icons/facebook.svg" alt="telegram icon" width="24" height="24">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#contacts">
-                        <img src="img/icons/instagram.svg" alt="telegram icon" width="24" height="24">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#contacts">
-                        <img src="img/icons/x.svg" alt="telegram icon" width="24" height="24">
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <p>&copy; Copyright 2025, All Rights Reserved</p>
-                    <a href="https://rs.school/" target="_blank">
-                    <p class="text-caption">Made in Rolling Scopes School</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- </footer> -->
     </div>
 </body>
 </html>
