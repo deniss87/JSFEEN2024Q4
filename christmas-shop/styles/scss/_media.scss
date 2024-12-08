@@ -1,37 +1,18 @@
-// @media (max-width: 768px) {
-//     header {
-//         background-color: aqua;
-//     }
-// }
 
-// @media(max-width: 768px) and (min-width: 1440px) {
-
-//     .main-container {
-//         width: 100%;
-
-//         grid-template-columns: auto;
-//     }
-// }
-
-// @media(min-width: 380px) and (max-width: 767px) {
-
-//     .main-container {
-//         width: 100%;
-
-//         display: grid;
-//         grid-template-columns: auto;
-
-//     }
-// }
-
-@media screen and (max-width: 1440px) {  
+@media screen and (max-width: 1439px) {  
 
     .main-container {
         width: 100%;
         grid-template-columns: auto;
     }
 
+
+    .slider-container {
+        max-width: 768px;
+    }
+
 }
+
 
 @media screen and (max-width: 768px) {  
 
@@ -39,48 +20,39 @@
         display: none;
     }
 
-    .section-about {
-        padding-top: 10px;
+    .header-nav-burger {
+        padding-right: 20px;
+    }   
+    .header-nav-burger::before {
+        content: "";
+        transform: translateY(-4px);
+        display: block;
+        width: 20px;
+        height: 1px;
+        background-color: $color-dark;
     }
-    
-    // .about-container {
-    //     display: flex;
-    //     justify-content: flex-start;
-    //     align-items: center;
-    //     margin: $main-section-margin;
-    //     background-color: white;
-    //     border-radius: $border-radius-main;
-    //     height: 500px;
-    // }
-    .about-container {
-        display: grid;
-        grid-template: auto / repeat(auto-fit, minmax(364px, 1fr));
-        background-color: white;
-        border-radius: $border-radius-main;
-        // height: 500px;
+
+    .header-nav-burger::after {
+        content: "";
+        transform: translateY(4px);
+        display: block;
+        width: 20px;
+        height: 1px;
+        background-color: $color-dark;
     }
+
     
-    .about-text {
-        // width: 50%;
-        padding-left: 0px;
-    
-        h2 {
-           padding: 20px 0;
-        }
-    
-        .text-caption {
-            color: $color-primary;
+    .cta-container {
+        padding-top: 130px;
+
+        button {
+            padding-top: 10px;
         }
     }
-    
-    .about-img {
-        border-radius: $border-radius-main;
-        // width: 50%;
-        height: 100%;
+
+    .footer-contacts {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
-    
-    .about-text-container {
-        width: 100%;
-    }
-    
+
 }
