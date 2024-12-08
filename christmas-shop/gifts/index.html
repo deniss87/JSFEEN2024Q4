@@ -3,30 +3,36 @@
 <head>
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/gifts.css">
-    <link rel="icon" type="image/x-icon" href="../img/snowflake.svg">
+    <link rel="icon" type="image/x-icon" href="../img/icons/snowflake.svg">
     <title>Christmas Shop - Gifts (Deniss Patancevs)</title>
+    <script>
+        window.onload = function() {
+            alert("I'm still finishing the work. Please review later. Thank you!!");
+        };
+    </script>
 </head>
 <body>
     <div class="container">
 
         <header>  
-            <div class="header action-small">
-                    <div class="logo-container">
-                         <div>
-                            <a href="/deepcd87-JSFEEN2024Q4/christmas-shop/">
-                            <img src="../img/snowflake.svg" alt="Snowflake logo" width="24" height="24">
-                            </a> 
-                        </div>
-                        <div>
-                            <a href="/deepcd87-JSFEEN2024Q4/christmas-shop/">
-                            <span class="action-small" id="text">THE GIFTS</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="header-nav header-nav-active">GIFTS</div>
-                    <div class="header-nav"><a href="/deepcd87-JSFEEN2024Q4/christmas-shop/#about">ABOUT</a></div>
-                    <div class="header-nav"><a href="/deepcd87-JSFEEN2024Q4/christmas-shop/#best-gifts">BEST</a></div>
-                    <div class="header-nav"><a href="#contacts">CONTACTS</a></div>
+            <div class="container header-container">
+                <div class="header-logo-container">
+                       <a class="header-logo" href="/learning/00_Courses/RS_School_Frontend%20/deepcd87-JSFEEN2024Q4/christmas-shop/">
+                       <img id="img-logo" src="../img/icons/snowflake.svg" alt="Snowflake logo" width="24" height="24">
+                       <span class="text-action-small">THE GIFTS</span>
+                       </a> 
+               </div>
+               <span class="header-nav-burger">
+                <!-- <img src="img/burger.svg" alt="burger menu" width="40" height="40"> -->
+               </span>
+               <nav class="header-nav-container text-action-small">
+                    <ul>
+                        <li><a href="gifts/">GIFTS</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#best-gifts">BEST</a></li>
+                        <li><a href="#contacts">CONTACTS</a></li>
+                    </ul>
+                </nav>
             </div>
         </header>
 
@@ -44,30 +50,30 @@
                         <span class="action-small"><a href="#">FOR HEALTH</a></span>
                         <span class="action-small"><a href="#">FOR HARMONY</a></span>
                     </div>
-                    <div class="gifts-items-container">
+                    <div class="gift-card-container">
                         <!-- Gifts item 1 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-work.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-work">
+                            <div class="gift-card-text gifts-card-text-work">
                                 <h4>FOR WORK</h4>
                                 <h3>Console.log Guru</h3>
                             </div> 
                         </div>
                         <!-- Gifts item 2 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-health.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-health">
+                            <div class="gift-card-text gifts-card-text-health">
                                 <h4>FOR HEALTH</h4>
                                 <h3>STEP MASTER</h3>
                             </div> 
                         </div>
                         <!-- Gifts item 3 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-work.png" alt="gift picture" >
                             </div>
                             <div class="gifts-card-text gifts-card-text-work">
@@ -76,91 +82,91 @@
                             </div> 
                         </div>
                         <!-- Gifts item 4 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-work.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-work">
+                            <div class="gift-card-text gifts-card-text-work">
                                 <h4>FOR WORK</h4>
                                 <h3>SHORTCUT CHEATER</h3>
                             </div> 
                         </div>
                         <!-- Gifts item 5 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-work.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-work">
+                            <div class="gift-card-text gifts-card-text-work">
                                 <h4>FOR WORK</h4>
                                 <h3>POSTURE LEVITATION</h3>
                             </div> 
                         </div>
                         <!-- Gifts item 6 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-harmony.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-harmony">
+                            <div class="gift-card-text gifts-card-text-harmony">
                                 <h4>FOR HARMONY</h4>
                                 <h3>BUG ACCEPTANCE GURU</h3>
                             </div> 
                         </div>
                         <!-- Gifts item 7 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-health.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-health">
+                            <div class="gift-card-text gifts-card-text-health">
                                 <h4>FOR HEALTH</h4>
                                 <h3>SNACK RESISTER</h3>
                             </div> 
                         </div>
                         <!-- Gifts item 8 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-harmony.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-harmony">
+                            <div class="gift-card-text gifts-card-text-harmony">
                                 <h4>FOR HARMONY</h4>
                                 <h3>ERROR LAUGHER</h3>
                             </div> 
                         </div>
                         <!-- Gifts item 9 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-health.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-health">
+                            <div class="gift-card-text gifts-card-text-health">
                                 <h4>FOR HEALTH</h4>
                                 <h3>HYDRATION BOT</h3>
                             </div> 
                         </div>
                         <!-- Gifts item 10 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-work.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-work">
+                            <div class="gift-card-text gifts-card-text-work">
                                 <h4>FOR WORK</h4>
                                 <h3>MERGE MASTER</h3>
                             </div> 
                         </div>
                         <!-- Gifts item 11 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-harmony.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-harmony">
+                            <div class="gift-card-text gifts-card-text-harmony">
                                 <h4>FOR HARMONY</h4>
                                 <h3>JOY CHARGERU</h3>
                             </div> 
                         </div>
                         <!-- Gifts item 12 -->
-                        <div class="gifts-cards-item">
-                            <div class="gifts-card-img">
+                        <div class="gift-card-item">
+                            <div class="gift-card-img">
                                 <img src="../img/gift-for-harmony.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-harmony">
+                            <div class="gift-card-text gifts-card-text-harmony">
                                 <h4>FOR HARMONY</h4>
                                 <h3>SPONTANEOUS CODING PHILOSOPHER</h3>
                             </div> 
@@ -171,63 +177,64 @@
             </div>
         <!-- </main> -->
 
- <!-- <footer> -->
-            <div class="footer">
-                <div class="footer-contacts" id="contacts">
-                    <div class="footer-contacts-phone">
-                        <a href="tel:+375-29-111-22-33">
-                        <div><img src="../img/footer_santa.svg" alt="small image of Santa Claus" width="80" height="80"></div>
-                        <div class="action-large">+375 (29) 111-22-33</div>
-                        <div><h3>CALL US</h3></div>
-                        </a>
+            <!-- FOOTER -->
+            <footer>
+                <div class="container footer-container">
+                    <div class="footer-contacts" id="contacts">
+                        <div class="footer-contacts-phone">
+                            <a href="tel:+375-29-111-22-33">
+                            <div><img src="../img/icons/footer_santa.svg" alt="small image of Santa Claus" width="80" height="80"></div>
+                            <div class="text-action-large">+375 (29) 111-22-33</div>
+                            <div><h3>CALL US</h3></div>
+                            </a>
+                        </div>
+                        <div class="footer-contacts-address">
+                            <a href="https://www.google.com/maps/place/Magic+forest/@53.496575,23.5893122,17z/data=!3m1!4b1!4m6!3m5!1s0x46e075aea3b8580d:0xda458e9ce8f0eb45!8m2!3d53.496575!4d23.5918871!16s%2Fg%2F11pl6zrc3v?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
+                            <div><img src="../img/icons/footer-tree.svg" alt="small image of christmas tree" width="80" height="80"></div>
+                            <div class="text-action-large">Magic forest</div>
+                            <div><h3>MEET US</h3></div>
+                            </a>
+                        </div>
+                        <div class="footer-contacts-email">
+                            <a href="mailto:gifts@magic.com">
+                            <div><img src="../img/icons/footer-snake.svg" alt="small image of snake" width="80" height="80"></div>
+                            <div class="text-action-large">gifts@magic.com</div>
+                            <div><h3>WRITE US</h3></div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="footer-contacts-address">
-                        <a href="https://www.google.com/maps/place/Magic+forest/@53.496575,23.5893122,17z/data=!3m1!4b1!4m6!3m5!1s0x46e075aea3b8580d:0xda458e9ce8f0eb45!8m2!3d53.496575!4d23.5918871!16s%2Fg%2F11pl6zrc3v?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
-                        <div><img src="../img/footer-tree.svg" alt="small image of christmas tree" width="80" height="80"></div>
-                        <div class="action-large">Magic forest</div>
-                        <div><h3>MEET US</h3></div>
-                        </a>
-                    </div>
-                    <div class="footer-contacts-email">
-                        <a href="mailto:gifts@magic.com">
-                        <div><img src="../img/footer-snake.svg" alt="small image of snake" width="80" height="80"></div>
-                        <div class="action-large">gifts@magic.com</div>
-                        <div><h3>WRITE US</h3></div>
-                        </a>
+                    <div class="footer-socials">
+                        <div class="footer-socials-icons">
+                            <div>
+                                <a href="#contacts">
+                                <img src="../img/icons/telegram.svg" alt="telegram icon" width="24" height="24">
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#contacts">
+                                <img src="../img/icons/facebook.svg" alt="telegram icon" width="24" height="24">
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#contacts">
+                                <img src="../img/icons/instagram.svg" alt="telegram icon" width="24" height="24">
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#contacts">
+                                <img src="../img/icons/x.svg" alt="telegram icon" width="24" height="24">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer-copyright">
+                            <p>&copy; Copyright 2025, All Rights Reserved</p>
+                            <a href="https://rs.school/" target="_blank">
+                            <p class="text-caption">Made in Rolling Scopes School</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="footer-socials">
-                    <div class="footer-socials-icons">
-                        <div>
-                            <a href="#contacts">
-                            <img src="../img/icons/telegram.svg" alt="telegram icon" width="24" height="24">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#contacts">
-                            <img src="../img/icons/facebook.svg" alt="telegram icon" width="24" height="24">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#contacts">
-                            <img src="../img/icons/instagram.svg" alt="telegram icon" width="24" height="24">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#contacts">
-                            <img src="../img/icons/x.svg" alt="telegram icon" width="24" height="24">
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <p>&copy; Copyright 2025, All Rights Reserved</p>
-                        <a href="https://rs.school/" target="_blank">
-                        <p class="text-caption">Made in Rolling Scopes School</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- </footer> -->
+            </footer> 
     </div>
 </body>
 </html>
