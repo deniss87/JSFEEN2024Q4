@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 html, body
 {
@@ -7,7 +8,17 @@ html, body
     scroll-behavior: smooth;
 }
 
+// LINKS
+
+a {
+    text-decoration: none;
+}
+
 // FONTS
+
+h1, h2, h3, h4, p {
+    margin: 0;
+}
 
 h1 {
     font-size: 32px;
@@ -77,7 +88,7 @@ p {
 // COLORS
 
 $color-primary: #FF4646;
-$color-primary-10: #ff46460a;
+$color-primary-10: rgb(255,70,70, 0.1);
 
 $color-dark: #181C29;
 
@@ -90,3 +101,9 @@ $color-tag-green: #06A44F;
 // BORDERS
 
 $border-radius-main: 20px;
+$border-radius-btn: 12px;
+
+// MARGINS
+
+$main-section-margin: 60px 82px;
+$margin-lr: 0 82px;
