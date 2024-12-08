@@ -1,0 +1,142 @@
+@import 'config';
+
+// main-container
+
+.main-container {
+    width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1440px;
+    grid-template-rows: 64px auto auto;
+    grid-template-areas: "header"
+                         "main"
+                         "footer";
+}
+
+.container {
+    max-width: 1276px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Header */
+
+header {
+    grid-area: header;
+    text-align: center;
+    background-color: white;
+    align-items: center;
+}
+
+.header-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+
+    .header-logo-container {
+        display: flex;
+        margin-right: auto;
+        padding: 8px 20px; 
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+        }
+    }
+
+    a {
+        color: $color-dark;
+    }
+
+    ul {
+        display: flex;
+        list-style-type: none;
+
+        li {
+            margin-left: 8px;
+            padding: 12px 20px; 
+            border-radius: $border-radius-btn;
+        }
+
+        li:hover {
+            background-color: $color-primary-10;
+        }
+    }
+}
+
+// MAIN
+
+main {
+    grid-area: main;
+    background-color: $color-primary;
+    border-radius: $border-radius-main;
+}
+
+/* FOOTER */
+
+footer {
+    grid-area: footer;
+    text-align: center;
+}
+
+.footer-container {
+    padding: 55px 0;
+
+    a {
+        color: $color-dark;
+    }
+}
+
+.footer-contacts {
+    display: grid;
+    gap: 12px;
+    grid-template: auto / repeat(auto-fit, minmax(364px, 1fr));
+
+    & > div {
+        padding-top: 20px;
+        width: 100%;
+        text-align: center;
+        border-radius: 20px;
+        background-color: $color-content-bg;
+    
+        a:hover {
+                color: $color-primary;
+        }
+
+        & > img {
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            padding-top: 10px;
+            padding-bottom: 16px;
+        }
+
+    }
+}
+
+.footer-socials-icons {
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+
+    & > div {
+        padding: 12px;
+    }
+}
+
+.footer-copyright {
+    p {
+        padding-top: 12px;
+    }
+
+    a:hover {
+        color: $color-primary;
+    }
+}
+
+@import 'buttons';
