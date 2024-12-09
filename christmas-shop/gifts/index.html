@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/gifts.css">
     <link rel="icon" type="image/x-icon" href="../img/icons/snowflake.svg">
     <title>Christmas Shop - Gifts (Deniss Patancevs)</title>
-    <script>
-        window.onload = function() {
-            alert("I'm still finishing the work. Please review later. Thank you!!");
-        };
-    </script>
 </head>
 <body>
-    <div class="container">
-
+    <div class="main-container">
+        <!-- HEADER -->
         <header>  
             <div class="container header-container">
                 <div class="header-logo-container">
@@ -22,12 +19,10 @@
                        <span class="text-action-small">THE GIFTS</span>
                        </a> 
                </div>
-               <span class="header-nav-burger">
-                <!-- <img src="img/burger.svg" alt="burger menu" width="40" height="40"> -->
-               </span>
+               <span class="header-nav-burger"></span>
                <nav class="header-nav-container text-action-small">
                     <ul>
-                        <li><a href="gifts/">GIFTS</a></li>
+                        <li class="header-nav-active"><a href="#">GIFTS</a></li>
                         <li><a href="#about">ABOUT</a></li>
                         <li><a href="#best-gifts">BEST</a></li>
                         <li><a href="#contacts">CONTACTS</a></li>
@@ -36,29 +31,30 @@
             </div>
         </header>
 
-                <!-- <main> -->
-            <div class="main-section">
-                <div class="gifts-section">
-                    <div class="gifts-header">
-                        <div class="gifts-header-text">
+        <!-- MAIN -->
+        <main> 
+            <section class="section-gift-card">
+                <div class="gift-card-container">
+                    <div class="gift-header">
+                        <div class="gift-header-text">
                         <h1>Achieve health, harmony, and inner strength</h1>
                         </div>
                     </div>
-                    <div class="gifts-tabs">
-                        <span class="action-small"><a href="#">ALL</a></span>
-                        <span class="action-small"><a href="#">FOR WORK</a></span>
-                        <span class="action-small"><a href="#">FOR HEALTH</a></span>
-                        <span class="action-small"><a href="#">FOR HARMONY</a></span>
+                    <div class="gift-tabs">
+                        <span class="text-action-small gift-tab-active"><a href="#">ALL</a></span>
+                        <span class="text-action-small"><a href="#">FOR WORK</a></span>
+                        <span class="text-action-small"><a href="#">FOR HEALTH</a></span>
+                        <span class="text-action-small"><a href="#">FOR HARMONY</a></span>
                     </div>
-                    <div class="gift-card-container">
+                    <div class="gift-card-item-container">
                         <!-- Gifts item 1 -->
                         <div class="gift-card-item">
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-work.png" alt="gift picture" >
                             </div>
-                            <div class="gift-card-text gifts-card-text-work">
+                            <div class="gift-card-text gift-card-text-work">
                                 <h4>FOR WORK</h4>
-                                <h3>Console.log Guru</h3>
+                                <h3>CONSOLE.LOG GURU</h3>
                             </div> 
                         </div>
                         <!-- Gifts item 2 -->
@@ -66,7 +62,7 @@
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-health.png" alt="gift picture" >
                             </div>
-                            <div class="gift-card-text gifts-card-text-health">
+                            <div class="gift-card-text gift-card-text-health">
                                 <h4>FOR HEALTH</h4>
                                 <h3>STEP MASTER</h3>
                             </div> 
@@ -76,7 +72,7 @@
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-work.png" alt="gift picture" >
                             </div>
-                            <div class="gifts-card-text gifts-card-text-work">
+                            <div class="gift-card-text gift-card-text-work">
                                 <h4>FOR WORK</h4>
                                 <h3>BUG MAGNET</h3>
                             </div> 
@@ -86,7 +82,7 @@
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-work.png" alt="gift picture" >
                             </div>
-                            <div class="gift-card-text gifts-card-text-work">
+                            <div class="gift-card-text gift-card-text-work">
                                 <h4>FOR WORK</h4>
                                 <h3>SHORTCUT CHEATER</h3>
                             </div> 
@@ -96,7 +92,7 @@
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-work.png" alt="gift picture" >
                             </div>
-                            <div class="gift-card-text gifts-card-text-work">
+                            <div class="gift-card-text gift-card-text-work">
                                 <h4>FOR WORK</h4>
                                 <h3>POSTURE LEVITATION</h3>
                             </div> 
@@ -106,7 +102,7 @@
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-harmony.png" alt="gift picture" >
                             </div>
-                            <div class="gift-card-text gifts-card-text-harmony">
+                            <div class="gift-card-text gift-card-text-harmony">
                                 <h4>FOR HARMONY</h4>
                                 <h3>BUG ACCEPTANCE GURU</h3>
                             </div> 
@@ -116,7 +112,7 @@
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-health.png" alt="gift picture" >
                             </div>
-                            <div class="gift-card-text gifts-card-text-health">
+                            <div class="gift-card-text gift-card-text-health">
                                 <h4>FOR HEALTH</h4>
                                 <h3>SNACK RESISTER</h3>
                             </div> 
@@ -126,7 +122,7 @@
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-harmony.png" alt="gift picture" >
                             </div>
-                            <div class="gift-card-text gifts-card-text-harmony">
+                            <div class="gift-card-text gift-card-text-harmony">
                                 <h4>FOR HARMONY</h4>
                                 <h3>ERROR LAUGHER</h3>
                             </div> 
@@ -136,7 +132,7 @@
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-health.png" alt="gift picture" >
                             </div>
-                            <div class="gift-card-text gifts-card-text-health">
+                            <div class="gift-card-text gift-card-text-health">
                                 <h4>FOR HEALTH</h4>
                                 <h3>HYDRATION BOT</h3>
                             </div> 
@@ -146,7 +142,7 @@
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-work.png" alt="gift picture" >
                             </div>
-                            <div class="gift-card-text gifts-card-text-work">
+                            <div class="gift-card-text gift-card-text-work">
                                 <h4>FOR WORK</h4>
                                 <h3>MERGE MASTER</h3>
                             </div> 
@@ -156,7 +152,7 @@
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-harmony.png" alt="gift picture" >
                             </div>
-                            <div class="gift-card-text gifts-card-text-harmony">
+                            <div class="gift-card-text gift-card-text-harmony">
                                 <h4>FOR HARMONY</h4>
                                 <h3>JOY CHARGERU</h3>
                             </div> 
@@ -166,75 +162,74 @@
                             <div class="gift-card-img">
                                 <img src="../img/gift-for-harmony.png" alt="gift picture" >
                             </div>
-                            <div class="gift-card-text gifts-card-text-harmony">
+                            <div class="gift-card-text gift-card-text-harmony">
                                 <h4>FOR HARMONY</h4>
                                 <h3>SPONTANEOUS CODING PHILOSOPHER</h3>
                             </div> 
-                        </div>
+                        </div>                                 
+                    </div>
+                </div>
+            </section>
+            </main>
 
+        <!-- FOOTER -->
+        <footer>
+            <div class="container footer-container">
+                <div class="footer-contacts" id="contacts">
+                    <div class="footer-contacts-phone">
+                        <a href="tel:+375-29-111-22-33">
+                        <div><img src="../img/icons/footer_santa.svg" alt="small image of Santa Claus" width="80" height="80"></div>
+                        <div class="text-action-large">+375 (29) 111-22-33</div>
+                        <div><h3>CALL US</h3></div>
+                        </a>
+                    </div>
+                    <div class="footer-contacts-address">
+                        <a href="https://www.google.com/maps/place/Magic+forest/@53.496575,23.5893122,17z/data=!3m1!4b1!4m6!3m5!1s0x46e075aea3b8580d:0xda458e9ce8f0eb45!8m2!3d53.496575!4d23.5918871!16s%2Fg%2F11pl6zrc3v?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
+                        <div><img src="../img/icons/footer-tree.svg" alt="small image of christmas tree" width="80" height="80"></div>
+                        <div class="text-action-large">Magic forest</div>
+                        <div><h3>MEET US</h3></div>
+                        </a>
+                    </div>
+                    <div class="footer-contacts-email">
+                        <a href="mailto:gifts@magic.com">
+                        <div><img src="../img/icons/footer-snake.svg" alt="small image of snake" width="80" height="80"></div>
+                        <div class="text-action-large">gifts@magic.com</div>
+                        <div><h3>WRITE US</h3></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-socials">
+                    <div class="footer-socials-icons">
+                        <div>
+                            <a href="#contacts">
+                            <img src="../img/icons/telegram.svg" alt="telegram icon" width="24" height="24">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#contacts">
+                            <img src="../img/icons/facebook.svg" alt="telegram icon" width="24" height="24">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#contacts">
+                            <img src="../img/icons/instagram.svg" alt="telegram icon" width="24" height="24">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#contacts">
+                            <img src="../img/icons/x.svg" alt="telegram icon" width="24" height="24">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-copyright">
+                        <p>&copy; Copyright 2025, All Rights Reserved</p>
+                        <a href="https://rs.school/" target="_blank">
+                        <p class="text-caption">Made in Rolling Scopes School</p>
+                        </a>
                     </div>
                 </div>
             </div>
-        <!-- </main> -->
-
-            <!-- FOOTER -->
-            <footer>
-                <div class="container footer-container">
-                    <div class="footer-contacts" id="contacts">
-                        <div class="footer-contacts-phone">
-                            <a href="tel:+375-29-111-22-33">
-                            <div><img src="../img/icons/footer_santa.svg" alt="small image of Santa Claus" width="80" height="80"></div>
-                            <div class="text-action-large">+375 (29) 111-22-33</div>
-                            <div><h3>CALL US</h3></div>
-                            </a>
-                        </div>
-                        <div class="footer-contacts-address">
-                            <a href="https://www.google.com/maps/place/Magic+forest/@53.496575,23.5893122,17z/data=!3m1!4b1!4m6!3m5!1s0x46e075aea3b8580d:0xda458e9ce8f0eb45!8m2!3d53.496575!4d23.5918871!16s%2Fg%2F11pl6zrc3v?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
-                            <div><img src="../img/icons/footer-tree.svg" alt="small image of christmas tree" width="80" height="80"></div>
-                            <div class="text-action-large">Magic forest</div>
-                            <div><h3>MEET US</h3></div>
-                            </a>
-                        </div>
-                        <div class="footer-contacts-email">
-                            <a href="mailto:gifts@magic.com">
-                            <div><img src="../img/icons/footer-snake.svg" alt="small image of snake" width="80" height="80"></div>
-                            <div class="text-action-large">gifts@magic.com</div>
-                            <div><h3>WRITE US</h3></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="footer-socials">
-                        <div class="footer-socials-icons">
-                            <div>
-                                <a href="#contacts">
-                                <img src="../img/icons/telegram.svg" alt="telegram icon" width="24" height="24">
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#contacts">
-                                <img src="../img/icons/facebook.svg" alt="telegram icon" width="24" height="24">
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#contacts">
-                                <img src="../img/icons/instagram.svg" alt="telegram icon" width="24" height="24">
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#contacts">
-                                <img src="../img/icons/x.svg" alt="telegram icon" width="24" height="24">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="footer-copyright">
-                            <p>&copy; Copyright 2025, All Rights Reserved</p>
-                            <a href="https://rs.school/" target="_blank">
-                            <p class="text-caption">Made in Rolling Scopes School</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </footer> 
+        </footer> 
     </div>
 </body>
 </html>

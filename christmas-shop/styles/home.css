@@ -143,6 +143,10 @@ p {
   border-radius: 20px;
   height: 528px;
 }
+.about-img img {
+  object-fit: cover;
+  border-radius: 20px;
+}
 
 .about-text h2 {
   padding: 20px 0;
@@ -155,7 +159,6 @@ p {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  text-align: center;
   color: white;
   padding: 60px 0;
 }
@@ -167,28 +170,17 @@ p {
   padding-top: 18px;
 }
 
-.row {
-  width: 100%;
-  overflow: hidden;
-}
-
 .slider-main {
   display: flex;
-  column-gap: 20px;
+  justify-content: flex-start;
   align-items: center;
+  overflow: hidden;
+  column-gap: 20px;
 }
 .slider-main img {
   border-radius: 20px;
   width: 200px;
   height: 200px;
-}
-
-.slider-buttons {
-  text-align: right;
-}
-.slider-buttons button {
-  margin-top: 0;
-  margin-left: 20px;
 }
 
 .best-gifts-container {
@@ -254,7 +246,7 @@ p {
 }
 
 .section-cta {
-  background-image: url("../img/background/bg-forest.png");
+  background-image: url("../img/background/bg-forest.png"), url("../img/background/bg-snow.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -299,15 +291,6 @@ p {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-@media screen and (max-width: 1439px) {
-  .main-container {
-    width: 100%;
-    grid-template-columns: auto;
-  }
-  .slider-container {
-    max-width: 768px;
-  }
-}
 @media screen and (max-width: 768px) {
   .header-nav-container {
     display: none;
@@ -340,5 +323,29 @@ p {
   .footer-contacts {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .header-container {
+    padding: 10px 8px;
+  }
+  .section-about {
+    padding-top: 120px;
+  }
+  .about-text {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .cta-container {
+    padding-top: 120px;
+  }
+  .cta-timer {
+    margin: 8px 18px;
+  }
+  .gift-tabs > span {
+    padding: 12px 8px;
+  }
+  .footer-socials-icons {
+    padding-top: 30px;
   }
 }

@@ -1,18 +1,4 @@
 
-@media screen and (max-width: 1439px) {  
-
-    .main-container {
-        width: 100%;
-        grid-template-columns: auto;
-    }
-
-
-    .slider-container {
-        max-width: 768px;
-    }
-
-}
-
 
 @media screen and (max-width: 768px) {  
 
@@ -56,3 +42,40 @@
     }
 
 }
+
+@media screen and (max-width: 380px) {
+    // HEADER
+    .header-container {
+        padding: 10px 8px;
+    }
+
+    // HOME PAGE
+    .section-about {
+        padding-top: 120px;
+    }
+
+    .about-text {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .cta-container {
+        padding-top: 120px;
+    }
+
+    .cta-timer {
+        margin: 8px 18px;
+    }
+
+    // GIFTS PAGE
+    .gift-tabs {
+
+        & > span {
+            padding: 12px 8px;
+        }
+    }
+
+    .footer-socials-icons {
+        padding-top: 30px;
+    }
+}  
