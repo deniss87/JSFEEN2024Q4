@@ -79,10 +79,16 @@ p {
   text-transform: uppercase;
 }
 
+.header-nav-active {
+  background-color: rgba(255, 70, 70, 0.1);
+}
+.header-nav-active a {
+  cursor: auto;
+}
+
 /* MAIN */
 /* Main GRID */
-.main-section {
-  grid-area: main;
+.section-gift-card {
   background-color: #FF4646;
   background-image: url("../img/background/bg-garland.png");
   background-position: top;
@@ -92,49 +98,52 @@ p {
 }
 
 /* GIFTS section */
-.gifts-section {
-  margin: 60px 82px;
+.gift-card-container {
   display: flex;
   flex-direction: column;
-}
-
-.gifts-section > div {
-  justify-items: center;
   text-align: center;
+  align-items: center;
+  padding: 60px 0;
 }
 
-.gifts-header-text {
-  width: 426px;
+.gift-header {
+  justify-self: center;
+  text-align: center;
+  align-items: center;
+  padding: 0 8px;
+}
+.gift-header .gift-header-text {
+  max-width: 426px;
   color: white;
   text-transform: uppercase;
 }
 
-.gifts-tabs {
-  margin: 20px 0px;
+.gift-tabs {
+  margin: 30px 0px;
 }
-
-.gifts-tabs > span {
+.gift-tabs > span {
   padding: 12px 20px;
   border-radius: 12px;
 }
-
-.gifts-tabs > span:hover {
+.gift-tabs > span:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
-
-.gifts-tabs a {
+.gift-tabs a {
   text-decoration: none;
   color: white;
 }
+.gift-tabs .gift-tab-active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 
-.gift-card-container {
+.gift-card-item-container {
+  width: 100%;
   display: grid;
   gap: 12px;
   grid-template: auto/repeat(auto-fit, 310px);
   justify-content: center;
 }
-
-.gift-card-item {
+.gift-card-item-container .gift-card-item {
   display: flex;
   flex-direction: column;
   width: 310px;
@@ -142,40 +151,91 @@ p {
   background-color: #ECF3F8;
   border-radius: 20px;
 }
-.gift-card-item:hover {
-  cursor: pointer;
-}
-.gift-card-item:hover h3 {
-  color: #FF4646;
-}
-
-.gifts-header {
-  text-align: center;
-  color: white;
-}
-
-.gift-card-img {
+.gift-card-item-container .gift-card-item img {
   border-radius: 20px 20px 0 0;
-}
-.gift-card-img img {
   width: 100%;
 }
-
-.gift-card-text {
+.gift-card-item-container .gift-card-item .gift-card-text {
   height: 100%;
   padding: 20px;
   background-color: white;
   border-radius: 20px;
+  text-align: left;
 }
-.gift-card-text h3 {
+.gift-card-item-container .gift-card-item .gift-card-text h3 {
   margin-top: 10px;
 }
-.gift-card-text-work h4 {
+.gift-card-item-container .gift-card-item .gift-card-text-work h4 {
   color: #4361FF;
 }
-.gift-card-text-health h4 {
+.gift-card-item-container .gift-card-item .gift-card-text-health h4 {
   color: #06A44F;
 }
-.gift-card-text-harmony h4 {
+.gift-card-item-container .gift-card-item .gift-card-text-harmony h4 {
   color: #FF43F7;
+}
+.gift-card-item-container .gift-card-item:hover {
+  cursor: pointer;
+}
+.gift-card-item-container .gift-card-item:hover h3 {
+  color: #FF4646;
+}
+
+@media screen and (max-width: 768px) {
+  .header-nav-container {
+    display: none;
+  }
+  .header-nav-burger {
+    padding-right: 20px;
+  }
+  .header-nav-burger::before {
+    content: "";
+    transform: translateY(-4px);
+    display: block;
+    width: 20px;
+    height: 1px;
+    background-color: #181C29;
+  }
+  .header-nav-burger::after {
+    content: "";
+    transform: translateY(4px);
+    display: block;
+    width: 20px;
+    height: 1px;
+    background-color: #181C29;
+  }
+  .cta-container {
+    padding-top: 130px;
+  }
+  .cta-container button {
+    padding-top: 10px;
+  }
+  .footer-contacts {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .header-container {
+    padding: 10px 8px;
+  }
+  .section-about {
+    padding-top: 120px;
+  }
+  .about-text {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .cta-container {
+    padding-top: 120px;
+  }
+  .cta-timer {
+    margin: 8px 18px;
+  }
+  .gift-tabs > span {
+    padding: 12px 8px;
+  }
+  .footer-socials-icons {
+    padding-top: 30px;
+  }
 }
