@@ -74,6 +74,11 @@
     overflow: hidden;
     border-radius: 20px;
     height: 528px;
+
+    img {
+        object-fit: cover;
+        border-radius: 20px;
+    }
 }
 
 .about-text {
@@ -93,7 +98,6 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    text-align: center;
     color: white;
 
     padding: 60px 0;
@@ -108,28 +112,19 @@
     }
 
 }
-.row {
-    width: 100%;
-    overflow: hidden;
-}
 
 .slider-main {
     display: flex;
-    column-gap: 20px;
+    justify-content: flex-start;
     align-items: center;
+    overflow: hidden;
+
+    column-gap: 20px;
 
     img {
         border-radius: 20px;
         width: 200px;
         height: 200px;
-    }
-}
-
-.slider-buttons {
-    text-align: right;
-    button {
-        margin-top: 0;
-        margin-left: 20px;
     }
 }
 
@@ -209,7 +204,7 @@
 
 .section-cta {
 
-    background-image: url("../img/background/bg-forest.png");
+    background-image: url("../img/background/bg-forest.png"), url("../img/background/bg-snow.png");
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover;
