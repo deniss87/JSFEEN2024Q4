@@ -21,6 +21,7 @@
 
 .slider-buttons {
     text-align: right;
+    margin-right: 68px;
 }
 
 .slider-buttons button {
@@ -29,8 +30,8 @@
     font-size: 32px;
     width: 56px;
     height: 56px;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 18px;
+
     border-radius: $border-radius-main;
     border: 2px solid rgba(255, 255, 255, 0.5);
 

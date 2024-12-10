@@ -1,4 +1,9 @@
-
+@media screen and (max-width: 1440px) {
+    
+    .slider-buttons {
+        margin-right: 5%;
+    }
+}
 
 @media screen and (max-width: 768px) {  
 
@@ -27,6 +32,9 @@
         background-color: $color-dark;
     }
 
+    .slider-buttons {
+        margin-right: 2%;
+    }
     
     .cta-container {
         padding-top: 130px;

@@ -4,6 +4,7 @@ html, body {
   margin: 0;
   font-family: Montserrat, Arial, sans-serif;
   scroll-behavior: smooth;
+  transition: background-color 3.2s ease-in;
 }
 
 a {
@@ -178,6 +179,9 @@ footer {
 .footer-socials-icons > div {
   padding: 12px;
 }
+.footer-socials-icons > div a:hover svg path {
+  stroke: #FF4646;
+}
 
 .footer-copyright p {
   padding-top: 12px;
@@ -204,6 +208,7 @@ footer {
 
 .slider-buttons {
   text-align: right;
+  margin-right: 68px;
 }
 
 .slider-buttons button {
@@ -212,8 +217,7 @@ footer {
   font-size: 32px;
   width: 56px;
   height: 56px;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 18px;
   border-radius: 20px;
   border: 2px solid rgba(255, 255, 255, 0.5);
 }
