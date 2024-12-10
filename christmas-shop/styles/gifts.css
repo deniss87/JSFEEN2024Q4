@@ -4,6 +4,7 @@ html, body {
   margin: 0;
   font-family: Montserrat, Arial, sans-serif;
   scroll-behavior: smooth;
+  transition: background-color 3.2s ease-in;
 }
 
 a {
@@ -181,6 +182,11 @@ p {
   color: #FF4646;
 }
 
+@media screen and (max-width: 1440px) {
+  .slider-buttons {
+    margin-right: 5%;
+  }
+}
 @media screen and (max-width: 768px) {
   .header-nav-container {
     display: none;
@@ -203,6 +209,9 @@ p {
     width: 20px;
     height: 1px;
     background-color: #181C29;
+  }
+  .slider-buttons {
+    margin-right: 2%;
   }
   .cta-container {
     padding-top: 130px;
