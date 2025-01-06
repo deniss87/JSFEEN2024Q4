@@ -44,7 +44,7 @@ window.addEventListener("resize", () => {
         navContainer.removeAttribute("style");
         navContainer.setAttribute("display", "false");
         navBurgerMenuLogo.classList.remove("header-nav-burger-active");
-
+        htmlDocument.removeAttribute("style");
     }
     
 });
