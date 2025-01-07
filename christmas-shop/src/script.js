@@ -48,20 +48,3 @@ window.addEventListener("resize", () => {
     }
     
 });
-/*
-    Scrool Up Button
-*/ 
-  const scrollUpBtn = document.querySelector(".scrollUpBtn");
-  scrollUpBtn.onclick = () => {
-    window.scrollTo(0, 0)
-  };
-
-  window.addEventListener("scroll", () => {
-    if (htmlDocument.scrollTop >= 100 && window.innerWidth <= 768) {
-        scrollUpBtn.style.display = "flex";
-    }
-    if (htmlDocument.scrollTop === 0) {
-        scrollUpBtn.style.display = "none";
-    }
-  }
-);

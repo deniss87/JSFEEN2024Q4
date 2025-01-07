@@ -1,24 +1,22 @@
-// import data from './gifts.json' with {type: "json"};
+const url = "https://rolling-scopes-school.github.io/deepcd87-JSFEEN2024Q4/christmas-shop/src/gifts.json";
+// const url = "./src/gifts.json";
+const data = await getData(url);
 
-async function getData(page, sort, limit) {
-    let url = "src/gifts.json";
-    if (page !== "home") {
-        url = "../src/gifts.json";
-    }
-    
+//  fetch JSON data
+async function getData(url) {
+
     try {
         const response = await fetch(url);
         if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
+            throw new Error(`Response status: ${response.status}`);
         }
-
-        const data = await response.json();
-        renderItems(data, page, sort, limit);
-
+        return await response.json();
     } catch (error) {
         console.error(error.message);
     }
 }
+
+//  prepare data
 
 function getRandomNum(max, limit) {
     const randomNumbers = new Set();
@@ -193,7 +191,7 @@ function htmlModal(data, page) {
 }
 
 
-function renderItems(data, page, sort, limit) {
+export function renderItems(page, sort, limit) {
     const preparedData = prepareData(data, limit, sort);
 
     const itemsContainer = document.querySelector(".gifts-cards");
@@ -211,7 +209,8 @@ function renderItems(data, page, sort, limit) {
 
 }
 
-function renderModal(data, page) {
+
+export function renderModal(data, page) {
     const main = document.querySelector(".main-container");
 
     const newModal = document.createElement("div");
