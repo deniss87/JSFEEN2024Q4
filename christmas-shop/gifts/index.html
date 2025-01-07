@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/style.css">
     <link rel="icon" type="image/x-icon" href="../img/icons/snowflake.svg">
+    
     <script src="../src/script.js" defer></script>
-    <script type="module" src="../src/gifts.js" defer></script>
+    <script src="../src/gifts.js" defer></script>
+    <script src="../src/items.js"></script>
+    
     <title>Christmas Shop - Gifts (Deniss Patancevs)</title>
 </head>
 <body>
+    <script>
+        getData('gifts', 'random');
+    </script>    
     <div class="main-container">
         <!-- HEADER -->
         <header>  
             <div class="container header-container">
                 <div class="header-logo-container">
-                    <a class="header-logo" href="https://rolling-scopes-school.github.io/deepcd87-JSFEEN2024Q4/christmas-shop">
+                    <a class="header-logo" href="../">
                     <img id="img-logo" src="../img/snowflake.svg" alt="Snowflake logo" width="24" height="24">
                     <span class="text-action-small">THE GIFTS</span>
                     </a> 
@@ -25,9 +31,9 @@
                </div>
                <nav class="header-nav-container text-action-small" display="false">
                     <ul>
-                        <li><a href="gifts/">GIFTS</a></li>
-                        <li><a href="#about">ABOUT</a></li>
-                        <li><a href="#best-gifts">BEST</a></li>
+                        <li class="link-unactive ">GIFTS</li>
+                        <li><a href="../#about">ABOUT</a></li>
+                        <li><a href="../#best-gifts">BEST</a></li>
                         <li><a href="#contacts">CONTACTS</a></li>
                     </ul>
                 </nav>
@@ -44,17 +50,13 @@
                         </div>
                     </div>
                     <div class="gifts-tabs">
-                        <span class="text-action-small gift-tab-active" id="gifts-tab-all"><a href="#gifts-tab-all">ALL</a></span>
-                        <span class="text-action-small" id="gifts-tab-work"><a href="#gifts-tab-all">FOR WORK</a></span>
-                        <span class="text-action-small" id="gifts-tab-health"><a href="#gifts-tab-all">FOR HEALTH</a></span>
-                        <span class="text-action-small" id="gifts-tab-harmony"><a href="#gifts-tab-all">FOR HARMONY</a></span>
+                        <span class="text-action-small gift-tab-active" id="gifts-tab-all">ALL</span>
+                        <span class="text-action-small" id="gifts-tab-work">FOR WORK</span>
+                        <span class="text-action-small" id="gifts-tab-health">FOR HEALTH</span>
+                        <span class="text-action-small" id="gifts-tab-harmony">FOR HARMONY</span>
                     </div>
                     <div class="gifts-cards">
                         <!-- Rendered items -->
-                        <script type="module">
-                            import { renderItems } from "../src/items.js";
-                            renderItems('gifts');
-                        </script>    
                     </div>                                       
                 </div>
             </section>
