@@ -138,6 +138,9 @@ header {
 .header-nav-container ul a {
   padding: 12px 8px;
 }
+.header-nav-container ul .link-unactive {
+  background-color: rgba(255, 70, 70, 0.1);
+}
 @media screen and (max-width: 768px) {
   .header-nav-container {
     display: flex;
@@ -640,6 +643,7 @@ footer {
 .gifts-tabs {
   margin: 30px 0px;
   text-align: center;
+  color: white;
 }
 .gifts-tabs > span {
   padding: 12px 20px;
@@ -648,10 +652,6 @@ footer {
 .gifts-tabs > span:hover {
   background-color: rgba(255, 255, 255, 0.2);
   cursor: pointer;
-}
-.gifts-tabs a {
-  text-decoration: none;
-  color: white;
 }
 .gifts-tabs .gift-tab-active {
   background-color: rgba(255, 255, 255, 0.2);

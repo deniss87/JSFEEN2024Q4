@@ -1,5 +1,3 @@
-import { renderItems } from "../src/items.js";
-
 
 //  EVENS ON GIFTS TABS
 const giftsTabs = document.querySelectorAll(".gifts-tabs span");
@@ -18,7 +16,7 @@ for (let i=0; i < giftsTabs.length; i++) {
     giftsTabs[i].onclick = () => {
         activeTab(id);
         removeItems();
-        renderItems('gifts', category);
+        getData('gifts', category)
     }
 
 }

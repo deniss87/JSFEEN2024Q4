@@ -1,4 +1,24 @@
-import data from './gifts.json' with {type: "json"};
+// import data from './gifts.json' with {type: "json"};
+
+async function getData(page, sort, limit) {
+    let url = "src/gifts.json";
+    if (page !== "home") {
+        url = "../src/gifts.json";
+    }
+    
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        renderItems(data, page, sort, limit);
+
+    } catch (error) {
+        console.error(error.message);
+    }
+}
 
 function getRandomNum(max, limit) {
     const randomNumbers = new Set();
@@ -12,6 +32,7 @@ function getRandomNum(max, limit) {
 function prepareData (data, limit, sort, name) {
     let dataPrepared = [];
     const dataLength = data.length;
+    let randomNum;
     let count = 0;
     if (!limit) {
         limit = dataLength;
@@ -19,11 +40,12 @@ function prepareData (data, limit, sort, name) {
 
     switch(sort) {
         case "random":
-            const randomNum = getRandomNum(dataLength, limit);
+            randomNum = getRandomNum(dataLength, limit);
             for (let i = 0; i < limit; i++ ) {
                 dataPrepared.push(data[randomNum[i]]);
             }
             break;
+
         case "work":
             count = 0;
 
@@ -38,6 +60,7 @@ function prepareData (data, limit, sort, name) {
                 }
             }
             break;
+
         case "health":
             count = 0;
 
@@ -52,6 +75,7 @@ function prepareData (data, limit, sort, name) {
                 }
             }
             break;
+
         case "harmony":
             count = 0;
 
@@ -66,18 +90,11 @@ function prepareData (data, limit, sort, name) {
                 }
             }
             break;
-            case "modal":
-  
-                for (let i = 0; i < dataLength; i++ ) {
-                    if (data[i].name === name) {  
-                            dataPrepared.push(data[i]);
-                            break;
-                    }
-                }
-                break;
+
         default:
+            randomNum = getRandomNum(dataLength, limit);
             for (let i = 0; i < dataLength; i++ ) {
-                    dataPrepared.push(data[i]);
+                    dataPrepared.push(data[randomNum[i]]);
             }
     }
 
@@ -176,9 +193,8 @@ function htmlModal(data, page) {
 }
 
 
-export function renderItems(page, sort, limit) {
+function renderItems(data, page, sort, limit) {
     const preparedData = prepareData(data, limit, sort);
-    // console.log(preparedData);
 
     const itemsContainer = document.querySelector(".gifts-cards");
 
@@ -189,19 +205,18 @@ export function renderItems(page, sort, limit) {
         itemsContainer.append(newItem);
 
         newItem.onclick = () => {
-            renderModal(preparedData[i].name, page);
+            renderModal(preparedData[i], page);
         }
     }    
 
 }
 
-export function renderModal(item, page) {
-    const preparedData = prepareData(data, 1, 'modal', item);
+function renderModal(data, page) {
     const main = document.querySelector(".main-container");
 
     const newModal = document.createElement("div");
     newModal.classList.add("gifts-modal");
-    newModal.innerHTML = htmlModal(preparedData[0], page);
+    newModal.innerHTML = htmlModal(data, page);
     main.append(newModal);
 
     // remove scrollbar
