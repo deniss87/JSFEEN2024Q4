@@ -1,4 +1,4 @@
-import { renderModal } from "./items.js";
+// import { renderModal } from "./items.js";
 /*
     SLIDER
 */
