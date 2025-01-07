@@ -1,12 +1,7 @@
+import {renderItems} from "./items.js";
 
 //  EVENS ON GIFTS TABS
 const giftsTabs = document.querySelectorAll(".gifts-tabs span");
-
-// const giftsTabAll = document.querySelector("#gifts-tab-all");
-// const giftsTabWork = document.querySelector("#gifts-tab-work");
-// const giftsTabHealth = document.querySelector("#gifts-tab-health");
-// const giftsTabHarmony = document.querySelector("#gifts-tab-harmony");
-
 
 for (let i=0; i < giftsTabs.length; i++) {
     let id = giftsTabs[i].getAttribute('id');
@@ -16,13 +11,12 @@ for (let i=0; i < giftsTabs.length; i++) {
     giftsTabs[i].onclick = () => {
         activeTab(id);
         removeItems();
-        getData('gifts', category)
+        renderItems('gifts', category);
     }
 
 }
 
 function activeTab(id) {
-    console.log(id);
     for (let i=0; i < giftsTabs.length; i++) {
         if (giftsTabs[i].getAttribute('id') === id) {
             giftsTabs[i].classList.add("gift-tab-active");
@@ -38,3 +32,22 @@ function removeItems() {
         item.remove();
     });
 }
+
+
+/*
+    Scrool Up Button
+*/ 
+  const scrollUpBtn = document.querySelector(".scrollUpBtn");
+  scrollUpBtn.onclick = () => {
+    window.scrollTo(0, 0)
+  };
+
+  window.addEventListener("scroll", () => {
+    if (htmlDocument.scrollTop >= 100 && window.innerWidth <= 768) {
+        scrollUpBtn.style.display = "flex";
+    }
+    if (htmlDocument.scrollTop === 0) {
+        scrollUpBtn.style.display = "none";
+    }
+  }
+);

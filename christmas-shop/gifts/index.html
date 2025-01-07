@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=0">
     <link rel="stylesheet" href="../src/style.css">
     <link rel="icon" type="image/x-icon" href="../img/icons/snowflake.svg">
     
     <script src="../src/script.js" defer></script>
-    <script src="../src/gifts.js" defer></script>
-    <script src="../src/items.js"></script>
+    <script type="module" src="../src/gifts.js" defer></script>
     
     <title>Christmas Shop - Gifts (Deniss Patancevs)</title>
 </head>
 <body>
-    <script>
-        getData('gifts', 'random');
+    <script type="module">
+        import {renderItems} from "../src/items.js";
+        renderItems('gifts', 'random');
     </script>    
     <div class="main-container">
         <!-- HEADER -->

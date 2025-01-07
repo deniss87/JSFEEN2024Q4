@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=0">
     <link rel="stylesheet" href="src/style.css">
     <link rel="icon" type="image/x-icon" href="img/snowflake.svg">
+    
     <script src="src/script.js" defer></script>
     <script type="module" src="src/home.js" defer></script>
-    <script src="src/items.js"></script>
+    
     <title>Christmas Shop (Deniss Patancevs)</title>
 </head>
 <body>
-    <script>
-        getData('home', 'random', 4);
+    <script type="module">
+        import { renderItems, renderModal } from "./src/items.js";
+        renderItems('home', 'random', 4);
     </script>    
     <div class="main-container">
         <!-- HEADER -->
