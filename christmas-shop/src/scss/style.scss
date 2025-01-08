@@ -538,7 +538,7 @@ footer {
         flex-direction: column;
         width: 400px;
         height: fit-content;
-        background-color: white;
+        background-color: $color-content-bg;
         border-radius: $border-radius-main;
 
         transform: scale(0);
@@ -571,6 +571,7 @@ footer {
         }
 
         .gifts-card-text {
+            border-radius: $border-radius-main $border-radius-main 0 0;
             h4, h3 {
                 margin-bottom: 8px;
             }
@@ -578,6 +579,8 @@ footer {
 
         .gifts-modal-powers-container {
             padding: 0 20px 20px 20px;
+            background-color: white;
+            border-radius: 0 0 $border-radius-main $border-radius-main;
 
             h4 {
                 padding-bottom: 8px;
