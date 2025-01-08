@@ -528,7 +528,7 @@ footer {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(24, 28, 41, 0.8);
   align-items: center;
   justify-content: center;
 }
@@ -539,6 +539,13 @@ footer {
   height: fit-content;
   background-color: white;
   border-radius: 20px;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.4s;
+}
+.gifts-modal-item-open {
+  transform: scale(1);
+  opacity: 1;
 }
 .gifts-modal-item h4 {
   text-transform: uppercase;
@@ -548,6 +555,16 @@ footer {
   margin-top: 12px;
   margin-left: 350px;
   cursor: pointer;
+}
+.gifts-modal-item .gifts-card-img {
+  height: 230px;
+}
+.gifts-modal-item .gifts-card-img img {
+  height: 100%;
+  object-fit: cover;
+}
+.gifts-modal-item .gifts-card-text h4, .gifts-modal-item .gifts-card-text h3 {
+  margin-bottom: 8px;
 }
 .gifts-modal-item .gifts-modal-powers-container {
   padding: 0 20px 20px 20px;
@@ -567,9 +584,11 @@ footer {
 .gifts-modal-item .gifts-modal-powers .modal-snowflake {
   padding-left: 8px;
 }
-.gifts-modal-item .gifts-modal-powers .modal-snowflake-empty {
-  padding-left: 8px;
+.gifts-modal-item .gifts-modal-powers .modal-snowflake-tansparent {
   opacity: 0.1;
+}
+.gifts-modal-item .gifts-modal-powers span {
+  width: 124.2px;
 }
 
 .section-cta {
