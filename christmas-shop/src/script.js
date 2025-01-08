@@ -10,17 +10,21 @@ const navContainer = document.querySelector(".header-nav-container");
 const navContainerLinks = document.querySelectorAll(".header-nav-container a");
 
 navContainerLinks.forEach((item) => {
-    item.onclick = () => {
+    item.onclick = (event) => {
+        
         if (navContainer.getAttribute("display") == "true") {
-            console.log('mobileMenu: true');
+            event.preventDefault();
             navContainer.setAttribute("display", "false");
             navBurgerMenuLogo.classList.remove("header-nav-burger-active");
             navContainer.removeAttribute("style");
             htmlDocument.removeAttribute("style");
+            setTimeout(() => {
+                console.log("Go")
+                window.location.href = event.target.href;
+            }, 600);
         }
     }
 });
-
 
 
 navBurgerMenu.onclick = () => {
