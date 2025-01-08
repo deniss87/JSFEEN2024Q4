@@ -129,7 +129,7 @@ function htmlModal(data, page) {
     const splitText = data.category.split(" ");
     const category = splitText[1].toLowerCase();
     const snowflakeImg = `<img src="${path}/gifts-items/snowflake-modal.svg" class="modal-snowflake">`;
-    const snowflakeImgEmpty = `<img src="${path}/gifts-items/snowflake-modal.svg" class="modal-snowflake-empty">`;
+    const snowflakeImgTransparent = `<img src="${path}/gifts-items/snowflake-modal.svg" class="modal-snowflake modal-snowflake-tansparent">`;
     const htmlTemplate = 
     `   
         <div class="gifts-modal-item">
@@ -155,7 +155,7 @@ function htmlModal(data, page) {
                         <p>${data.superpowers.live}</p>
                         <span>
                             ${snowflakeImg.repeat(data.superpowers.live / 100)}
-                            ${snowflakeImgEmpty.repeat(5 - (data.superpowers.live / 100))}
+                            ${snowflakeImgTransparent.repeat(5 - (data.superpowers.live / 100))}
                         </span>
                     </div>
                     <div class="gifts-modal-powers">
@@ -163,7 +163,7 @@ function htmlModal(data, page) {
                         <p>${data.superpowers.create}</p>
                         <span>
                             ${snowflakeImg.repeat(data.superpowers.create / 100)}
-                            ${snowflakeImgEmpty.repeat(5 - (data.superpowers.create / 100))}
+                            ${snowflakeImgTransparent.repeat(5 - (data.superpowers.create / 100))}
                         </span>         
                     </div>
                     <div class="gifts-modal-powers">
@@ -171,7 +171,7 @@ function htmlModal(data, page) {
                         <p>${data.superpowers.love}</p>
                         <span>
                             ${snowflakeImg.repeat(data.superpowers.love / 100)}
-                            ${snowflakeImgEmpty.repeat(5 - (data.superpowers.love / 100))}
+                            ${snowflakeImgTransparent.repeat(5 - (data.superpowers.love / 100))}
                         </span>                    
                     </div>
                     <div class="gifts-modal-powers">
@@ -179,7 +179,7 @@ function htmlModal(data, page) {
                         <p>${data.superpowers.dream}</p>
                         <span>
                             ${snowflakeImg.repeat(data.superpowers.dream / 100)}
-                            ${snowflakeImgEmpty.repeat(5 - (data.superpowers.dream / 100))}
+                            ${snowflakeImgTransparent.repeat(5 - (data.superpowers.dream / 100))}
                         </span>                    
                     </div>
                 </div>
@@ -220,8 +220,11 @@ export function renderModal(data, page) {
 
     // remove scrollbar
     htmlDocument.setAttribute("style", "overflow: hidden");
-
+    
     const modalItem = document.querySelector(".gifts-modal-item");
+    setTimeout(() => {
+        modalItem.classList.add("gifts-modal-item-open");
+    }, "1");
     
     let modalClose = true;
     modalItem.onmouseover = () => {
@@ -232,8 +235,11 @@ export function renderModal(data, page) {
     }
     newModal.onclick = () => {
         if (modalClose === true) {
-            newModal.remove();
-            htmlDocument.removeAttribute("style", "overflow: hidden");
+            modalItem.classList.remove("gifts-modal-item-open");
+            setTimeout(() => {
+                newModal.remove();
+                htmlDocument.removeAttribute("style", "overflow: hidden");
+            }, "300");
         } 
     }
 
