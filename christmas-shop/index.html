@@ -12,10 +12,6 @@
     <title>Christmas Shop (Deniss Patancevs)</title>
 </head>
 <body>
-    <script type="module">
-        import { renderItems, renderModal } from "./src/items.js";
-        renderItems('home', 'random', 4);
-    </script>    
     <div class="main-container">
         <!-- HEADER -->
         <header>  
@@ -119,6 +115,10 @@
                     </div>
                     <div class="gifts-cards">
                         <!-- Rendered items -->
+                        <script type="module">
+                            import { renderItems, renderModal } from "./src/items.js";
+                            renderItems('home', 'random', 4);
+                        </script>    
                     </div>                                       
                 </div>
             </section>
