@@ -13,7 +13,7 @@ const sliderShift = function () {
     // Calculate the number of shifts based on the screen size
     const shiftNum = window.innerWidth >= 768 ? 3 : 6;
     const shiftValue = (sliderContainer.scrollWidth - sliderContainer.offsetWidth) / shiftNum; 
-    const shiftArr = [shiftValue, shiftNum];
+    const shiftArr = [Math.round(shiftValue), shiftNum];
     return shiftArr;
 }
 
@@ -32,6 +32,7 @@ const sliderScroll = function (direction, value) {
     } else {
         sliderLeftBtn.removeAttribute("disabled");
     }
+    
     sliderContainer.style.transition = `transform ${value[0]}ms`;
     sliderContainer.style.transform = `translateX(${sliderElementPos}px)`;
 }
