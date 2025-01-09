@@ -408,9 +408,9 @@ footer {
         height: 200px;
     }
 
-    @media screen and (max-width: 1400px) {
-        margin-right: 8px;
-    }    
+    // @media screen and (max-width: 1400px) {
+    //     margin-right: 6%;
+    // }    
 }
 
 // SLIDER SECTION BUTTONS
@@ -418,6 +418,10 @@ footer {
 .slider-buttons {
     text-align: right;
     margin-right: 68px;
+
+    @media screen and (max-width: 1276px) {
+        margin-right: 8px;
+    }   
 }
 
 .slider-buttons button {
@@ -543,8 +547,9 @@ footer {
     &-item {
         display: flex;
         flex-direction: column;
-        width: 400px;
+        max-width: 400px;
         height: fit-content;
+        margin: 0 8px;
         background-color: $color-content-bg;
         border-radius: $border-radius-main;
 
@@ -562,9 +567,11 @@ footer {
         }
 
         .closeBtn {
-            position: absolute;
+            position: fixed;
+            right: 0;
             margin-top: 12px;
-            margin-left: 350px;
+            margin-right: 12px;
+
             cursor: pointer;
         }
 
@@ -614,6 +621,10 @@ footer {
                 width: 124.2px;
             }
         }
+
+        // @media screen and (max-width: 380px) {
+        //     margin-right: 8px;
+        // }  
     }
 
 }

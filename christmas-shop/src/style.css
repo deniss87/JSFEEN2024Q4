@@ -422,15 +422,15 @@ footer {
   width: 200px;
   height: 200px;
 }
-@media screen and (max-width: 1400px) {
-  .slider-main {
-    margin-right: 8px;
-  }
-}
 
 .slider-buttons {
   text-align: right;
   margin-right: 68px;
+}
+@media screen and (max-width: 1276px) {
+  .slider-buttons {
+    margin-right: 8px;
+  }
 }
 
 .slider-buttons button {
@@ -543,8 +543,9 @@ footer {
 .gifts-modal-item {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  max-width: 400px;
   height: fit-content;
+  margin: 0 8px;
   background-color: #ECF3F8;
   border-radius: 20px;
   transform: scale(0);
@@ -559,9 +560,10 @@ footer {
   text-transform: uppercase;
 }
 .gifts-modal-item .closeBtn {
-  position: absolute;
+  position: fixed;
+  right: 0;
   margin-top: 12px;
-  margin-left: 350px;
+  margin-right: 12px;
   cursor: pointer;
 }
 .gifts-modal-item .gifts-card-img {
