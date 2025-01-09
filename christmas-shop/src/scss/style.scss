@@ -119,6 +119,7 @@ header {
         &::before {
             content: "";
             transform: translateY(-4px);
+            transition: transform 0.4s;
             display: block;
             width: 20px;
             height: 1px;
@@ -128,6 +129,7 @@ header {
         &::after {
             content: "";
             transform: translateY(4px);
+            transition: transform 0.4s;
             display: block;
             width: 20px;
             height: 1px;
@@ -398,12 +400,17 @@ footer {
     justify-content: flex-start;
     align-items: center;
     column-gap: 20px;
+    margin-right: 82px;
 
     img {
         border-radius: 20px;
         width: 200px;
         height: 200px;
     }
+
+    @media screen and (max-width: 1400px) {
+        margin-right: 8px;
+    }    
 }
 
 // SLIDER SECTION BUTTONS

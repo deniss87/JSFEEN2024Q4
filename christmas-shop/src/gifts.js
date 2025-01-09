@@ -43,7 +43,7 @@ function removeItems() {
   };
 
   window.addEventListener("scroll", () => {
-    if (htmlDocument.scrollTop >= 100 && window.innerWidth <= 768) {
+    if (htmlDocument.scrollTop >= 300 && window.innerWidth <= 768) {
         scrollUpBtn.style.display = "flex";
     }
     if (htmlDocument.scrollTop === 0) {

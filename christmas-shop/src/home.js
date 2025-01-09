@@ -57,7 +57,7 @@ window.addEventListener("resize", () => {
 // CTA Timer
 
 // Set the date to the next New Year
-const year = new Date().getFullYear();
+const year = new Date().getUTCFullYear();
 const countDownDate = new Date(`Jan 1, ${year+1} 0:00:00`).getTime();
 const daysElement = document.getElementById("timer-days");
 const hoursElement = document.getElementById("timer-hours");
