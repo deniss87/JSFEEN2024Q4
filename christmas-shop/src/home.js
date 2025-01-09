@@ -56,9 +56,9 @@ window.addEventListener("resize", () => {
 
 // CTA Timer
 
-// Set the date to the next New Year
-const year = new Date().getUTCFullYear();
-const countDownDate = new Date(`Jan 1, ${year+1} 0:00:00`).getTime();
+// Set the date to the next New Year (UTC +0)
+const currentYear = new Date().getUTCFullYear();
+const countDownDate = new Date(Date.UTC(currentYear + 1, 0, 1, 0, 0, 0));
 const daysElement = document.getElementById("timer-days");
 const hoursElement = document.getElementById("timer-hours");
 const minutesElement = document.getElementById("timer-minutes");
@@ -66,13 +66,13 @@ const secondsElement = document.getElementById("timer-seconds");
 
 var x = setInterval(function() {
 
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
+  const now = new Date().getTime();
+  const distance = countDownDate - now;
     
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
   // Output the result
   daysElement.innerHTML = days;
