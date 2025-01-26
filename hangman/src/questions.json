@@ -1,0 +1,433 @@
+{
+"questions": 
+[
+    {
+    "question": "Capital of France",
+    "answer": "Paris",
+    "difficulty": "easy",
+    "area": "Geography"
+    },
+    {
+    "question": "What is the most common fruit eaten by humans?",
+    "answer": "Banana",
+    "difficulty": "easy",
+    "area": "Food"
+    },
+    {
+    "question": "Which color is commonly associated with caution?",
+    "answer": "Yellow",
+    "difficulty": "easy",
+    "area": "General Knowledge"
+    },
+    {
+    "question": "What type of tree produces acorns?",
+    "answer": "Oak",
+    "difficulty": "easy",
+    "area": "Nature"
+    },
+    {
+    "question": "What is the largest big cat in the world?",
+    "answer": "Tiger",
+    "difficulty": "easy",
+    "area": "Animals"
+    },
+    {
+    "question": "Which ocean is located between the Americas and Europe?",
+    "answer": "Atlantic",
+    "difficulty": "easy",
+    "area": "Geography"
+    },
+    {
+    "question": "Which flower is often associated with the Netherlands?",
+    "answer": "Tulip",
+    "difficulty": "easy",
+    "area": "Nature"
+    },
+    {
+    "question": "Which sport is known as 'the beautiful game'?",
+    "answer": "Soccer",
+    "difficulty": "easy",
+    "area": "Sports"
+    },
+    {
+    "question": "Which singer is known for the hit song 'Single Ladies'?",
+    "answer": "Beyonce",
+    "difficulty": "easy",
+    "area": "Entertainment"
+    },
+    {
+    "question": "Which 1997 movie involves a ship sinking in the Atlantic Ocean?",
+    "answer": "Titanic",
+    "difficulty": "easy",
+    "area": "Entertainment"
+    },
+    {
+    "question": "Which car brand is famous for producing the Corolla model?",
+    "answer": "Toyota",
+    "difficulty": "easy",
+    "area": "Brands"
+    },
+    {
+    "question": "Which African country is known for its wildlife safaris?",
+    "answer": "Kenya",
+    "difficulty": "easy",
+    "area": "Geography"
+    },
+    {
+    "question": "Which bird is a symbol of freedom in the United States?",
+    "answer": "Eagle",
+    "difficulty": "easy",
+    "area": "Animals"
+    },
+    {
+    "question": "What is the color of the sky on a clear day?",
+    "answer": "Blue",
+    "difficulty": "easy",
+    "area": "General Knowledge"
+    },
+    {
+    "question": "Which famous artist painted 'Guernica'?",
+    "answer": "Picasso",
+    "difficulty": "easy",
+    "area": "Art"
+    },
+    {
+    "question": "Which root vegetable is often orange in color?",
+    "answer": "Carrot",
+    "difficulty": "easy",
+    "area": "Food"
+    },
+    {
+    "question": "Which fish is commonly associated with sushi?",
+    "answer": "Salmon",
+    "difficulty": "easy",
+    "area": "Food"
+    },
+    {
+    "question": "Which popular sitcom revolves around a group of friends in New York?",
+    "answer": "Friends",
+    "difficulty": "easy",
+    "area": "Entertainment"
+    },
+    {
+    "question": "What is the name of the fluffy cloud type often seen in fair weather?",
+    "answer": "Cumulus",
+    "difficulty": "easy",
+    "area": "Nature"
+    },
+    {
+    "question": "Which popular soda brand's mascot is a polar bear?",
+    "answer": "CocaCola",
+    "difficulty": "easy",
+    "area": "Food"
+    },
+    {
+    "question": "What is the largest continent?",
+    "answer": "Asia",
+    "difficulty": "easy",
+    "area": "Geography"
+    },
+    {
+    "question": "Who is known as the 'father of modern physics'?",
+    "answer": "Einstein",
+    "difficulty": "medium",
+    "area": "Science"
+    },
+    {
+    "question": "Which computer brand is famous for its XPS laptops?",
+    "answer": "Dell",
+    "difficulty": "medium",
+    "area": "Technology"
+    },
+    {
+    "question": "Who wrote the tragedy 'Macbeth'?",
+    "answer": "Shakespeare",
+    "difficulty": "medium",
+    "area": "Literature"
+    },
+    {
+    "question": "Which dance originated in Austria and is often performed at balls?",
+    "answer": "Waltz",
+    "difficulty": "medium",
+    "area": "Arts"
+    },
+    {
+    "question": "Who invented the alternating current (AC) electrical system?",
+    "answer": "Tesla",
+    "difficulty": "medium",
+    "area": "Science"
+    },
+    {
+    "question": "Which actor starred in the film 'Cast Away'?",
+    "answer": "Hanks",
+    "difficulty": "medium",
+    "area": "Entertainment"
+    },
+    {
+    "question": "What is the capital city of Japan?",
+    "answer": "Tokyo",
+    "difficulty": "medium",
+    "area": "Geography"
+    },
+    {
+    "question": "Which tree is known for its silver bark and is common in temperate forests?",
+    "answer": "Birch",
+    "difficulty": "medium",
+    "area": "Nature"
+    },
+    {
+    "question": "Which continent is home to the Sahara Desert?",
+    "answer": "Africa",
+    "difficulty": "medium",
+    "area": "Geography"
+    },
+    {
+    "question": "Which software is commonly used for photo editing?",
+    "answer": "Photoshop",
+    "difficulty": "medium",
+    "area": "Technology"
+    },
+    {
+    "question": "Who discovered radioactivity and won two Nobel Prizes?",
+    "answer": "Curie",
+    "difficulty": "medium",
+    "area": "Science"
+    },
+    {
+    "question": "Which fruit is known for being orange and citrusy?",
+    "answer": "Orange",
+    "difficulty": "medium",
+    "area": "Food"
+    },
+    {
+    "question": "Which popular Japanese dish consists of raw fish and rice?",
+    "answer": "Sushi",
+    "difficulty": "medium",
+    "area": "Food"
+    },
+    {
+    "question": "Which American city is famous for its music scene and live performances?",
+    "answer": "Austin",
+    "difficulty": "medium",
+    "area": "Geography"
+    },
+    {
+    "question": "Which sportswear brand is known for its 'Just Do It' slogan?",
+    "answer": "Nike",
+    "difficulty": "medium",
+    "area": "Brands"
+    },
+    {
+    "question": "Which director is famous for movies like 'Jaws' and 'E.T.'?",
+    "answer": "Spielberg",
+    "difficulty": "medium",
+    "area": "Entertainment"
+    },
+    {
+    "question": "What is the largest land animal on Earth?",
+    "answer": "Elephant",
+    "difficulty": "medium",
+    "area": "Animals"
+    },
+    {
+    "question": "Who wrote 'The Old Man and the Sea'?",
+    "answer": "Hemingway",
+    "difficulty": "medium",
+    "area": "Literature"
+    },
+    {
+    "question": "Which popular Netflix series is set in the 1980s and involves supernatural events?",
+    "answer": "Stranger",
+    "difficulty": "medium",
+    "area": "Entertainment"
+    },
+    {
+    "question": "What is the highest mountain on Earth?",
+    "answer": "Everest",
+    "difficulty": "medium",
+    "area": "Geography"
+    },
+    {
+    "question": "Which type of rock is commonly used for countertops and monuments?",
+    "answer": "Granite",
+    "difficulty": "medium",
+    "area": "Nature"
+    },
+    {
+    "question": "Which famous beach is located in Brazil and is known for its lively atmosphere?",
+    "answer": "Copacabana",
+    "difficulty": "hard",
+    "area": "Geography"
+    },
+    {
+    "question": "Which planet is known as the 'Gas Giant' and is the largest in the solar system?",
+    "answer": "Jupiter",
+    "difficulty": "hard",
+    "area": "Science"
+    },
+    {
+    "question": "Who wrote 'The Lord of the Rings' trilogy?",
+    "answer": "Tolkien",
+    "difficulty": "hard",
+    "area": "Literature"
+    },
+    {
+    "question": "Which city is known for the Bollywood film industry?",
+    "answer": "Mumbai",
+    "difficulty": "hard",
+    "area": "Geography"
+    },
+    {
+    "question": "Which gemstone is formed from fossilized tree resin and is often used in jewelry?",
+    "answer": "Amber",
+    "difficulty": "hard",
+    "area": "Nature"
+    },
+    {
+    "question": "Who is famous for developing the Pythagorean Theorem?",
+    "answer": "Pythagoras",
+    "difficulty": "hard",
+    "area": "Mathematics"
+    },
+    {
+    "question": "What is the longest river in the world?",
+    "answer": "Nile",
+    "difficulty": "hard",
+    "area": "Geography"
+    },
+    {
+    "question": "Which element has the atomic number 79?",
+    "answer": "Gold",
+    "difficulty": "hard",
+    "area": "Science"
+    },
+    {
+    "question": "Who was the first woman to win a Nobel Prize?",
+    "answer": "Curie",
+    "difficulty": "hard",
+    "area": "Science"
+    },
+    {
+    "question": "What is the term for the fear of spiders?",
+    "answer": "Arachnophobia",
+    "difficulty": "hard",
+    "area": "Psychology"
+    },
+    {
+    "question": "Which famous battle took place in 1066 in England?",
+    "answer": "Hastings",
+    "difficulty": "hard",
+    "area": "History"
+    },
+    {
+    "question": "Which composer created the famous 'Ode to Joy'?",
+    "answer": "Beethoven",
+    "difficulty": "hard",
+    "area": "Music"
+    },
+    {
+    "question": "What is the rarest blood type in the world?",
+    "answer": "Rh-null",
+    "difficulty": "hard",
+    "area": "Science"
+    },
+    {
+    "question": "Which element has the chemical symbol Hg?",
+    "answer": "Mercury",
+    "difficulty": "hard",
+    "area": "Science"
+    },
+    {
+    "question": "Which moon is the largest in our solar system?",
+    "answer": "Ganymede",
+    "difficulty": "hard",
+    "area": "Astronomy"
+    },
+    {
+    "question": "Which famous king of England was known as the 'Lionheart'?",
+    "answer": "Richard",
+    "difficulty": "hard",
+    "area": "History"
+    },
+    {
+    "question": "What is the name of the ancient civilization that built the pyramids?",
+    "answer": "Egyptians",
+    "difficulty": "hard",
+    "area": "History"
+    },
+    {
+    "question": "What is the capital city of Turkey?",
+    "answer": "Ankara",
+    "difficulty": "hard",
+    "area": "Geography"
+    },
+    {
+    "question": "Which metal is known for its resistance to rust and corrosion?",
+    "answer": "Titanium",
+    "difficulty": "hard",
+    "area": "Science"
+    },
+    {
+    "question": "Which famous river flows through Cairo?",
+    "answer": "Nile",
+    "difficulty": "hard",
+    "area": "Geography"
+    },
+    {
+    "question": "Which disease is caused by the bacterium 'Yersinia pestis'?",
+    "answer": "Plague",
+    "difficulty": "hard",
+    "area": "Science"
+    },
+    {
+    "question": "Which country is known for its annual Running of the Bulls event?",
+    "answer": "Spain",
+    "difficulty": "hard",
+    "area": "Culture"
+    },
+    {
+    "question": "Which artist is known for creating the 'Starry Night' painting?",
+    "answer": "Van Gogh",
+    "difficulty": "hard",
+    "area": "Art"
+    },
+    {
+    "question": "Which novel by George Orwell explores a dystopian future with totalitarian government?",
+    "answer": "1984",
+    "difficulty": "hard",
+    "area": "Literature"
+    },
+    {
+    "question": "What is the capital of Canada?",
+    "answer": "Ottawa",
+    "difficulty": "hard",
+    "area": "Geography"
+    },
+    {
+    "question": "Which country is famous for the Great Barrier Reef?",
+    "answer": "Australia",
+    "difficulty": "hard",
+    "area": "Geography"
+    },
+    {
+    "question": "Who discovered the laws of motion and gravity?",
+    "answer": "Newton",
+    "difficulty": "hard",
+    "area": "Science"
+    },
+    {
+    "question": "What is the most abundant gas in Earth's atmosphere?",
+    "answer": "Nitrogen",
+    "difficulty": "hard",
+    "area": "Science"
+    },
+    {
+    "question": "Who was the first man to step on the moon?",
+    "answer": "Armstrong",
+    "difficulty": "hard",
+    "area": "History"
+    }
+]
+}
+         
+  

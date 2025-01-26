@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@400..700&family=Coming+Soon&family=Crafty+Girls&family=Fuzzy+Bubbles:wght@400;700&family=Kirang+Haerang&family=Klee+One&family=Pangolin&family=Playpen+Sans:wght@100..800&display=swap');
+
+// Variables
+$border-radius-main: 20px;
+$border-radius-btn: 12px;
+
+
+html, body
+{
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+// LINKS
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border-radius: $border-radius-btn;
+    padding: 12px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+// FONTS
+.game-title {
+    font-family: "Kirang Haerang", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.text-regular  {
+    // font-family: "Pangolin", serif;
+    // font-family: "Coming Soon", serif;
+    // font-family: "Fuzzy Bubbles", serif; 
+    font-family: "Klee One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+//MARGINS, PADDINGS, BORDERS
+
+
+
