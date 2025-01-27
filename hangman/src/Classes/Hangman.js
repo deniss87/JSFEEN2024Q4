@@ -72,6 +72,11 @@ class Hangman2 extends View
             counterContainer.innerHTML = this.incorrectLetters;
         }
 
+        if (this.incorrectLetters === 1) {
+            document.querySelector('.questions-guess-counter-int').classList.add("questions-guess-counter-int-wrong");
+            
+        }
+
         if (this.incorrectLetters > 0 && this.incorrectLetters <= this.totalGuesses) {
             const bodyPart = document.querySelector(`#body-part-${this.incorrectLetters}`);
             bodyPart.setAttribute("opacity", "1");
@@ -159,9 +164,11 @@ class Hangman2 extends View
         } 
 
         // Render modal
+        this.renderModal(this.gameScore);
+        const modalBox = document.querySelector(".modal-container-box");
         setTimeout(() => {
-            this.renderModal(this.gameScore);
-        }, 100);
+            modalBox.classList.add("modal-container-box-open");
+        }, 400);
 
     }
 

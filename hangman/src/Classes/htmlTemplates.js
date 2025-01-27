@@ -7,9 +7,7 @@ class htmlTemplates
         </div>
         <div class="text-regular">
         <p>Hangman is a classic word game in which you must find the correct answer by guessing letters one at a time.</p>
-        <p>You will be presented with a number of blank spaces representing the missing letters you need to find.
         <p>Use the keyboard (virtual or physical) to guess a letter.</p>
-        If your chosen letter exists in the answer, then all places in the answer where that letter appear will be revealed.
         <p>Be warned, every time you guess a letter wrong you loose a life and the hangman begins to appear, piece by piece.</p>
         <p>Solve the puzzle before the hangman dies.</p>
         </div>

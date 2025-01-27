@@ -73,16 +73,19 @@ class View extends htmlTemplates
         // Questions Container - Questions Hint Section
         const guessHint = document.createElement("div");
         guessHint.classList.add("questions-guess-hint");
-        guessHint.innerHTML = this.currentWord.hint;
+        guessHint.classList.add("text-regular");
+        guessHint.innerHTML = `Hint: ${this.currentWord.hint}`;
         this.questionsContainer.append(guessHint);
 
         // Questions Container - an Incorrect Guesses Counter
         const guessCounter = document.createElement("div");
         guessCounter.classList.add("questions-guess-counter");
+        guessCounter.classList.add("text-regular");
         this.questionsContainer.append(guessCounter);
         
         const guessCounterText = document.createElement("div");
         guessCounterText.classList.add("questions-guess-counter-text");
+
         guessCounterText.innerHTML = "Incorrect guesses:";
         guessCounter.append(guessCounterText);
 
@@ -125,8 +128,8 @@ class View extends htmlTemplates
         </div>
         <div class="text-regular">
             <p>Your Result</p>
-            <p>Wins: ${gameScore.wins}</p>
-            <p>Losses: ${gameScore.losses}</p>
+            <p>Wins: <span id="modal-gameWinsScore">${gameScore.wins}</span></p>
+            <p>Losses: <span id="modal-gameLossesScore">${gameScore.losses}<span></p>
         </div>
         <div class="modalBtn">
             <button class="text-regular" id="modal-box-btn" type="button">CONTINUE PLAYING</button>
@@ -137,7 +140,8 @@ class View extends htmlTemplates
         `;
         
         modalContainer.append(modalBox);
-    
+        
+
         // Button event listener
         const modalBtn = document.querySelector("#modal-box-btn");
         modalBtn.addEventListener("click", (e) => {
