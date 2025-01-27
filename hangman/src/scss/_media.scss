@@ -81,33 +81,33 @@
 }
 
 
-@media screen and (orientation: landscape) {
+// @media screen and (orientation: landscape) {
 
-    // MAIN SECTION
-    .main-section-container { 
+//     // MAIN SECTION
+//     .main-section-container { 
 
-        .start-box {
-            margin-top: 40px;
-            max-width: 100%;
-            padding: 8px;
-        }
-    }
+//         .start-box {
+//             margin-top: 40px;
+//             max-width: 100%;
+//             padding: 8px;
+//         }
+//     }
 
-    // GALLOWS SECTION
-    .gallows-section-container {
-        display: none;
-    }
+//     // GALLOWS SECTION
+//     .gallows-section-container {
+//         display: none;
+//     }
 
-    // QUESTION SECTION
-    .questions-container {
-        width: 100%;
-        height: 100%;
-        margin-top: 10px;
+//     // QUESTION SECTION
+//     .questions-container {
+//         width: 100%;
+//         height: 100%;
+//         margin-top: 10px;
 
-        .questions-guess-keyboard {
-            padding: 5px;
+//         .questions-guess-keyboard {
+//             padding: 5px;
             
-        }
-    }
+//         }
+//     }
 
-}
+// }
