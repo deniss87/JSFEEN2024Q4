@@ -110,7 +110,7 @@
         justify-content: center;
         text-align: center;
         padding: 20px;
-
+        
         &-char {
             background-color: rgb(197, 197, 197);
             width: 50px;
@@ -118,6 +118,10 @@
             font-size: 24px;
             border-radius: 5px;
             align-content: center;
+
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
 
             &:hover {
                 cursor: pointer;
@@ -127,9 +131,11 @@
 
             &-disabled {
                 opacity: 0.2;
-
+                
                 &:hover {
-                    cursor: auto;
+                    font-size: 24px;
+                    background-color: rgb(197, 197, 197);
+                    cursor: not-allowed;
                 }
             }
         }

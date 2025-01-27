@@ -135,6 +135,9 @@ button:hover {
   font-size: 24px;
   border-radius: 5px;
   align-content: center;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 .questions-container .questions-guess-keyboard-char:hover {
   cursor: pointer;
@@ -145,7 +148,9 @@ button:hover {
   opacity: 0.2;
 }
 .questions-container .questions-guess-keyboard-char-disabled:hover {
-  cursor: auto;
+  font-size: 24px;
+  background-color: rgb(197, 197, 197);
+  cursor: not-allowed;
 }
 
 .modal-container {
