@@ -247,21 +247,3 @@ button:hover {
     padding: 10px;
   }
 }
-@media screen and (orientation: landscape) {
-  .main-section-container .start-box {
-    margin-top: 40px;
-    max-width: 100%;
-    padding: 8px;
-  }
-  .gallows-section-container {
-    display: none;
-  }
-  .questions-container {
-    width: 100%;
-    height: 100%;
-    margin-top: 10px;
-  }
-  .questions-container .questions-guess-keyboard {
-    padding: 5px;
-  }
-}
