@@ -69,7 +69,7 @@ class Hangman2 extends View
         
         if (letterFound === false && this.incorrectLetters <= this.totalGuesses) {
             this.incorrectLetters += 1;
-            counterContainer.innerHTML = this.incorrectLetters;
+            counterContainer.innerHTML = this.incorrectLetters + ' / ' + this.totalGuesses;
         }
 
         if (this.incorrectLetters === 1) {

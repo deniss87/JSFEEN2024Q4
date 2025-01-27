@@ -91,7 +91,7 @@ class View extends htmlTemplates
 
         const guessCounterInt = document.createElement("div");
         guessCounterInt.classList.add("questions-guess-counter-int");
-        guessCounterInt.innerHTML = this.incorrectLetters;
+        guessCounterInt.innerHTML = `${this.incorrectLetters} / ${this.totalGuesses}`;
         guessCounter.append(guessCounterInt);
 
         // Questions Container - Keyboard Section
