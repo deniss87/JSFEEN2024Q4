@@ -110,7 +110,7 @@ class View extends htmlTemplates
 
     }
 
-    renderModal(gameScore) {
+    renderModal() {
         // Modal Container
         const modalContainer = document.createElement("div");
         modalContainer.classList.add("modal-container");
@@ -120,16 +120,19 @@ class View extends htmlTemplates
        
         const modalBox = document.createElement("div");
         modalBox.classList.add("modal-container-box");
-        const resultHTML = (gameScore.gameWin === true) ? "YOU WIN" : "YOU LOSE";
+        const resultHTML = (this.gameScore.gameWin === true) ? "YOU WIN" : "YOU LOSE";
         modalBox.innerHTML =
         `
         <div class="modalText" class="text-regular">
         <h1 class="text-regular">${resultHTML}</h1>
         </div>
         <div class="text-regular">
+            <p>Secret word was: <b>${this.currentWord.word}</b></p> 
+        </div>
+        <div class="text-regular">
             <p>Your Result</p>
-            <p>Wins: <span id="modal-gameWinsScore">${gameScore.wins}</span></p>
-            <p>Losses: <span id="modal-gameLossesScore">${gameScore.losses}<span></p>
+            <p>Wins: <span id="modal-gameWinsScore">${this.gameScore.wins}</span></p>
+            <p>Losses: <span id="modal-gameLossesScore">${this.gameScore.losses}<span></p>
         </div>
         <div class="modalBtn">
             <button class="text-regular" id="modal-box-btn" type="button">CONTINUE PLAYING</button>

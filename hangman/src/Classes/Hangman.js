@@ -164,7 +164,7 @@ class Hangman2 extends View
         } 
 
         // Render modal
-        this.renderModal(this.gameScore);
+        this.renderModal();
         const modalBox = document.querySelector(".modal-container-box");
         setTimeout(() => {
             modalBox.classList.add("modal-container-box-open");
