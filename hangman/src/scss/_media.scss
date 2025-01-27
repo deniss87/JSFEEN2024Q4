@@ -1,15 +1,20 @@
-@media screen and (max-width: 768px) {
+
+@media screen and (width <= 768px) {
 
     // MAIN SECTION
     .main-section-container { 
         flex-direction: column;
 
+        .start-box {
+            max-width: 300px;
+            padding: 8px;
+        }
     }
 
     // GALLOWS SECTION
     .gallows-section-container {
         width: 100%;
-        height: 50%;
+        // height: 50%;
 
         .gallows-svg-container {
             
@@ -22,7 +27,7 @@
     // QUESTION SECTION
     .questions-container {
         width: 100%;
-        height: 50%;
+        height: 80%;
 
         .questions-guess-keyboard {
             padding: 20px 10px;
@@ -37,29 +42,33 @@
     
 }
 
-@media screen and (max-width: 360px) {
+
+@media screen and (width <= 360px) {
 
     // MAIN SECTION
-    .main-section-container {
-        // max-width: 360px;  
-        flex-direction: column;
 
-        .start-box {
-            max-width: 300px;
-            padding: 8px;
-        }
-
-
-    }
 
     // GALLOWS SECTION
+    .gallows-section-container {
+        // padding-top: 10px;
+        align-content: center;
 
+        .gallows-svg-container {
+            
+            svg {
+                max-height: 180px;
+            }
+        }
+    }
 
     // QUESTION SECTION
     .questions-container {
 
-        .questions-guess-letters {
-            font-size: 10px;
+        .questions-guess-word {
+
+            .questions-guess-letters {
+                font-size: 1.6em;
+            }
         }
 
         .questions-guess-keyboard {
@@ -69,4 +78,36 @@
         }
     }
     
+}
+
+
+@media screen and (orientation: landscape) {
+
+    // MAIN SECTION
+    .main-section-container { 
+
+        .start-box {
+            margin-top: 40px;
+            max-width: 100%;
+            padding: 8px;
+        }
+    }
+
+    // GALLOWS SECTION
+    .gallows-section-container {
+        display: none;
+    }
+
+    // QUESTION SECTION
+    .questions-container {
+        width: 100%;
+        height: 100%;
+        margin-top: 10px;
+
+        .questions-guess-keyboard {
+            padding: 5px;
+            
+        }
+    }
+
 }
