@@ -252,3 +252,14 @@ button:hover {
     padding: 10px;
   }
 }
+@media screen and (max-height: 708px) {
+  html, body {
+    height: auto;
+  }
+  .gallows-section-container {
+    height: auto;
+  }
+  .questions-container {
+    height: auto;
+  }
+}

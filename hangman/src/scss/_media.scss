@@ -46,7 +46,6 @@
 
     // MAIN SECTION
 
-
     // GALLOWS SECTION
     .gallows-section-container {
         // padding-top: 10px;
@@ -79,34 +78,22 @@
     
 }
 
+@media screen and (max-height: 708px) {
 
-// @media screen and (orientation: landscape) {
+    html, body {
+        height: auto;
+    }
 
-//     // MAIN SECTION
-//     .main-section-container { 
 
-//         .start-box {
-//             margin-top: 40px;
-//             max-width: 100%;
-//             padding: 8px;
-//         }
-//     }
+    // GALLOWS SECTION
+    .gallows-section-container {
+        height: auto;
 
-//     // GALLOWS SECTION
-//     .gallows-section-container {
-//         display: none;
-//     }
+    }
 
-//     // QUESTION SECTION
-//     .questions-container {
-//         width: 100%;
-//         height: 100%;
-//         margin-top: 10px;
+    // QUESTION SECTION
+    .questions-container {
+        height: auto;
+    }
 
-//         .questions-guess-keyboard {
-//             padding: 5px;
-            
-//         }
-//     }
-
-// }
+}
