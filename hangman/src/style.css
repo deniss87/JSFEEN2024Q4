@@ -15,6 +15,9 @@ button {
 }
 button:hover {
   cursor: pointer;
+  font-weight: bold;
+  background-color: rgb(130, 130, 130);
+  color: rgb(255, 255, 255);
 }
 
 .game-title {
@@ -42,8 +45,9 @@ button:hover {
   max-width: 400px;
   height: fit-content;
   padding: 20px;
-  border: 2px solid rgb(131, 131, 131);
+  border: 2px solid rgb(130, 130, 130);
   border-radius: 20px;
+  box-shadow: 2px 2px 5px rgb(130, 130, 130);
   background-color: rgb(255, 255, 255);
 }
 .start-box .start-box-title-container, .start-box .start-box-btn-container {
@@ -94,19 +98,25 @@ button:hover {
 .questions-container .questions-guess-word .questions-guess-letters {
   margin: 0 12px;
   text-transform: uppercase;
+  font-size: 36px;
 }
 .questions-container .questions-guess-hint {
   padding: 20px;
+  font-size: 20px;
 }
 .questions-container .questions-guess-counter {
   display: flex;
+  font-size: 24px;
 }
 .questions-container .questions-guess-counter-text {
-  padding: 12px;
-  font-style: italic;
+  padding: 8px;
 }
 .questions-container .questions-guess-counter-int {
-  padding: 12px;
+  padding: 8px;
+}
+.questions-container .questions-guess-counter-int-wrong {
+  color: darkred;
+  font-weight: bold;
 }
 .questions-container .questions-guess-keyboard {
   display: flex;
@@ -118,13 +128,16 @@ button:hover {
 }
 .questions-container .questions-guess-keyboard-char {
   background-color: rgb(197, 197, 197);
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
   border-radius: 5px;
   align-content: center;
 }
 .questions-container .questions-guess-keyboard-char:hover {
   cursor: pointer;
+  background-color: bisque;
+  font-size: 28px;
 }
 .questions-container .questions-guess-keyboard-char-disabled {
   opacity: 0.2;
@@ -156,26 +169,43 @@ button:hover {
   background-color: white;
   border-radius: 20px;
   text-align: center;
+  font-size: 18px;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.4s;
+}
+.modal-container-box-open {
+  transform: scale(1);
+  opacity: 1;
+}
+.modal-container-box h1, .modal-container-box p {
+  margin: 12px 0;
+}
+.modal-container-box #modal-gameWinsScore {
+  color: darkcyan;
+}
+.modal-container-box #modal-gameLossesScore {
+  color: darkred;
+}
+.modal-container-box button {
+  margin-top: 12px;
 }
 .modal-container-box .modalReset {
   padding-top: 10px;
 }
 .modal-container-box .modalReset a {
-  font-size: 10px;
+  font-size: 12px;
   color: gray;
   text-decoration: none;
 }
 .modal-container-box .modalReset a:hover {
   color: black;
+  font-weight: bold;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 768px) {
   .main-section-container {
     flex-direction: column;
-  }
-  .main-section-container .start-box {
-    max-width: 300px;
-    padding: 8px;
   }
   .gallows-section-container {
     width: 100%;
@@ -189,6 +219,27 @@ button:hover {
     height: 50%;
   }
   .questions-container .questions-guess-keyboard {
+    padding: 20px 10px;
+  }
+  .questions-container .questions-guess-keyboard-char {
+    max-width: 42px;
+    max-height: 42px;
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .main-section-container {
+    flex-direction: column;
+  }
+  .main-section-container .start-box {
+    max-width: 300px;
+    padding: 8px;
+  }
+  .questions-container .questions-guess-letters {
+    font-size: 10px;
+  }
+  .questions-container .questions-guess-keyboard {
+    font-size: 10px;
     padding: 10px;
   }
 }
