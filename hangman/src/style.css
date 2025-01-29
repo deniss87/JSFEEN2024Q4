@@ -256,6 +256,9 @@ button:hover {
   html, body {
     height: auto;
   }
+  .main-section-container .start-box {
+    margin-top: 10%;
+  }
   .gallows-section-container {
     height: auto;
   }
