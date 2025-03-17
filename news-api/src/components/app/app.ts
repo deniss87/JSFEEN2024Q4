@@ -1,20 +1,26 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
+import {NewsData, SourcesData} from './interfaces';
 
 class App {
-    public controller: AppController;
-    public view: AppView;
+    private controller: AppController;
+    private view: AppView;
     
     constructor() {
         this.controller = new AppController();
         this.view = new AppView();
     }
 
-    start() {
-        document
-            .querySelector('.sources')
-            .addEventListener('click', (e) => this.controller.getNews(e, (data: any) => this.view.drawNews(data)));
-        this.controller.getSources((data: any) => this.view.drawSources(data));
+    public start(): void {
+        const newsContainer = document.querySelector<HTMLElement>('.sources');
+
+        if (newsContainer) {
+            newsContainer.addEventListener('click', (e: Event) => this.controller.getNews(
+                    e, (data: NewsData) => this.view.drawNews(data))
+            );
+
+            this.controller.getSources((data: SourcesData) => this.view.drawSources(data));
+        }
     }
 }
 

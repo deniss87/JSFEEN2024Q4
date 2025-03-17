@@ -1,3 +1,11 @@
+/* .news {
+    display: grid;
+    gap: 10px;
+    grid-template: auto / repeat(auto-fit, 700px);
+    grid-template: auto / repeat(auto-fit, minmax(660px));
+    justify-content: center;
+} */
+
 .news__item {
     display: flex;
     flex-direction: column;
@@ -9,6 +17,7 @@
     font-family: Arial, sans-serif;
     border-radius: 5px;
     overflow: hidden;
+
 }
 
 .news__item:hover .news__meta-photo {
