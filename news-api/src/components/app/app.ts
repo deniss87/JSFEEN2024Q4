@@ -1,6 +1,7 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 import {NewsData, SourcesData} from './interfaces';
+import {scrollUp, sourceSlider} from '../app/functions';
 
 class App {
     private controller: AppController;
@@ -21,7 +22,11 @@ class App {
 
             this.controller.getSources((data: SourcesData) => this.view.drawSources(data));
         }
+
+        scrollUp();
+        sourceSlider();
     }
+
 }
 
 export default App;

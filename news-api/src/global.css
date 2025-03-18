@@ -1,20 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
+
 body {
-    /* color: #fff; */
-    /* background: #17181c; */
     background: #fff;
     font-family: sans-serif;
 }
 
+/* MAIN */
+
 .main-header {
-    padding: 10px 30px;
+    margin-top: 10px;
+    padding: 20px;
     text-align: center;
 }
 
 .main-header h1 {
-    font-size: 40px;
-    font-weight: 800;
+    margin: 0;
+    font-family:  "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 46px;
 }
 
+.scrollUpBtn {
+    width: 56px;
+    height: 56px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid rgb(208, 208, 208);
+    padding: 0;
+    color: rgb(208, 208, 208);
+    border-radius: 50%;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+    transition: opacity 0.4s;
+    z-index: 2;
+    opacity: 0.4;
+}
+
+.scrollUpBtn:hover {
+    color: #5ad67d;
+    border-color: #5ad67d;
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+  
+/* FOOTER */
 footer {
     margin-top: 60px;
     height: 100px;
@@ -47,4 +82,17 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+
+@media (max-width: 375px) {
+    .main-header {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .main-header h1 {
+        margin: 16px 0;
+        font-size: 28px;
+        font-weight: 800;
+    }
 }

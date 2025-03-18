@@ -56,7 +56,7 @@ class News {
         if (newsContainer) {
             newsContainer.innerHTML = '';
             newsContainer.appendChild(fragment);
-            window.location.href = '#news-id';
+            // window.location.href = '#news-id';
         }
     }
 }
