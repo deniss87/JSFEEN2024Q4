@@ -2,26 +2,29 @@
     Scrool Up Button
 */ 
 export function scrollUp(): void {
-	const htmlDocument: HTMLElement = document.documentElement;
-	const scrollUpBtn = document.querySelector<HTMLElement>(".scrollUpBtn");
-	console.log(htmlDocument.scrollTop);
 
-	if (scrollUpBtn) {
-		scrollUpBtn.onclick = () => {
-			window.scrollTo(0, 0)
-		};
-
-		window.addEventListener("scroll", (): void => {
-				if (htmlDocument.scrollTop >= 300) {
-					scrollUpBtn.style.display = "flex";
+	if (window.innerWidth > 375) {
+		const htmlDocument: HTMLElement = document.documentElement;
+		const scrollUpBtn = document.querySelector<HTMLElement>(".scrollUpBtn");
+		console.log(htmlDocument.scrollTop);
+	
+		if (scrollUpBtn) {
+			scrollUpBtn.onclick = () => {
+				window.scrollTo(0, 0)
+			};
+	
+			window.addEventListener("scroll", (): void => {
+					if (htmlDocument.scrollTop >= 300) {
+						scrollUpBtn.style.display = "flex";
+					}
+					if (htmlDocument.scrollTop === 0) {
+						scrollUpBtn.style.display = "none";
+					}
 				}
-				if (htmlDocument.scrollTop === 0) {
-					scrollUpBtn.style.display = "none";
-				}
-			}
-		);
+			);
+		}  
 
-	}    
+	}
 }
 
 export function sourceSlider(): void {

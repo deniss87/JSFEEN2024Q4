@@ -6,6 +6,7 @@
     overflow-x: hidden;
 }
 .source__button {
+    visibility: hidden;
     background-color: #ffffff00;
     border: none;
     cursor: pointer;

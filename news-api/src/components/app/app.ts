@@ -19,8 +19,9 @@ class App {
             newsContainer.addEventListener('click', (e: Event) => this.controller.getNews(
                     e, (data: NewsData) => this.view.drawNews(data))
             );
-
+            
             this.controller.getSources((data: SourcesData) => this.view.drawSources(data));
+            
         }
 
         scrollUp();

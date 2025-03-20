@@ -27,8 +27,13 @@ class Sources {
 
         });
         const sourcesContainer = document.querySelector<HTMLElement>('.sources');
+        const sourcesButtons = document.querySelectorAll<HTMLElement>('.source__button');
+        
         if (sourcesContainer) {
             sourcesContainer.append(fragment);
+        }
+        if (sourcesButtons) {
+            sourcesButtons.forEach((e) => e.setAttribute('style', 'visibility: visible'));
         }
     }
 
