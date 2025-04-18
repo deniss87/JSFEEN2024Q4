@@ -17,7 +17,7 @@ export default (env: EnvVariables) => {
 
   const config: webpack.Configuration = {
       mode: env.mode ?? 'development',
-      entry: path.resolve(__dirname, 'src', 'main.ts'),
+      entry: path.resolve(__dirname, 'src', 'app.ts'),
       output: {
           path: path.resolve(__dirname, 'build'),
           filename: '[name].[contenthash].js',
@@ -36,6 +36,10 @@ export default (env: EnvVariables) => {
             test: /\.tsx?$/,
             use: 'ts-loader',
             exclude: /node_modules/,
+          },
+          {
+            test: /\.svg/,
+            type: 'asset/resource'
           },
         ],
       },

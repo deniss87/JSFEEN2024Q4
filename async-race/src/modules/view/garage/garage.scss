@@ -1,0 +1,72 @@
+
+.garage-header {
+    display: flex;
+    align-items: center;
+}
+
+#button__race-control {
+    margin-left: 80px;
+    height: 40px;
+    padding: 12px
+}
+
+.garage-car-name {
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+
+    margin-bottom: 8px;
+
+    
+}
+
+.img__garage-car-logo {
+    height: 20%;
+}
+
+.text__garage-car {
+    padding: 8px;
+    margin: 0;
+}
+
+.button__garage {
+    padding: 4px;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: rgb(190, 64, 64);
+    }
+}
+
+// RACE
+.garage-car-race {
+    display: flex;
+    column-gap: 8px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 8px;
+    background-color: rgb(200, 212, 212);
+    border-bottom: 2px dashed black;
+
+}
+
+.button__garage-title {
+    padding: 8px;
+    margin-left: 20px;
+}
+
+.img__car {
+    // padding-right: 83%;
+    flex-grow: 1;
+
+}
+.img__car svg {
+    width: 80px;
+    height: auto;
+}
+
+#img__finish {
+    margin-right: 100px;
+    padding: 6px;
+    background-color: red;
+}
