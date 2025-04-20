@@ -5,6 +5,7 @@ import { carImg } from "./htmlTemplates/carImg";
 import { findCarLogo } from "../../app/utils/findCarLogo";
 import { garageCarType } from "../../app/types/types";
 import { CarList } from "./module/CarList";
+import { ModalView } from "../modal/ModalView";
 
 
 export class GarageView extends View  {
@@ -21,6 +22,7 @@ export class GarageView extends View  {
     this.mount();
     this.carList = new CarList(this.data);
     this.addEvents();
+
 }
 
   createHtmlElements() {

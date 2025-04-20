@@ -17,3 +17,10 @@ export type winnerListType = {
     wins: number,
     time: number
 };
+
+export type winnerCar = {
+    id: number,
+    name: string,
+    time: number,
+    wins: number
+};

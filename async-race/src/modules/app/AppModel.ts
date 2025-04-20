@@ -1,5 +1,5 @@
 import { Model } from "./types/model";
-import { garageCarType, winnersDataType, winnerListType } from "../app/types/types";
+import { garageCarType, winnersDataType, winnerListType, winnerCar } from "../app/types/types";
 
 
 export class AppModel implements Model {
@@ -25,6 +25,56 @@ export class AppModel implements Model {
 			return await response.json();
 		
 		} catch(error) {
+			console.log(error);
+		}   
+	}
+
+	async getWinners<T>(id?: number) {
+
+		try {
+			
+      if (id === undefined) {
+        const [winners, garage] = await Promise.all([
+          this.getData<winnersDataType[]>('winners'),
+          this.getData<garageCarType[]>('garage')
+          ]);
+        
+        const result = winners.map((winner: any) => {
+        const car: any = garage.find((car: garageCarType) => car.id === winner.id);
+  
+          return {
+            id: winner.id,
+            name: car.name,
+            color: car.color,
+            wins: winner.wins,
+            time: winner.time
+          }
+        });
+
+      return result;
+      } 
+      else {
+
+        const winnerData = await this.getData<winnersDataType>('winners', id) as winnersDataType;
+        const garageData = await this.getData<garageCarType>('garage', id) as garageCarType;
+        
+        if (winnerData) {
+          console.log('update winner')
+        } else {
+          console.log('new winner')
+        }
+
+        // const winnerFullData: winnerCar = {
+        //   id: winnerData.id,
+        //   name: garageData.name,
+        //   time: winnerData.time,
+        //   wins: winnerData.wins
+        // };
+        
+        // return winnerFullData;
+      }
+    }
+		catch(error) {
 			console.log(error);
 		}   
 	}

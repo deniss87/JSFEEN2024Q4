@@ -5,21 +5,19 @@ import { GarageView } from "../view/garage/GarageView";
 import { WinnersView } from "../view/winners/WinnersView";
 import { carRaceAnimation, getAnimationSpeed } from "./utils/carRaceAnimation";
 import { randomCars } from "./utils/randomCars";
+import { ModalView } from "../view/modal/ModalView";
+import { garageCarType, winnerCar } from "./types/types";
 
 export class AppController implements Controller {
   model: AppModel;
   data: any;
   garageView: GarageView;
   winnersView: WinnersView;
-  winners: {}[];
-  winners2: {}[];
-  worstResult: number;
-  singleCarAnimation: Animation;
+  allAnimations: Animation[];
 
   constructor() {
       this.model = new AppModel();
-      this.winners = [];
-      this.worstResult = 1000;
+      this.allAnimations = [];
   }
 
   async getGarage() {
@@ -167,15 +165,10 @@ export class AppController implements Controller {
   async race(cars: number[]) {
     const raceBtn = document.getElementById('button__race-start');
     const returnCarBtn = document.getElementById('button__race-return');
-    this.winners = [];
-    this.winners2 = [];
+
 
     if (raceBtn) {
       raceBtn.setAttribute("disabled", "");
-      raceBtn.innerText = "Racing...";
-    }
-    if (returnCarBtn) {
-      returnCarBtn.setAttribute("disabled", "");
     }
 
     const racePromises: any = [];
@@ -201,11 +194,11 @@ export class AppController implements Controller {
 
             // car animation
             const carAnimation = carRaceAnimation(carId, carVelocity, carDistance);
+            this.allAnimations.push(carAnimation);
 
             const animationPromise = new Promise((resolve) => {
               carAnimation.addEventListener('finish', () => {
                 this.model.carEngine(carId, "stopped");
-                this.winners2.push({ id: carId, result: carVelocity });
                 resolve({id: carId, wins: 1, time: carSpeed});
               });
               // Handle return to garage
@@ -232,29 +225,52 @@ export class AppController implements Controller {
                 console.log(`Car ${engineResponse.id} engine was broken down`);
                 carAnimation.pause();
               }
-              if (engineResponse.status === 200) {
-                this.winners.push({id: carId, speed: carVelocity});
-              } 
 
             });
           }
         });
+
         // return winner car data
         return Promise.race(animationPromises);
-      })
-      .then((winnerCar) => {
-        
-        setTimeout(() => {
-          alert(`The winner is: ${winnerCar.id} car with result ${winnerCar.time}`);
-        }, 4000);
 
-        this.model.getData("winners", winnerCar.id)
+      })
+      .then((winner) => {
+        
+        const winnerData = this.model.getData('garage', winner.id)
+          .then((car: garageCarType) => {
+
+            const raceEndInterval = setInterval(() => {
+
+              let status: boolean = false;
+    
+              this.allAnimations.forEach((anim) => {
+                if (anim.playState === 'running') {
+                  status = true;
+                }
+              });
+    
+              if (status === false) {
+                clearInterval(raceEndInterval);
+                // alert(`The winner of this race is ${car.name} with a time of ${winner.time}sek`);
+                const modal = new ModalView(car.name, winner.time);
+                modal.open();
+                returnCarBtn.removeAttribute('disabled');
+              }
+    
+            }, 1000);
+
+            
+
+          });
+
+
+        this.model.getData("winners", winner.id)
             .then((response: {id: number, wins: number, time: number}) => {
               if (response) {
                 console.log(response);
                 let newTime: number;
-                (winnerCar.time < response.time) 
-                      ? newTime = winnerCar.time 
+                (winner.time < response.time) 
+                      ? newTime = winner.time 
                       : newTime = response.time; 
                      
                 const winnerData = {
@@ -266,17 +282,24 @@ export class AppController implements Controller {
                 // console.log('Old time: ', response.time);
                 // console.log('new time: ', newTime);
 
-                this.model.updateData("winners", winnerCar.id, winnerData);
+                this.model.updateData("winners", winner.id, winnerData);
 
               } else {
-                this.model.createData("winners", winnerCar);
+                const data = {
+                  id: winner.id,
+                  time: winner.time,
+                  wins: 1
+                }
+                this.model.createData("winners", data);
               }
               
             })
+
       });   
-    
+  // end  
   }
 
+  
   public async start() {
     console.log('App is running...');
     new HeaderView();

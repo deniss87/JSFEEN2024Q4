@@ -65,6 +65,7 @@ export class CarList extends View {
       id: 'button__race-return',
       text: "RETURN THE CARS TO THE GARAGE",
       className: 'button__garage-title',
+      disabled: ''
     });
 
     // garage car name container
