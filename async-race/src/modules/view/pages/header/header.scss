@@ -1,0 +1,50 @@
+.nav__container {
+  background-color: rgb(65, 78, 97);
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  // margin-top: 20px;
+}
+
+.nav__link {
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  // border-radius: 35px 35px 0 0;
+
+    &-active {
+      background-color: white;
+    }
+
+    &:hover {
+      cursor: pointer;
+      // background-color: rgb(112, 123, 139);
+    }
+}
+
+// #header-container {
+//     background-color: rgb(65, 78, 97);
+//     height: 60px;
+//     width: 100%;
+//     display: flex;
+//     align-items: center;
+// }
+
+// .nav__header {
+//   height: 100%;
+//   width: 50%;
+//   text-align: center;
+//   // color: rgb(30, 30, 30);
+//   color: black;
+
+//   &-active {
+//     background-color: white;
+//   }
+//   &:hover {
+//     cursor: pointer;
+//     // background-color: rgb(112, 123, 139);
+
+//   }
+// }
+
