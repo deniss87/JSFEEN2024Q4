@@ -1,3 +1,7 @@
+import { GarageView } from "../../view/pages/garage/GarageView";
+import { HeaderView } from "../../view/pages/header/HeaderView";
+import { WinnersView } from "../../view/pages/winners/WinnersView";
+
 export type garageCarType = {
     name: string;
     color: string;
@@ -24,3 +28,7 @@ export type winnerCar = {
     time: number,
     wins: number
 };
+
+export type viewType = HeaderView | GarageView | WinnersView;
+
+export type paginationViewType = GarageView | WinnersView;

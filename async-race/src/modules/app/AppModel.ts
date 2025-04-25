@@ -1,5 +1,5 @@
 import { Model } from "./types/model";
-import { garageCarType, winnersDataType, winnerListType, winnerCar } from "../app/types/types";
+import { garageCarType, winnersDataType, winnerListType } from "../app/types/types";
 
 
 export class AppModel implements Model {
@@ -11,7 +11,7 @@ export class AppModel implements Model {
 	}
 
 
-	async getData<T>(endpoint: string, id?: number): Promise<T | T[]> {
+	async getData<T>(endpoint: string, id?: number) {
 		let url = this.server + '/' + endpoint;
 		if (id !== undefined) url += '/' + id;
 
@@ -21,7 +21,7 @@ export class AppModel implements Model {
 			if (!response.ok) {
 			throw new Error(`Response status: ${response.status}`);
 			}
-		
+
 			return await response.json();
 		
 		} catch(error) {
@@ -64,14 +64,6 @@ export class AppModel implements Model {
           console.log('new winner')
         }
 
-        // const winnerFullData: winnerCar = {
-        //   id: winnerData.id,
-        //   name: garageData.name,
-        //   time: winnerData.time,
-        //   wins: winnerData.wins
-        // };
-        
-        // return winnerFullData;
       }
     }
 		catch(error) {
@@ -180,48 +172,6 @@ export class AppModel implements Model {
 		}   
 	}
 
-	// async carEngine(endpoint: string, carId: number, carStatus: string): Promise<any> {
-	// 	const params = new URLSearchParams({ id: carId.toString(), status: carStatus });
-	// 	const url = this.server + '/' + endpoint + '?' + params;
-
-	// 	try {
-	// 		const response = await fetch(
-	// 			url, 
-	// 			{ 
-	// 				method: "PATCH",
-	// 				body: new URLSearchParams({ id: carId.toString(), status: carStatus })
-	// 			}		
-	// 		);
-			
-	// 		return response;
-		
-	// 	} catch(error) {
-	// 		console.log('Error:', error);
-	// 	}   
-	// }
-
-  // async carEngineStart(carId: number, carStatus: string) {
-	// 	const params = new URLSearchParams({ id: carId.toString(), status: carStatus });
-	// 	const url = this.server + '/engine' + '?' + params;
-
-	// 	try {
-	// 		const response = await fetch(
-	// 			url, 
-	// 			{ 
-	// 				method: "PATCH",
-	// 				body: new URLSearchParams({ id: carId.toString(), status: carStatus })
-	// 			}		
-	// 		);
-
-  //     const data = await response.json();
-  //     data.id = carId;
-  //     return data;
-	// 	} 
-  //   catch(error) {
-	// 		console.log('Error:', error);
-	// 	}   
-	// }
-
 	async carEngine(carId: number, carStatus: string) {
 		const params = new URLSearchParams({ id: carId.toString(), status: carStatus });
 		const url = this.server + '/engine' + '?' + params;
@@ -248,7 +198,7 @@ export class AppModel implements Model {
 			}
 
 			if (carStatus === 'drive') {
-				return response
+        return response
           .then((response) => {
             // console.log('Drive: ', response.status);
             return response.status;
@@ -261,7 +211,6 @@ export class AppModel implements Model {
 
 			return response;
 
-		
 		} catch(error) {
 			console.log('Error:', error);
 		}   

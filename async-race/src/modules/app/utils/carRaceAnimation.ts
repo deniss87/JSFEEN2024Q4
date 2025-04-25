@@ -3,9 +3,13 @@ export function carRaceAnimation(
     velocity?: number,
     distance?: number,
 ): Animation {
-    const car = document.getElementById('img__car-' + id.toString()); 
-    const finishPosition = (document.getElementById('img__finish').offsetLeft) - 40;
+    const car = document.getElementById('img__garage-car-' + id.toString()); 
+    
+    let finishPosition = (document.getElementById(`garage-race-finish-logo-${id}`).offsetLeft) - 10;
+    if (finishPosition > 1260) finishPosition = 1260;
+    
     const animationSpeed = getAnimationSpeed(distance, velocity);
+
 
     const raceKeyframes = new KeyframeEffect(
         car,
