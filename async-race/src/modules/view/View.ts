@@ -7,7 +7,6 @@ import { GarageView } from "../view/pages/garage/GarageView";
 import { WinnersView } from "../view/pages/winners/WinnersView";
 import { RaceEndModal } from "./pages/_modal/RaceEndModal";
 
-
 export class View extends ViewModel {
   controller: AppController;
 
@@ -25,9 +24,9 @@ export class View extends ViewModel {
     this.controller = appController;
 
     // MAIN VIEW
-    this.root = document.getElementById('root');
-    this.header = this.createElement('header', this.root, {});
-    this.main = this.createElement('main', this.root, {});
+    this.root = document.getElementById("root");
+    this.header = this.createElement("header", this.root, {});
+    this.main = this.createElement("main", this.root, {});
 
     // MOUNT MAIN VIEW
     this.mount();
@@ -40,19 +39,18 @@ export class View extends ViewModel {
 
     // WINNERS VIEW
     this.winnersView = new WinnersView(this.controller, this.main);
-
-  } 
+  }
 
   // VIEW
   getView(view: string, param?: any) {
     switch (view) {
-      case 'garage':
+      case "garage":
         this.garageView.create();
         break;
-      case 'winners':
+      case "winners":
         this.winnersView.create();
         break;
-      case 'raceEndModal':
+      case "raceEndModal":
         const modal = new RaceEndModal(param);
         modal.open();
     }
@@ -60,8 +58,7 @@ export class View extends ViewModel {
 
   // PAGINATION
   setPage(view: paginationViewType, value: string) {
-
-    if (value === 'nextPage') {
+    if (value === "nextPage") {
       // update page
       if (view.page < view.pageTotal) {
         view.page += 1;
@@ -75,10 +72,9 @@ export class View extends ViewModel {
       // update view
       if (view.page <= view.pageTotal) {
         view.update();
-      } 
-      
+      }
     }
-    if (value === 'prevPage') {
+    if (value === "prevPage") {
       // update page
       if (view.page > 1) {
         view.page -= 1;
@@ -96,7 +92,5 @@ export class View extends ViewModel {
     }
   }
 
-
-
-// end  
+  // end
 }

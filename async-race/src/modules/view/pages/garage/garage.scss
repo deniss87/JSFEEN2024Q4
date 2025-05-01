@@ -5,7 +5,6 @@
   text-align: center;
 }
 
-
 .container__modify {
   display: flex;
   margin: 12px;
@@ -15,7 +14,7 @@
   input {
     margin-right: 12px;
   }
-  
+
   .input__garage-text {
     height: 26px;
     width: 220px;
@@ -29,7 +28,7 @@
     border-radius: 4px;
     border: 1px solid rgb(78, 78, 78);
   }
-  
+
   .button__modify {
     padding: 8px;
     margin-left: 10px;
@@ -58,7 +57,7 @@
   border-radius: 4px;
 
   &:hover:enabled {
-      background-color: rgb(190, 64, 64);
+    background-color: rgb(190, 64, 64);
   }
 }
 
@@ -75,7 +74,7 @@
 #button__race-control {
   margin-left: 80px;
   height: 40px;
-  padding: 12px
+  padding: 12px;
 }
 
 .garage-car-name {
@@ -86,8 +85,6 @@
 .img__garage-car-logo {
   height: 20%;
 }
-
-
 
 .text__garage-car {
   padding: 8px;
@@ -100,7 +97,7 @@
   margin-left: 6px;
 
   &:hover {
-      background-color: rgb(190, 64, 64);
+    background-color: rgb(190, 64, 64);
   }
 }
 
@@ -131,15 +128,12 @@
   }
 
   &-finish-logo {
-
     .img__race-finish {
-        margin-right: 110px;
-        padding: 6px;
-        height: 45px;
+      margin-right: 110px;
+      padding: 6px;
+      height: 45px;
     }
   }
-
-
 }
 
 .img__race-end {

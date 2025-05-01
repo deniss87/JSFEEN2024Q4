@@ -1,7 +1,7 @@
-import {Model} from './model';
+import { Model } from "./model";
 
 export interface Controller {
-    model: Model;
+  model: Model;
 
-    start(): void;
+  start(): void;
 }

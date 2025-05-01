@@ -1,5 +1,5 @@
-export function carLogoSvg (id: string, className: string, color: string) {
-    return `
+export function carLogoSvg(id: string, className: string, color: string) {
+  return `
 <svg id="${id}" class="${className}" version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="80pt" height="40pt" viewBox="0 0 1280.000000 640.000000"
  preserveAspectRatio="xMidYMid meet">
@@ -94,11 +94,11 @@ c54 63 97 120 97 127 0 10 -23 13 -102 11 -57 -1 -125 -3 -152 -5z"/>
 <path d="M11041 1781 c-14 -25 -31 -273 -20 -285 18 -20 239 46 239 72 0 9
 -197 232 -205 232 -2 0 -9 -9 -14 -19z"/>
 </g>
-</svg>`
-};
+</svg>`;
+}
 
-export function finishLogoSvg (id: string, className: string) {
-    return `
+export function finishLogoSvg(id: string, className: string) {
+  return `
 <svg fill="#000000" id="${id}" class="${className}" version="1.1" id="img__race-finish" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 width="60px" height="60px" viewBox="0 0 453.405 453.405"
 	 xml:space="preserve">
@@ -127,5 +127,5 @@ export function finishLogoSvg (id: string, className: string) {
 			c5.712-15.458,11.426-30.917,17.138-46.375C340.503,132.229,323.474,132.243,305.873,133.323z"/>
 	</g>
 </g>
-</svg>`
-};
+</svg>`;
+}

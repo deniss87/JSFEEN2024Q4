@@ -1,203 +1,193 @@
 import { Model } from "./types/model";
-import { garageCarType, winnersDataType, winnerListType } from "../app/types/types";
-
+import {
+  garageCarType,
+  winnersDataType,
+  winnerListType,
+} from "../app/types/types";
 
 export class AppModel implements Model {
+  private server: string;
 
-	private server: string;
+  constructor() {
+    this.server = "http://127.0.0.1:3000";
+  }
 
-	constructor() {
-		this.server = 'http://127.0.0.1:3000';
-	}
+  async getData<T>(endpoint: string, id?: number) {
+    let url = this.server + "/" + endpoint;
+    if (id !== undefined) url += "/" + id;
 
+    try {
+      const response = await fetch(url);
 
-	async getData<T>(endpoint: string, id?: number) {
-		let url = this.server + '/' + endpoint;
-		if (id !== undefined) url += '/' + id;
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
 
-		try {
-			const response = await fetch(url);
-		
-			if (!response.ok) {
-			throw new Error(`Response status: ${response.status}`);
-			}
+      return await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-			return await response.json();
-		
-		} catch(error) {
-			console.log(error);
-		}   
-	}
-
-	async getWinners<T>(id?: number) {
-
-		try {
-			
+  async getWinners<T>(id?: number) {
+    try {
       if (id === undefined) {
         const [winners, garage] = await Promise.all([
-          this.getData<winnersDataType[]>('winners'),
-          this.getData<garageCarType[]>('garage')
-          ]);
-        
+          this.getData<winnersDataType[]>("winners"),
+          this.getData<garageCarType[]>("garage"),
+        ]);
+
         const result = winners.map((winner: any) => {
-        const car: any = garage.find((car: garageCarType) => car.id === winner.id);
-  
+          const car: any = garage.find(
+            (car: garageCarType) => car.id === winner.id,
+          );
+
           return {
             id: winner.id,
             name: car.name,
             color: car.color,
             wins: winner.wins,
-            time: winner.time
-          }
+            time: winner.time,
+          };
         });
 
-      return result;
-      } 
-      else {
+        return result;
+      } else {
+        const winnerData = (await this.getData<winnersDataType>(
+          "winners",
+          id,
+        )) as winnersDataType;
+        const garageData = (await this.getData<garageCarType>(
+          "garage",
+          id,
+        )) as garageCarType;
 
-        const winnerData = await this.getData<winnersDataType>('winners', id) as winnersDataType;
-        const garageData = await this.getData<garageCarType>('garage', id) as garageCarType;
-        
         if (winnerData) {
-          console.log('update winner')
+          console.log("update winner");
         } else {
-          console.log('new winner')
+          console.log("new winner");
         }
-
       }
+    } catch (error) {
+      console.log(error);
     }
-		catch(error) {
-			console.log(error);
-		}   
-	}
+  }
 
-	async getWinnersInfo(): Promise<winnerListType[]> {
-		try {
-			const [winners, garage] = await Promise.all([
-			  this.getData<winnersDataType[]>('winners'),
-			  this.getData<garageCarType[]>('garage')
-			]);
-			
-			const result = winners.map((winner: any) => {
-				const car: any = garage.find((car: garageCarType) => car.id === winner.id);
+  async getWinnersInfo(): Promise<winnerListType[]> {
+    try {
+      const [winners, garage] = await Promise.all([
+        this.getData<winnersDataType[]>("winners"),
+        this.getData<garageCarType[]>("garage"),
+      ]);
 
-				return {
-					id: winner.id,
-					name: car.name,
-					color: car.color,
-					wins: winner.wins,
-					time: winner.time
-				}
-			});
-		
-			return result;
+      const result = winners.map((winner: any) => {
+        const car: any = garage.find(
+          (car: garageCarType) => car.id === winner.id,
+        );
 
-		  } catch (error) {
-			console.error("Error fetching winners with car info:", error);
-			return [];
-		  }
-	}
+        return {
+          id: winner.id,
+          name: car.name,
+          color: car.color,
+          wins: winner.wins,
+          time: winner.time,
+        };
+      });
 
+      return result;
+    } catch (error) {
+      console.error("Error fetching winners with car info:", error);
+      return [];
+    }
+  }
 
-	async createData(endpoint: string, data: {}): Promise<{}[]> {
-		const url = this.server + '/' + endpoint;
+  async createData(endpoint: string, data: {}): Promise<{}[]> {
+    const url = this.server + "/" + endpoint;
 
-		try {
-			const response = await fetch(
-				url, 
-				{ 
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(data) 
-				}		
-			);
-		
-			if (!response.ok) {
-			throw new Error(`Response status: ${response.status}`);
-			}
-		
-			return await response.json();
-		
-		} catch(error) {
-			console.log(error);
-		}   
-	}
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-	async deleteData(endpoint: string, id: number): Promise<{}[]> {
-		const url = this.server + '/' + endpoint + '/' + id;
-		try {
-			const response = await fetch(
-				url, 
-				{ 
-					method: "DELETE",
-				}		
-			);
-		
-			if (!response.ok) {
-			throw new Error(`Response status: ${response.status}`);
-			}
-		
-			return await response.json();
-		
-		} catch(error) {
-			console.log(error);
-		}   
-	}
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
 
-	async updateData(endpoint: string, id: number, data: {}): Promise<{}[]> {
-		const url = this.server + '/' + endpoint + '/' + id;
+      return await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-		try {
-			const response = await fetch(
-				url, 
-				{ 
-					method: "PUT",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(data) 
-				}		
-			);
-		
-			if (!response.ok) {
-			throw new Error(`Response status: ${response.status}`);
-			}
-		
-			return await response.json();
-		
-		} catch(error) {
-			console.log(error);
-		}   
-	}
+  async deleteData(endpoint: string, id: number): Promise<{}[]> {
+    const url = this.server + "/" + endpoint + "/" + id;
+    try {
+      const response = await fetch(url, {
+        method: "DELETE",
+      });
 
-	async carEngine(carId: number, carStatus: string) {
-		const params = new URLSearchParams({ id: carId.toString(), status: carStatus });
-		const url = this.server + '/engine' + '?' + params;
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
 
-		try {
-			const response = fetch(
-				url, 
-				{ 
-					method: "PATCH",
-					body: new URLSearchParams({ id: carId.toString(), status: carStatus })
-				}		
-			);
+      return await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-			if (carStatus === 'started') {
-				return await response
-                .then((response) => {
-                  const data = response.json();
-                  return data;
-                })
-                .then((data) => {
-                  data.id = carId;
-                  return data;
-                });
-			}
+  async updateData(endpoint: string, id: number, data: {}): Promise<{}[]> {
+    const url = this.server + "/" + endpoint + "/" + id;
 
-			if (carStatus === 'drive') {
+    try {
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async carEngine(carId: number, carStatus: string) {
+    const params = new URLSearchParams({
+      id: carId.toString(),
+      status: carStatus,
+    });
+    const url = this.server + "/engine" + "?" + params;
+
+    try {
+      const response = fetch(url, {
+        method: "PATCH",
+        body: new URLSearchParams({ id: carId.toString(), status: carStatus }),
+      });
+
+      if (carStatus === "started") {
+        return await response
+          .then((response) => {
+            const data = response.json();
+            return data;
+          })
+          .then((data) => {
+            data.id = carId;
+            return data;
+          });
+      }
+
+      if (carStatus === "drive") {
         return response
           .then((response) => {
             // console.log('Drive: ', response.status);
@@ -207,15 +197,13 @@ export class AppModel implements Model {
             const data = { id: carId, status: resStatus };
             return data;
           });
-			}
+      }
 
-			return response;
+      return response;
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  }
 
-		} catch(error) {
-			console.log('Error:', error);
-		}   
-	}
-
-
-// end
+  // end
 }

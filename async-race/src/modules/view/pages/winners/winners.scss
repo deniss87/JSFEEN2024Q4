@@ -8,16 +8,17 @@
   align-items: center;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid rgb(150, 150, 150);
   border-collapse: collapse;
   width: 800px;
   padding: 8px;
   text-align: center;
-} 
+}
 
 .table__winners {
-
   &-header {
     background-color: rgb(171, 209, 209);
   }
@@ -31,15 +32,13 @@ table, th, td {
   }
 
   &-data {
-
     svg {
       height: 30px;
     }
   }
   &-data:hover {
     background-color: rgb(248, 188, 57);
-  }   
-
+  }
 }
 
 .table__winners-name {
@@ -69,5 +68,4 @@ table, th, td {
       cursor: pointer;
     }
   }
-
 }
