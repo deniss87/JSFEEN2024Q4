@@ -1,13 +1,14 @@
-import { Controller } from "./types/controller";
-import { AppModel } from "./AppModel";
-import { View } from "../view/View";
-import { garageCarType, paginationViewType } from "../app/types/types";
+import { Controller } from './types/controller';
+import { AppModel } from './AppModel';
+import { View } from '../view/View';
+import { garageCarType, paginationViewType } from './types/types';
 
-import { randomCars } from "./utils/randomCars";
-import { carRaceAnimation, getAnimationSpeed } from "./utils/carRaceAnimation";
+import { randomCars } from './utils/randomCars';
+import { carRaceAnimation, getAnimationSpeed } from './utils/carRaceAnimation';
 
 export class AppController implements Controller {
   model: AppModel;
+
   view: View;
 
   allAnimations: Animation[];
@@ -20,7 +21,7 @@ export class AppController implements Controller {
   }
 
   async getData(endpoint: string) {
-    return await this.model.getData(endpoint);
+    return this.model.getData(endpoint);
   }
 
   async createCar(carName: string, carColor: string) {
@@ -29,13 +30,13 @@ export class AppController implements Controller {
       color: carColor,
     };
 
-    if (await this.model.createData("garage", data)) {
-      this.viewRouter("garage");
+    if (await this.model.createData('garage', data)) {
+      this.viewRouter('garage');
     }
   }
 
   async getWinnersData() {
-    return await this.model.getWinnersInfo();
+    return this.model.getWinnersInfo();
   }
 
   createRandomCars() {
@@ -43,17 +44,17 @@ export class AppController implements Controller {
     const createPromises: Promise<any>[] = [];
 
     carData.forEach((car) => {
-      const carName = car.brand + " " + car.model;
+      const carName = `${car.brand} ${car.model}`;
       const carColor = car.color;
       const data = {
         name: carName,
         color: carColor,
       };
-      createPromises.push(this.model.createData("garage", data));
+      createPromises.push(this.model.createData('garage', data));
     });
 
     Promise.all(createPromises).then(() => {
-      this.viewRouter("garage");
+      this.viewRouter('garage');
     });
   }
 
@@ -63,27 +64,26 @@ export class AppController implements Controller {
       color: carColor,
     };
 
-    if (await this.model.updateData("garage", carId, data)) {
-      this.viewRouter("garage");
+    if (await this.model.updateData('garage', carId, data)) {
+      this.viewRouter('garage');
     }
   }
 
   selectCar(carId: number, carName: string, carColor: string) {
     const inputCarName: HTMLInputElement = document.querySelector(
-      "#input__car-update-name",
+      '#input__car-update-name',
     );
     const inputCarColor: HTMLInputElement = document.querySelector(
-      "#input__car-update-color",
+      '#input__car-update-color',
     );
-    const buttonUpdate: HTMLElement =
-      document.getElementById("button__car-update");
+    const buttonUpdate: HTMLElement = document.getElementById('button__car-update');
 
     if (inputCarName && inputCarColor && buttonUpdate) {
       inputCarName.value = carName;
       inputCarColor.value = carColor;
-      buttonUpdate.removeAttribute("disabled");
+      buttonUpdate.removeAttribute('disabled');
 
-      inputCarName.setAttribute("name", carId.toString());
+      inputCarName.setAttribute('name', carId.toString());
 
       // scroll to the top
       document.body.scrollTop = 0;
@@ -92,9 +92,9 @@ export class AppController implements Controller {
   }
 
   async deleteCar(carId: number) {
-    await this.model.deleteData("garage", carId);
-    await this.model.deleteData("winners", carId);
-    this.viewRouter("garage");
+    await this.model.deleteData('garage', carId);
+    await this.model.deleteData('winners', carId);
+    this.viewRouter('garage');
   }
 
   /**
@@ -104,16 +104,16 @@ export class AppController implements Controller {
     try {
       const response: any = await this.model.carEngine(carId, carStatus);
       const startBtn = document.getElementById(
-        "button__car-engine-start-" + carId,
+        `button__car-engine-start-${carId}`,
       );
       const stopBtn = document.getElementById(
-        "button__car-engine-stop-" + carId,
+        `button__car-engine-stop-${carId}`,
       );
 
-      if (carStatus === "started") {
+      if (carStatus === 'started') {
         // disable start button & enable stop
-        startBtn.setAttribute("disabled", "");
-        stopBtn.removeAttribute("disabled");
+        startBtn.setAttribute('disabled', '');
+        stopBtn.removeAttribute('disabled');
 
         // car animation
         const carAnimation = carRaceAnimation(
@@ -122,31 +122,31 @@ export class AppController implements Controller {
           response.distance,
         );
         // stops the engine when the animation ends
-        carAnimation.addEventListener("finish", () => {
-          this.model.carEngine(carId, "stopped");
+        carAnimation.addEventListener('finish', () => {
+          this.model.carEngine(carId, 'stopped');
         });
         // Handle return to garage
-        stopBtn.addEventListener("click", () => {
+        stopBtn.addEventListener('click', () => {
           carAnimation.cancel();
-          this.model.carEngine(carId, "stopped");
-          startBtn.removeAttribute("disabled");
-          stopBtn.setAttribute("disabled", "");
+          this.model.carEngine(carId, 'stopped');
+          startBtn.removeAttribute('disabled');
+          stopBtn.setAttribute('disabled', '');
         });
         // animation start
         carAnimation.play();
 
         // Resolve car engine promise
-        const enginePromise = this.model.carEngine(carId, "drive");
+        const enginePromise = this.model.carEngine(carId, 'drive');
         enginePromise.then((engineResponse) => {
           if (engineResponse.status === 500) {
             console.log(`Car ${engineResponse.id} engine was broken down`);
             carAnimation.pause();
           }
         });
-      } else if (carStatus === "stopped") {
-        console.log("car is stopped");
+      } else if (carStatus === 'stopped') {
+        console.log('car is stopped');
       } else {
-        console.log("wrong request");
+        console.log('wrong request');
       }
     } catch (err) {
       throw new Error(err);
@@ -155,17 +155,17 @@ export class AppController implements Controller {
   }
 
   async startRace(raceCars: number[]) {
-    const raceBtn = document.getElementById("button__race-start");
-    const returnCarBtn = document.getElementById("button__race-return");
+    const raceBtn = document.getElementById('button__race-start');
+    const returnCarBtn = document.getElementById('button__race-return');
 
     if (raceBtn) {
-      raceBtn.setAttribute("disabled", "");
+      raceBtn.setAttribute('disabled', '');
     }
 
     const racePromises: any = [];
 
     raceCars.forEach((carId) => {
-      racePromises.push(this.model.carEngine(carId, "started"));
+      racePromises.push(this.model.carEngine(carId, 'started'));
     });
 
     // Resolve race promises
@@ -174,11 +174,11 @@ export class AppController implements Controller {
         const animationPromises: any = [];
 
         results.forEach((response) => {
-          if (response.status === "fulfilled") {
+          if (response.status === 'fulfilled') {
             const carId: number = response.value.id;
             const carVelocity: number = response.value.velocity;
             const carDistance: number = response.value.distance;
-            const carSpeed: Number | string = Number(
+            const carSpeed: number | string = Number(
               getAnimationSpeed(carDistance, carVelocity) / 1000,
             ).toFixed(2);
 
@@ -194,18 +194,17 @@ export class AppController implements Controller {
             this.allAnimations.push(carAnimation);
 
             const animationPromise = new Promise((resolve) => {
-              carAnimation.addEventListener("finish", () => {
-                this.model.carEngine(carId, "stopped");
+              carAnimation.addEventListener('finish', () => {
+                this.model.carEngine(carId, 'stopped');
                 resolve({ id: carId, wins: 1, time: carSpeed });
               });
               // Handle return to garage
-              returnCarBtn.addEventListener("click", () => {
-                raceBtn.removeAttribute("disabled");
-                returnCarBtn.setAttribute("disabled", "");
-                const finishLogo =
-                  document.querySelectorAll(".img__race-finish");
+              returnCarBtn.addEventListener('click', () => {
+                raceBtn.removeAttribute('disabled');
+                returnCarBtn.setAttribute('disabled', '');
+                const finishLogo = document.querySelectorAll('.img__race-finish');
                 finishLogo.forEach((element) => {
-                  element.classList.remove("img__race-end");
+                  element.classList.remove('img__race-end');
                 });
                 carAnimation.cancel();
                 resolve(`Car ${carId} animation cancelled`);
@@ -219,7 +218,7 @@ export class AppController implements Controller {
             carAnimation.play();
 
             // Resolve car engine promise
-            const enginePromise = this.model.carEngine(carId, "drive");
+            const enginePromise = this.model.carEngine(carId, 'drive');
             enginePromise.then((engineResponse) => {
               if (engineResponse.status === 500) {
                 console.log(`Car ${engineResponse.id} engine was broken down`);
@@ -236,16 +235,16 @@ export class AppController implements Controller {
         const finishLogo = document.getElementById(
           `img__race-finish-${winner.id}`,
         );
-        finishLogo.classList.add("img__race-end");
+        finishLogo.classList.add('img__race-end');
 
         const winnerData = this.model
-          .getData("garage", winner.id)
+          .getData('garage', winner.id)
           .then((car: garageCarType) => {
             const raceEndInterval = setInterval(() => {
               let status: boolean = false;
 
               this.allAnimations.forEach((anim) => {
-                if (anim.playState === "running") {
+                if (anim.playState === 'running') {
                   status = true;
                 }
               });
@@ -256,14 +255,14 @@ export class AppController implements Controller {
                   name: car.name,
                   time: winner.time,
                 };
-                this.viewRouter("raceEndModal", winnerData);
-                returnCarBtn.removeAttribute("disabled");
+                this.viewRouter('raceEndModal', winnerData);
+                returnCarBtn.removeAttribute('disabled');
               }
             }, 1000);
           });
 
         this.model
-          .getData("winners", winner.id)
+          .getData('winners', winner.id)
           .then((response: { id: number; wins: number; time: number }) => {
             if (response) {
               console.log(response);
@@ -281,14 +280,14 @@ export class AppController implements Controller {
               // console.log('Old time: ', response.time);
               // console.log('new time: ', newTime);
 
-              this.model.updateData("winners", winner.id, winnerData);
+              this.model.updateData('winners', winner.id, winnerData);
             } else {
               const data = {
                 id: winner.id,
                 time: winner.time,
                 wins: 1,
               };
-              this.model.createData("winners", data);
+              this.model.createData('winners', data);
             }
           });
       });
@@ -307,7 +306,7 @@ export class AppController implements Controller {
   }
 
   public async start() {
-    this.viewRouter("garage");
-    console.log("App is running...");
+    this.viewRouter('garage');
+    console.log('App is running...');
   }
 }

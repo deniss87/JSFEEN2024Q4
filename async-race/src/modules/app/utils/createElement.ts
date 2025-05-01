@@ -5,11 +5,11 @@ function createElement(
 ) {
   const element = document.createElement(elementName);
   for (const [key, value] of Object.entries(params)) {
-    if (key === "id") element.setAttribute("id", String(value));
-    if (key === "text") element.innerText = String(value);
-    if (key === "className") element.classList.add(String(value));
+    if (key === 'id') element.setAttribute('id', String(value));
+    if (key === 'text') element.innerText = String(value);
+    if (key === 'className') element.classList.add(String(value));
 
-    if (key === "event" && Array.isArray(value)) {
+    if (key === 'event' && Array.isArray(value)) {
       element.addEventListener(value[0], value[1]);
     }
   }

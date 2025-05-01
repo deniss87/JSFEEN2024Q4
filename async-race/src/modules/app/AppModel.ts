@@ -1,20 +1,16 @@
-import { Model } from "./types/model";
-import {
-  garageCarType,
-  winnersDataType,
-  winnerListType,
-} from "../app/types/types";
+import { Model } from './types/model';
+import { garageCarType, winnersDataType, winnerListType } from './types/types';
 
 export class AppModel implements Model {
   private server: string;
 
   constructor() {
-    this.server = "http://127.0.0.1:3000";
+    this.server = 'http://127.0.0.1:3000';
   }
 
   async getData<T>(endpoint: string, id?: number) {
-    let url = this.server + "/" + endpoint;
-    if (id !== undefined) url += "/" + id;
+    let url = `${this.server}/${endpoint}`;
+    if (id !== undefined) url += `/${id}`;
 
     try {
       const response = await fetch(url);
@@ -33,8 +29,8 @@ export class AppModel implements Model {
     try {
       if (id === undefined) {
         const [winners, garage] = await Promise.all([
-          this.getData<winnersDataType[]>("winners"),
-          this.getData<garageCarType[]>("garage"),
+          this.getData<winnersDataType[]>('winners'),
+          this.getData<garageCarType[]>('garage'),
         ]);
 
         const result = winners.map((winner: any) => {
@@ -52,21 +48,20 @@ export class AppModel implements Model {
         });
 
         return result;
-      } else {
-        const winnerData = (await this.getData<winnersDataType>(
-          "winners",
-          id,
-        )) as winnersDataType;
-        const garageData = (await this.getData<garageCarType>(
-          "garage",
-          id,
-        )) as garageCarType;
+      }
+      const winnerData = (await this.getData<winnersDataType>(
+        'winners',
+        id,
+      )) as winnersDataType;
+      const garageData = (await this.getData<garageCarType>(
+        'garage',
+        id,
+      )) as garageCarType;
 
-        if (winnerData) {
-          console.log("update winner");
-        } else {
-          console.log("new winner");
-        }
+      if (winnerData) {
+        console.log('update winner');
+      } else {
+        console.log('new winner');
       }
     } catch (error) {
       console.log(error);
@@ -76,8 +71,8 @@ export class AppModel implements Model {
   async getWinnersInfo(): Promise<winnerListType[]> {
     try {
       const [winners, garage] = await Promise.all([
-        this.getData<winnersDataType[]>("winners"),
-        this.getData<garageCarType[]>("garage"),
+        this.getData<winnersDataType[]>('winners'),
+        this.getData<garageCarType[]>('garage'),
       ]);
 
       const result = winners.map((winner: any) => {
@@ -96,19 +91,19 @@ export class AppModel implements Model {
 
       return result;
     } catch (error) {
-      console.error("Error fetching winners with car info:", error);
+      console.error('Error fetching winners with car info:', error);
       return [];
     }
   }
 
   async createData(endpoint: string, data: {}): Promise<{}[]> {
-    const url = this.server + "/" + endpoint;
+    const url = `${this.server}/${endpoint}`;
 
     try {
       const response = await fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
@@ -124,10 +119,10 @@ export class AppModel implements Model {
   }
 
   async deleteData(endpoint: string, id: number): Promise<{}[]> {
-    const url = this.server + "/" + endpoint + "/" + id;
+    const url = `${this.server}/${endpoint}/${id}`;
     try {
       const response = await fetch(url, {
-        method: "DELETE",
+        method: 'DELETE',
       });
 
       if (!response.ok) {
@@ -141,13 +136,13 @@ export class AppModel implements Model {
   }
 
   async updateData(endpoint: string, id: number, data: {}): Promise<{}[]> {
-    const url = this.server + "/" + endpoint + "/" + id;
+    const url = `${this.server}/${endpoint}/${id}`;
 
     try {
       const response = await fetch(url, {
-        method: "PUT",
+        method: 'PUT',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
@@ -167,15 +162,15 @@ export class AppModel implements Model {
       id: carId.toString(),
       status: carStatus,
     });
-    const url = this.server + "/engine" + "?" + params;
+    const url = `${this.server}/engine` + `?${params}`;
 
     try {
       const response = fetch(url, {
-        method: "PATCH",
+        method: 'PATCH',
         body: new URLSearchParams({ id: carId.toString(), status: carStatus }),
       });
 
-      if (carStatus === "started") {
+      if (carStatus === 'started') {
         return await response
           .then((response) => {
             const data = response.json();
@@ -187,12 +182,13 @@ export class AppModel implements Model {
           });
       }
 
-      if (carStatus === "drive") {
+      if (carStatus === 'drive') {
         return response
-          .then((response) => {
-            // console.log('Drive: ', response.status);
-            return response.status;
-          })
+          .then(
+            (response) =>
+              // console.log('Drive: ', response.status);
+              response.status,
+          )
           .then((resStatus) => {
             const data = { id: carId, status: resStatus };
             return data;
@@ -201,7 +197,7 @@ export class AppModel implements Model {
 
       return response;
     } catch (error) {
-      console.log("Error:", error);
+      console.log('Error:', error);
     }
   }
 

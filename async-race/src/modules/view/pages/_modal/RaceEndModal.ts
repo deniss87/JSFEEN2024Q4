@@ -1,19 +1,22 @@
-import { ViewModel } from "../../ViewModel";
+import { ViewModel } from '../../ViewModel';
 
 export class RaceEndModal extends ViewModel {
   root: HTMLElement;
 
   winnerName: string;
+
   winnerTime: number;
+
   modalContainer: HTMLElement;
+
   modalWindow: HTMLElement;
 
   constructor(params: { name: string; time: number }) {
     super();
-    this.root = document.getElementById("root");
-    params.name !== ""
+    this.root = document.getElementById('root');
+    params.name !== ''
       ? (this.winnerName = params.name)
-      : (this.winnerName = "unnamed car");
+      : (this.winnerName = 'unnamed car');
 
     this.winnerTime = params.time;
     this.create();
@@ -23,30 +26,30 @@ export class RaceEndModal extends ViewModel {
   }
 
   create() {
-    this.modalContainer = this.createElement("div", this.root, {
-      id: "modal__container",
+    this.modalContainer = this.createElement('div', this.root, {
+      id: 'modal__container',
     });
-    this.modalWindow = this.createElement("div", this.modalContainer, {
-      id: "modal__race-winner",
-      className: "modal__race-winner",
+    this.modalWindow = this.createElement('div', this.modalContainer, {
+      id: 'modal__race-winner',
+      className: 'modal__race-winner',
     });
-    this.createElement("div", this.modalWindow, {
-      id: "modal__race-winner-title",
-      html: "<h1>RACE RESULT<h1>",
+    this.createElement('div', this.modalWindow, {
+      id: 'modal__race-winner-title',
+      html: '<h1>RACE RESULT<h1>',
     });
-    const winnersList = this.createElement("div", this.modalWindow, {
-      id: "modal__race-winner-car",
+    const winnersList = this.createElement('div', this.modalWindow, {
+      id: 'modal__race-winner-car',
       html: `<p>Winner is <b>${this.winnerName}</b> <br>with time <b>${this.winnerTime}s</b></p>`,
     });
-    const modalClose = this.createElement("div", this.modalWindow, {
-      id: "modal__race-winner-close",
+    const modalClose = this.createElement('div', this.modalWindow, {
+      id: 'modal__race-winner-close',
     });
-    const modalCloseBtn = this.createElement("button", modalClose, {
-      id: "button__race-winner-close",
-      className: "button__race-winner",
-      text: "CLOSE",
+    const modalCloseBtn = this.createElement('button', modalClose, {
+      id: 'button__race-winner-close',
+      className: 'button__race-winner',
+      text: 'CLOSE',
       event: [
-        "click",
+        'click',
         () => {
           this.close();
         },
@@ -55,7 +58,7 @@ export class RaceEndModal extends ViewModel {
   }
 
   open() {
-    this.modalWindow.classList.add("modal__race-winner-open");
+    this.modalWindow.classList.add('modal__race-winner-open');
   }
 
   close() {

@@ -1,29 +1,42 @@
-import { ViewModel } from "../../ViewModel";
-import { AppController } from "../../../app/AppController";
-import { winnerListType, winnersDataType } from "../../../app/types/types";
-import { carLogoSvg } from "../_assets/images";
+import { ViewModel } from '../../ViewModel';
+import { AppController } from '../../../app/AppController';
+import { winnerListType, winnersDataType } from '../../../app/types/types';
+import { carLogoSvg } from '../_assets/images';
 
-type SortKey = "name" | "wins" | "time";
-type SortOrder = "asc" | "desc";
+type SortKey = 'name' | 'wins' | 'time';
+type SortOrder = 'asc' | 'desc';
 
 export class WinnersView extends ViewModel {
   controller: AppController;
 
   mainContainer: HTMLElement;
+
   winnersContainer: HTMLElement;
 
   page: number;
+
   pageTotal: number;
+
   pageStart: number;
+
   pageEnd: number;
+
   itemsPerPage: number;
+
   winnersTotal: number;
+
   prevBtnStatus: boolean;
+
   nextBtnStatus: boolean;
+
   sortName: SortOrder;
+
   sortWins: SortOrder;
+
   sortTime: SortOrder;
+
   sort: SortKey;
+
   order: SortOrder;
 
   data: winnerListType[];
@@ -38,8 +51,8 @@ export class WinnersView extends ViewModel {
     this.prevBtnStatus = false;
     this.nextBtnStatus = true;
 
-    this.sort = "time";
-    this.order = "asc";
+    this.sort = 'time';
+    this.order = 'asc';
   }
 
   create() {
@@ -75,18 +88,18 @@ export class WinnersView extends ViewModel {
 
   winnersBody() {
     // WINNERS TITLE
-    const titleContainer = this.createElement("div", this.mainContainer, {
-      className: "container__winners-title",
+    const titleContainer = this.createElement('div', this.mainContainer, {
+      className: 'container__winners-title',
     });
-    this.createElement("h3", titleContainer, {
-      id: "text__winners-title",
+    this.createElement('h3', titleContainer, {
+      id: 'text__winners-title',
       text: `RACE WINNERS (${this.data.length})`,
-      className: "text__title",
+      className: 'text__title',
     });
 
     // WINNERS TABLE CONTAINER
-    this.winnersContainer = this.createElement("div", this.mainContainer, {
-      className: "container__winners-list",
+    this.winnersContainer = this.createElement('div', this.mainContainer, {
+      className: 'container__winners-list',
     });
   }
 
@@ -101,13 +114,13 @@ export class WinnersView extends ViewModel {
               <th id="table__winners-time" class="table__winners-header-sort">BEST TIME</th>
             </tr>
     `;
-    const winnersTable = this.createElement("table", this.winnersContainer, {
-      className: "table__winners",
+    const winnersTable = this.createElement('table', this.winnersContainer, {
+      className: 'table__winners',
       html: tableHeaderHTML,
     });
 
     // sort all data
-    let sortedData = this.sortByKey(this.data, this.sort, this.order);
+    const sortedData = this.sortByKey(this.data, this.sort, this.order);
 
     let startId = 0;
     let endId = this.itemsPerPage;
@@ -123,10 +136,10 @@ export class WinnersView extends ViewModel {
             <tr class="table__winners-data">
               <td>${sortedData[i].id}</td>
               <td>${carLogoSvg(
-                `img__winners-car-logo-${sortedData[i].id}`,
-                `img__winners-car-logo`,
-                `${sortedData[i].color}`,
-              )}
+    `img__winners-car-logo-${sortedData[i].id}`,
+    'img__winners-car-logo',
+    `${sortedData[i].color}`,
+  )}
               </td>
               <td class="table__winners-name">${sortedData[i].name}</td>
               <td>${sortedData[i].wins}</td>
@@ -139,55 +152,55 @@ export class WinnersView extends ViewModel {
 
     // winners pages
     const paginationContainer = this.createElement(
-      "div",
+      'div',
       this.winnersContainer,
       {
-        className: "container__pagination",
+        className: 'container__pagination',
       },
     );
 
     // WINNERS TABLE: BUTTON PREVIOUS PAGE
-    this.createElement("button", paginationContainer, {
-      id: "button__prev-page",
-      text: "<<",
-      className: "button__pagination",
+    this.createElement('button', paginationContainer, {
+      id: 'button__prev-page',
+      text: '<<',
+      className: 'button__pagination',
       event: [
-        "click",
+        'click',
         () => {
-          this.controller.setPagination(this, "prevPage");
+          this.controller.setPagination(this, 'prevPage');
         },
       ],
     });
     // WINNERS TABLE: TOTAL PAGES
-    this.createElement("h4", paginationContainer, {
-      id: "text__winners-pages",
+    this.createElement('h4', paginationContainer, {
+      id: 'text__winners-pages',
       text: `Page ${this.page} of ${this.pageTotal}`,
-      className: "text__total-pages",
+      className: 'text__total-pages',
     });
 
     // WINNERS TABLE: BUTTON NEXT PAGE
-    this.createElement("button", paginationContainer, {
-      id: "button__next-page",
-      text: ">>",
-      className: "button__pagination",
+    this.createElement('button', paginationContainer, {
+      id: 'button__next-page',
+      text: '>>',
+      className: 'button__pagination',
       event: [
-        "click",
+        'click',
         () => {
-          this.controller.setPagination(this, "nextPage");
+          this.controller.setPagination(this, 'nextPage');
         },
       ],
     });
   }
 
   // SORT DATA
-  sortByKey<T>(arr: T[], key: keyof T, order: SortOrder = "asc"): T[] {
+  sortByKey<T>(arr: T[], key: keyof T, order: SortOrder = 'asc'): T[] {
     return [...arr].sort((a, b) => {
       const valA = a[key];
       const valB = b[key];
 
       // Normalize values
-      const aStr = typeof valA === "string" ? valA : String(valA);
-      const bStr = typeof valB === "string" ? valB : String(valB);
+      const aStr = typeof valA === 'string' ? valA : String(valA);
+      const bStr = typeof valB === 'string' ? valB : String(valB);
 
       // If both values are numeric, compare as numbers
       const aNum = parseFloat(aStr);
@@ -202,34 +215,35 @@ export class WinnersView extends ViewModel {
         result = aStr.localeCompare(bStr);
       }
 
-      return order === "asc" ? result : -result;
+      return order === 'asc' ? result : -result;
     });
   }
-  sortEvents() {
-    const tableSortName = document.getElementById("table__winners-name");
-    const tableSortWins = document.getElementById("table__winners-wins");
-    const tableSortTime = document.getElementById("table__winners-time");
 
-    tableSortName.addEventListener("click", () => {
-      this.sort = "name";
+  sortEvents() {
+    const tableSortName = document.getElementById('table__winners-name');
+    const tableSortWins = document.getElementById('table__winners-wins');
+    const tableSortTime = document.getElementById('table__winners-time');
+
+    tableSortName.addEventListener('click', () => {
+      this.sort = 'name';
       const order = this.toogleSortStatus();
       this.update();
     });
-    tableSortWins.addEventListener("click", () => {
-      this.sort = "wins";
+    tableSortWins.addEventListener('click', () => {
+      this.sort = 'wins';
       const order = this.toogleSortStatus();
       this.update();
     });
-    tableSortTime.addEventListener("click", () => {
-      this.sort = "time";
+    tableSortTime.addEventListener('click', () => {
+      this.sort = 'time';
       const order = this.toogleSortStatus();
       this.update();
     });
   }
 
   toogleSortStatus() {
-    if (this.order === "asc") this.order = "desc";
-    else this.order = "asc";
+    if (this.order === 'asc') this.order = 'desc';
+    else this.order = 'asc';
   }
 
   // end

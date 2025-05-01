@@ -1,6 +1,6 @@
-import { GarageView } from "../../view/pages/garage/GarageView";
-import { HeaderView } from "../../view/pages/header/HeaderView";
-import { WinnersView } from "../../view/pages/winners/WinnersView";
+import { GarageView } from '../../view/pages/garage/GarageView';
+import { HeaderView } from '../../view/pages/header/HeaderView';
+import { WinnersView } from '../../view/pages/winners/WinnersView';
 
 export type garageCarType = {
   name: string;
