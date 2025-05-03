@@ -1,0 +1,48 @@
+.container__user-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  margin: 10px 10px;
+}
+
+.user-list-search {
+  margin: 10px;
+  .input__user-list-search {
+    height: 20px;
+    border: 1px solid grey;
+    border-radius: 12px;
+    padding: 12px;
+  }
+}
+
+.ul__user-list-names {
+  list-style-position: inside;
+  padding: 0;
+  margin: 0;
+}
+
+.user-name {
+  font-size: 22px;
+  margin-left: 10px;
+  padding-left: 20px;
+
+  &::marker {
+    color: red;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(206, 216, 216);
+  }
+}
+
+.user-name-active {
+  &::marker {
+    color: green;
+  }
+}
+
+.user-name-inactive {
+  &::marker {
+    color: grey;
+  }
+}

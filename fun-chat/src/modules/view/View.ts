@@ -4,7 +4,6 @@ import { LoginView } from "./pages/login/loginView";
 import { MainView } from "./pages/main/MainView";
 import { AboutView } from "./pages/about/AboutView";
 
-
 export class View extends ViewModel {
   controller: AppController;
 
@@ -13,15 +12,14 @@ export class View extends ViewModel {
   mainView: MainView;
   aboutView: AboutView;
 
-
   constructor(appController: AppController) {
     super();
     this.controller = appController;
 
     // MAIN VIEW
-    this.root = this.createElement('div', document.body, {
-      id: 'root'
-    })
+    this.root = this.createElement("div", document.body, {
+      id: "root",
+    });
 
     // LOGIN VIEW
     this.loginView = new LoginView(this.controller, this.root);
@@ -30,30 +28,17 @@ export class View extends ViewModel {
 
     // MOUNT MAIN VIEW
     this.mount();
-
-  }
-  
-  // VIEW
-  getView(view: string, param?: any) {
-    // const views = [
-    //   ['login', this.create(view)],
-    //   ['main', this.create(view)],
-    // ];
-
-    // for (let i = 0; i < views.length; i += 1) {
-    //   if (views[i][0] === view) {
-    //     return views[i][1];
-    //   } 
-    // }
   }
 
-  create(view: string) {
-    if (view === 'login') return this.loginView.create();
-    if (view === 'main') return this.mainView.create();
-    if (view === 'about') return this.aboutView.create();
+  create(view: string, data?: []) {
+    if (view === "login") return this.loginView.create();
+    if (view === "main") return this.mainView.create(data);
+    if (view === "about") return this.aboutView.create();
+    if (view === "user-list-active")
+      return this.mainView.userList.createActiveUsers(data);
+    if (view === "user-list-inactive")
+      return this.mainView.userList.createInactiveUsers(data);
   }
 
-
-
-// end  
+  // end
 }
