@@ -4,6 +4,9 @@ import { LoginView } from "./pages/login/loginView";
 import { MainView } from "./pages/main/MainView";
 import { AboutView } from "./pages/about/AboutView";
 
+// types
+import { activeUsersListType, userMessageType } from "../app/types/types";
+
 export class View extends ViewModel {
   controller: AppController;
 
@@ -30,14 +33,43 @@ export class View extends ViewModel {
     this.mount();
   }
 
-  create(view: string, data?: []) {
-    if (view === "login") return this.loginView.create();
-    if (view === "main") return this.mainView.create(data);
-    if (view === "about") return this.aboutView.create();
-    if (view === "user-list-active")
-      return this.mainView.userList.createActiveUsers(data);
-    if (view === "user-list-inactive")
-      return this.mainView.userList.createInactiveUsers(data);
+  create(view: string, data?: [] | object, status?: boolean) {
+    switch (view) {
+      case "login": {
+        this.loginView.create();
+        break;
+      }
+      case "main": {
+        this.mainView.create(data);
+        break;
+      }
+      case "about": {
+        this.aboutView.create();
+        break;
+      }
+      case "user-list-active": {
+        this.mainView.userList.createActiveUsers(data as activeUsersListType[]);
+        break;
+      }
+      case "user-list-inactive": {
+        this.mainView.userList.createInactiveUsers(
+          data as activeUsersListType[]
+        );
+        break;
+      }
+      case "user-status": {
+        this.mainView.updateUserStatus(status);
+        break;
+      }
+      case "user-list-messages": {
+        this.mainView.userList.showUnreadMessages(data as userMessageType[]);
+        break;
+      }
+      case "user-all-messages": {
+        this.mainView.showAllMessages(data as userMessageType[]);
+        break;
+      }
+    }
   }
 
   // end

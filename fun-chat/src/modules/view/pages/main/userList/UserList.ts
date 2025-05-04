@@ -1,6 +1,14 @@
 import { ViewModel } from "../../../ViewModel";
 import { AppController } from "../../../../app/AppController";
-import { activeUsersListType } from "../../../../app/types/types";
+
+// types
+import {
+  activeUsersListType,
+  // userAllMessagesType,
+  userMessageType,
+} from "../../../../app/types/types";
+
+// css
 import "./userList.scss";
 
 export class UserList extends ViewModel {
@@ -65,41 +73,55 @@ export class UserList extends ViewModel {
     this.activeUserList.replaceChildren();
 
     // CREATE ACTIVE USERS
-    for (const activeUser of data) {
-      this.createElement("li", this.activeUserList, {
-        className: ["user-name", "user-name-active"],
-        name: activeUser.login,
-        text: activeUser.login,
-        event: [
-          "click",
-          () => {
-            alert(`User name: ${activeUser.login}`);
-          },
-        ],
-      });
+    for (const activeUser of data as activeUsersListType[]) {
+      if (activeUser.login !== this.user) {
+        const parentNode = this.createElement("li", this.activeUserList, {
+          className: ["li__user-list", "li__user-list-active"],
+          name: activeUser.login,
+          text: activeUser.login,
+          event: [
+            "click",
+            () => {
+              this.controller.getChat(activeUser.login, activeUser.isLogined);
+            },
+          ],
+        });
+        this.createElement("span", parentNode, {
+          className: "li__user-list-messages",
+        });
+      }
     }
 
     // MOUNT ELEMENTS
     this.mount();
+
+    // GET ALL UNREAD MESSAGES
+    // for (const user of data as activeUsersListType[]) {
+    //   if (user.login !== this.user) {
+    //     this.controller.getUnreadMessages(user.login);
+    //   }
+    // }
   }
 
   createInactiveUsers(data: activeUsersListType[]) {
     // CLEAN OLD VIEW
     this.inactiveUserList.replaceChildren();
 
-    // CREATE ACTIVE USERS
-    for (const activeUser of data) {
-      console.log(activeUser.login);
-      this.createElement("li", this.inactiveUserList, {
-        className: ["user-name", "user-name-inactive"],
+    // CREATE INACTIVE USERS
+    for (const activeUser of data as activeUsersListType[]) {
+      const parentNode = this.createElement("li", this.inactiveUserList, {
+        className: ["li__user-list", "li__user-list-inactive"],
         name: activeUser.login,
         text: activeUser.login,
         event: [
           "click",
           () => {
-            alert(`User name: ${activeUser.login}`);
+            this.controller.getChat(activeUser.login, activeUser.isLogined);
           },
         ],
+      });
+      this.createElement("span", parentNode, {
+        className: "li__user-list-messages",
       });
     }
 
@@ -109,23 +131,37 @@ export class UserList extends ViewModel {
 
   userListSearch(value: string) {
     const userList: NodeListOf<HTMLElement> =
-      document.querySelectorAll(".user-name");
+      document.querySelectorAll(".li__user-list");
 
     const searchValue = value.trim().toLowerCase();
 
+    // for (const item of userList) {
+    //   const name = item.textContent.trim().toLowerCase();
+    //   item.style.display = name.startsWith(searchValue) ? "" : "none";
+    // }
+
+    // eslint-disable-next-line unicorn/no-array-for-each
     userList.forEach((item) => {
       const name = item.textContent.trim().toLowerCase();
-
-      name.startsWith(searchValue)
-        ? (item.style.display = "")
-        : (item.style.display = "none");
-
-      // if (name.startsWith(searchValue)) {
-      //   item.style.display = "";
-      // } else {
-      //   item.style.display = "none";
-      // }
+      item.style.display = name.startsWith(searchValue) ? "" : "none";
     });
+  }
+
+  showUnreadMessages(data: userMessageType[]) {
+    const unreadMessages = new Map();
+
+    for (const message of data) {
+      if (!message.status.isReaded) {
+        let count = unreadMessages.get(message.from);
+        if (Number.isNaN(count)) count = 1;
+        unreadMessages.set(message.from, count + 1);
+      }
+    }
+
+    console.log(unreadMessages);
+    // for (const unread of unreadMessages) {
+    //   console.log(unread);
+    // }
   }
 
   // end

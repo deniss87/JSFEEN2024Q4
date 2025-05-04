@@ -33,7 +33,7 @@ export default defineConfig([
     },
   },
   {
-    linterOptions: { noInlineConfig: true },
+    linterOptions: { noInlineConfig: false },
   },
   eslintConfigPrettier,
 ]);

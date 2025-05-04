@@ -2,7 +2,11 @@ import { Controller } from "./types/controller";
 import { AppModel } from "./AppModel";
 import { Router } from "./Router";
 import { View } from "../view/View";
-import { routerType, socketActiveUsers } from "./types/types";
+import {
+  routerType,
+  socketActiveUsers,
+  // userAllMessagesType,
+} from "./types/types";
 import {
   loginNameValidation,
   loginPwdValidation,
@@ -182,9 +186,86 @@ export class AppController implements Controller {
     };
     this.model.sendData(data);
   }
-  // USER LIST SEARCH
-  userListSearch(value: string) {
-    console.log(value);
+
+  getChat(userName: string, status: boolean) {
+    const user = {
+      name: userName,
+      status: status,
+    };
+    this.view.mainView.createChat(user);
+    this.getAllMessages(userName);
+  }
+
+  // SEND MESSAGE TO USER
+  sendMessage(userName: string, message: string) {
+    const data = {
+      id: this.sessionId,
+      type: "MSG_SEND",
+      payload: {
+        message: {
+          to: userName,
+          text: message,
+        },
+      },
+    };
+    this.model.sendData(data);
+  }
+
+  // EDIT MESSAGE
+  editMessage(messageId: string, message: string) {
+    const data = {
+      id: this.sessionId,
+      type: "MSG_EDIT",
+      payload: {
+        message: {
+          id: messageId,
+          text: message,
+        },
+      },
+    };
+    this.model.sendData(data);
+  }
+
+  // EDIT MESSAGE
+  deleteMessage(messageId: string) {
+    const data = {
+      id: this.sessionId,
+      type: "MSG_DELETE",
+      payload: {
+        message: {
+          id: messageId,
+        },
+      },
+    };
+    this.model.sendData(data);
+  }
+
+  // GET ALL MESSAGES
+  getAllMessages(userName: string) {
+    const data = {
+      id: this.sessionId,
+      type: "MSG_FROM_USER",
+      payload: {
+        user: {
+          login: userName,
+        },
+      },
+    };
+    this.model.sendData(data);
+  }
+
+  // GET ALL UNREAD MESSAGES
+  getUnreadMessages(userName: string) {
+    const data = {
+      id: this.sessionId,
+      type: "MSG_FROM_USER",
+      payload: {
+        user: {
+          login: userName,
+        },
+      },
+    };
+    this.model.sendData(data);
   }
 
   // GET VIEW

@@ -1,6 +1,8 @@
 import { ViewModel } from "../../../ViewModel";
 import { AppController } from "../../../../app/AppController";
 
+// css
+import "./footer.scss";
 
 export class FooterView extends ViewModel {
   controller: AppController;
@@ -17,13 +19,25 @@ export class FooterView extends ViewModel {
   create() {
     // CLEAN OLD VIEW
     this.mainNode.replaceChildren();
-    
-    // HEADER
-    this.createElement('h1', this.mainNode, {
-      text: 'Footer'
-    })
 
-    // MOUNT 
+    // FOOTER
+
+    this.createElement("div", this.mainNode, {
+      className: "footer__school",
+      html: "RSSchool",
+    });
+
+    this.createElement("div", this.mainNode, {
+      className: "footer__author",
+      html: "&copy; Deniss Patancevs",
+    });
+
+    this.createElement("div", this.mainNode, {
+      className: "footer__year",
+      html: "2025",
+    });
+
+    // MOUNT
     this.mount();
   }
 }

@@ -44,27 +44,35 @@ export class AppModel implements Model {
 
     switch (response.type) {
       case "USER_LOGIN": {
-        globalThis.history.pushState("/", "Fun Chat", "/");
+        globalThis.history.pushState(
+          "/",
+          "Fun Chat",
+          "/deepcd87-JSFEEN2024Q4/fun-chat/"
+        );
         this.controller.getView();
         break;
       }
       case "USER_LOGOUT": {
         sessionStorage.removeItem("user");
         sessionStorage.removeItem("password");
-        globalThis.history.pushState("/login", "Fun Chat", "/login");
+        globalThis.history.pushState(
+          "/login",
+          "Fun Chat",
+          "/deepcd87-JSFEEN2024Q4/fun-chat/login/"
+        );
         this.controller.getView();
         break;
       }
       case "USER_EXTERNAL_LOGIN": {
-        console.log("EXTERNAL USER LOGIN");
         this.controller.getActiveUsers();
         this.controller.getInactiveUsers();
+        this.view.create("user-status", [], true);
         break;
       }
       case "USER_EXTERNAL_LOGOUT": {
-        console.log("EXTERNAL USER LOGOUT");
         this.controller.getActiveUsers();
         this.controller.getInactiveUsers();
+        this.view.create("user-status", [], false);
         break;
       }
       case "USER_ACTIVE": {
@@ -75,12 +83,35 @@ export class AppModel implements Model {
         this.view.create("user-list-inactive", response.payload.users);
         break;
       }
+      case "MSG_SEND": {
+        const data = [response.payload.message];
+        this.view.create("user-all-messages", data);
+        break;
+      }
+      case "MSG_FROM_USER": {
+        this.view.create("user-all-messages", response.payload.messages);
+        break;
+      }
+      case "MSG_EDIT": {
+        const user = this.view.mainView.userChat.user.name;
+        if (user) this.controller.getAllMessages(user);
+        break;
+      }
+      case "MSG_DELETE": {
+        const user = this.view.mainView.userChat.user.name;
+        if (user) this.controller.getAllMessages(user);
+        break;
+      }
       case "ERROR": {
         console.log(response.payload.error);
 
         if (response.payload.error === "the user was not authorized") {
           sessionStorage.removeItem("user");
-          globalThis.history.pushState("/login", "Fun Chat", "/login");
+          globalThis.history.pushState(
+            "/login",
+            "Fun Chat",
+            "/deepcd87-JSFEEN2024Q4/fun-chat/login/"
+          );
           this.controller.getView();
         } else {
           const pwdMessageElement =
