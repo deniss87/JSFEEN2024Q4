@@ -2,15 +2,14 @@ import { Controller } from "./types/controller";
 import { AppModel } from "./AppModel";
 import { Router } from "./Router";
 import { View } from "../view/View";
-import {
-  routerType,
-  socketActiveUsers,
-  // userAllMessagesType,
-} from "./types/types";
+import { routerType, socketActiveUsers } from "./types/types";
 import {
   loginNameValidation,
   loginPwdValidation,
 } from "./utils/loginValidation";
+
+// CONST
+import { PATH } from "../app/constants/appConst";
 
 export class AppController implements Controller {
   model: AppModel;
@@ -23,23 +22,21 @@ export class AppController implements Controller {
   userPassword: string;
 
   constructor(router: Router) {
+    this.getSession();
     this.view = new View(this);
     this.model = new AppModel(this, this.view);
     this.router = router;
-    this.getSession();
   }
 
   getSession() {
-    const sessionId = sessionStorage.getItem("id");
-    if (sessionId) {
+    const sessionId = sessionStorage.getItem("funID");
+    if (sessionId === null) {
+      this.setSession(24);
+    } else {
       this.sessionId = sessionId;
       this.userName = sessionStorage.getItem("user");
       this.userPassword = sessionStorage.getItem("password");
-    } else {
-      this.setSession(24);
     }
-
-    // this.sessionId = sessionId ?? this.setSession(24);
   }
 
   setSession(length: number): string {
@@ -48,8 +45,14 @@ export class AppController implements Controller {
     const sessionId = Array.from(array, (dec) =>
       dec.toString(16).padStart(2, "0")
     ).join("");
-    sessionStorage.setItem("id", sessionId);
+    sessionStorage.setItem("funID", sessionId);
     return sessionId;
+  }
+
+  // REDIRECT
+  redirect(uri: string) {
+    globalThis.history.pushState(uri, "Fun Chat", PATH + uri);
+    this.getView();
   }
 
   // USER LOGIN VALIDATION
@@ -123,14 +126,11 @@ export class AppController implements Controller {
 
       this.model.sendData(data);
     } else {
-      console.log(nameValidation, pwdValidation);
+      console.log("LOGIN AUTHENTICATION ERROR");
     }
   }
 
   reloginUser() {
-    // const name = sessionStorage.getItem("user");
-    // const password = sessionStorage.getItem("password");
-
     const data = {
       id: this.sessionId,
       type: "USER_LOGIN",
@@ -156,7 +156,6 @@ export class AppController implements Controller {
         },
       },
     };
-    console.log(data);
     this.model.sendData(data);
   }
 
@@ -253,6 +252,19 @@ export class AppController implements Controller {
     };
     this.model.sendData(data);
   }
+  // SET MESSAGE READ STATUS
+  setReadStatus(messageId: string) {
+    const data = {
+      id: this.sessionId,
+      type: "MSG_READ",
+      payload: {
+        message: {
+          id: messageId,
+        },
+      },
+    };
+    this.model.sendData(data);
+  }
 
   // GET ALL UNREAD MESSAGES
   getUnreadMessages(userName: string) {
@@ -276,11 +288,8 @@ export class AppController implements Controller {
       if (this.getViewAuth(route)) {
         this.view.create(route.view);
       } else {
-        globalThis.location.href = "login";
+        this.redirect("/login");
       }
-      // return this.getViewAuth(route)
-      //   ? this.view.create(route.view)
-      //   : (globalThis.location.href = "login");
     } else {
       throw new Error("Not found");
     }
@@ -290,9 +299,6 @@ export class AppController implements Controller {
     console.log("App is running...");
 
     await this.model.createConnection();
-
-    const sessionUser = sessionStorage.getItem("user");
-    if (sessionUser) this.reloginUser();
 
     this.getView();
   }

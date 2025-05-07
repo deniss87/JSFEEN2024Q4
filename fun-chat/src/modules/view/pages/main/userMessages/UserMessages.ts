@@ -5,10 +5,12 @@ import { AppController } from "../../../../app/AppController";
 import {
   userAllMessagesType,
   userMessageType,
+  userEditMessageType,
+  userReadMessageType,
 } from "../../../../app/types/types";
 
 // assets
-// import { messageMenuLogo } from "../../../assets/images";
+import { messageMenuLogo, messageStatusCheck } from "../../../assets/images";
 
 // css
 import "./userMessages.scss";
@@ -24,6 +26,9 @@ export class UserMessages extends ViewModel {
   contextMenu: HTMLElement;
   contextMenuEdit: HTMLElement;
   contextMenuDelete: HTMLElement;
+  messageEditId: string;
+  messageDeleteId: string;
+  messageSeparator: boolean;
 
   user: { name: string; status: boolean };
   allMessages: userAllMessagesType;
@@ -40,6 +45,7 @@ export class UserMessages extends ViewModel {
     this.user = user;
     this.create();
     this.addEvents();
+    this.messageSeparator = false;
   }
 
   create() {
@@ -73,6 +79,7 @@ export class UserMessages extends ViewModel {
     this.sendInput = this.createElement("input", parentNode, {
       type: "input",
       className: ["input__user-messages"],
+      autofocus: "",
     }) as HTMLInputElement;
     this.sendButton = this.createElement("button", parentNode, {
       type: "button",
@@ -88,18 +95,18 @@ export class UserMessages extends ViewModel {
     });
 
     // context menu
-    this.contextMenu = this.createElement("div", this.chatContainer, {
+    this.contextMenu = this.createElement("div", this.mainNode, {
       className: ["context-menu-container"],
     });
     parentNode = this.createElement("ul", this.contextMenu, {
       className: ["context-menu-list"],
     });
     this.contextMenuEdit = this.createElement("li", parentNode, {
-      className: ["context-menu-action"],
+      className: ["context-menu-action", "context-menu-action-edit"],
       text: "EDIT",
     });
     this.contextMenuDelete = this.createElement("li", parentNode, {
-      className: ["context-menu-action"],
+      className: ["context-menu-action", "context-menu-action-delete"],
       text: "DELETE",
     });
 
@@ -126,13 +133,50 @@ export class UserMessages extends ViewModel {
     }
   }
 
+  showSelectUser() {
+    const parentNode = this.createElement("div", this.chatContainer, {
+      className: "select-user-container",
+    });
+    this.createElement("h2", parentNode, {
+      className: "text__select-user",
+      text: "Select user",
+    });
+  }
+
   showMessages(messages: userMessageType[]) {
+    // CLEAN OLD VIEW
+    // this.chatContainer.replaceChildren();
+
+    // CREATE CHAT HISTORY
     for (const message of messages) {
       const messageFrom = message.to === this.user.name ? "me" : "user";
       const datetime = new Date(message.datetime);
       const time = datetime.getHours() + ":" + datetime.getMinutes();
 
+      let deliveredStatus = "";
+      let readStatus = "";
+      if (message.status.isDelivered) deliveredStatus = "delivered";
+      if (message.status.isReaded) readStatus = "readed";
+      // console.log(message.status);
+
+      // message separator
+      // if (!message.status.isReaded && !this.messageSeparator) {
+      //   const separatorContainer = this.createElement(
+      //     "div",
+      //     this.chatContainer,
+      //     {
+      //       className: "message-separator-container",
+      //     }
+      //   );
+      //   this.createElement("div", separatorContainer, {
+      //     className: "message-separator-text",
+      //     text: "NEW MESSAGES",
+      //   });
+      //   this.messageSeparator = true;
+      // }
+
       let parentNode = this.createElement("div", this.chatContainer, {
+        id: `message-container-${message.id}`,
         className: [
           "user-message-container",
           `user-message-container-${messageFrom}`,
@@ -142,40 +186,62 @@ export class UserMessages extends ViewModel {
         className: ["user-message-bulb", `user-messages-${messageFrom}`],
       });
       this.createElement("div", messageBulb, {
+        id: `user-message-${message.id}`,
         className: ["user-message-text"],
         text: message.text,
       });
 
-      parentNode = this.createElement("div", messageBulb, {
-        className: ["user-message-status"],
+      const messageStatusContainer = this.createElement("div", messageBulb, {
+        className: ["user-message-info-container"],
       });
-      this.createElement("div", parentNode, {
+      this.createElement("div", messageStatusContainer, {
         className: ["user-message-time"],
         text: time,
       });
-      const messageMenu = this.createElement("div", parentNode, {
-        className: ["user-message-menu"],
-        text: "...",
-        event: [
-          "click",
-          (event: MouseEvent) => {
-            event.stopPropagation();
-            this.showContextMenu(messageMenu, message.id, message.text);
-          },
-        ],
+      parentNode = this.createElement("div", messageStatusContainer, {
+        className: "user-message-status-container",
       });
+      this.createElement("div", parentNode, {
+        className: ["user-message-status-delivered"],
+        title: deliveredStatus,
+        html: messageStatusCheck(
+          "delivered",
+          message.id,
+          message.status.isDelivered
+        ),
+      });
+      this.createElement("div", parentNode, {
+        className: ["user-message-status-read"],
+        title: readStatus,
+        html: messageStatusCheck("read", message.id, message.status.isReaded),
+      });
+
+      if (message.from !== this.user.name) {
+        const messageMenu = this.createElement("div", messageStatusContainer, {
+          className: ["user-message-menu"],
+          html: messageMenuLogo,
+          event: [
+            "click",
+            (event: MouseEvent) => {
+              event.stopPropagation();
+              this.showContextMenu(messageMenu, message.id);
+            },
+          ],
+        });
+      }
+
+      // CHANGE MESSAGE READ STATUS
+      if (!readStatus) this.controller.setReadStatus(message.id);
     }
+
+    // MOUNT
     this.mount();
 
     // SCROLL TO BOTTOM
     this.chatContainer.scrollTop = this.chatContainer.scrollHeight;
   }
 
-  showContextMenu(
-    menuElement: HTMLElement,
-    mesageId: string,
-    messageText: string
-  ) {
+  showContextMenu(menuElement: HTMLElement, mesageId: string) {
     const rect = menuElement.getBoundingClientRect();
     this.contextMenu.style.top = rect.bottom + window.scrollY + "px";
     this.contextMenu.style.left = rect.left + window.scrollX + "px";
@@ -183,7 +249,12 @@ export class UserMessages extends ViewModel {
 
     // event on EDIT
     this.contextMenuEdit.addEventListener("click", () => {
-      this.sendInput.value = messageText;
+      const messageText = document.querySelector(`#user-message-${mesageId}`);
+      if (messageText) {
+        this.sendInput.value = messageText.textContent;
+        this.sendInput.focus();
+      }
+      this.messageEditId = mesageId;
       this.sendInput.setAttribute("editId", mesageId);
       this.contextMenu.style.display = "none";
     });
@@ -200,13 +271,46 @@ export class UserMessages extends ViewModel {
 
     if (editId) {
       this.controller.editMessage(editId, this.sendInput.value);
+
+      const message = document.querySelector(
+        `#user-message-${this.messageEditId}`
+      );
+      message.textContent = this.sendInput.value;
+
       this.sendInput.removeAttribute("editId");
       this.sendInput.value = "";
     } else {
       this.controller.sendMessage(this.user.name, this.sendInput.value);
       this.sendInput.value = "";
+      this.messageSeparator = true;
     }
     this.sendButton.setAttribute("disabled", "");
+  }
+
+  deleteMessage(messageId: string) {
+    const message = document.querySelector(`#message-container-${messageId}`);
+    if (message) message.remove();
+  }
+
+  updateMessage(message: userEditMessageType) {
+    const messageElement: HTMLElement = document.querySelector(
+      `#user-message-${message.id}`
+    );
+    if (messageElement) {
+      messageElement.textContent = message.text;
+    }
+  }
+
+  updateMessageStatus(message: userReadMessageType) {
+    if (message.status.isReaded) {
+      const messageStatus = document.querySelector(
+        `#message-status-read-${message.id}`
+      );
+      if (messageStatus) {
+        messageStatus.classList.add("message-status-read");
+        messageStatus.parentElement.setAttribute("title", "readed");
+      }
+    }
   }
 
   addEvents() {

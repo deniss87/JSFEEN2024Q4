@@ -1,18 +1,16 @@
 .header {
   display: flex;
+  height: 60px;
   justify-content: space-between;
   align-items: center;
   margin: 0 6%;
 
-  .button__logout {
-    border: 1px solid grey;
-    border-radius: 8px;
-    height: 38px;
-    padding: 4px 10px;
-
-    &:hover {
-      cursor: pointer;
-    }
+  .button__about {
+    margin-right: 10px;
   }
-  // background-color: aqua;
+
+  .text__header-user-name {
+    font-family: "DM Serif Text";
+    letter-spacing: 0.16em;
+  }
 }

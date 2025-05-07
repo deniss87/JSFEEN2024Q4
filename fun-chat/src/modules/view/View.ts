@@ -3,6 +3,7 @@ import { AppController } from "../app/AppController";
 import { LoginView } from "./pages/login/loginView";
 import { MainView } from "./pages/main/MainView";
 import { AboutView } from "./pages/about/AboutView";
+import { NoConnectionView } from "./pages/errors/NoConnectionView/NoConnection";
 
 // types
 import { activeUsersListType, userMessageType } from "../app/types/types";
@@ -14,6 +15,7 @@ export class View extends ViewModel {
   loginView: LoginView;
   mainView: MainView;
   aboutView: AboutView;
+  NoConnectionView: NoConnectionView;
 
   constructor(appController: AppController) {
     super();
@@ -26,9 +28,12 @@ export class View extends ViewModel {
 
     // LOGIN VIEW
     this.loginView = new LoginView(this.controller, this.root);
+    // MAIN VIEW
     this.mainView = new MainView(this.controller, this.root);
+    // ABOUT VIEW
     this.aboutView = new AboutView(this.controller, this.root);
-
+    // NO CONNECTION VIEW
+    this.NoConnectionView = new NoConnectionView(this.controller, this.root);
     // MOUNT MAIN VIEW
     this.mount();
   }
@@ -40,7 +45,7 @@ export class View extends ViewModel {
         break;
       }
       case "main": {
-        this.mainView.create(data);
+        this.mainView.create();
         break;
       }
       case "about": {
@@ -67,6 +72,10 @@ export class View extends ViewModel {
       }
       case "user-all-messages": {
         this.mainView.showAllMessages(data as userMessageType[]);
+        break;
+      }
+      case "no-connection": {
+        this.NoConnectionView.create();
         break;
       }
     }

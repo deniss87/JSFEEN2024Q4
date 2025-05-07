@@ -3,6 +3,9 @@ import { AppController } from "./AppController";
 import { socketGeneralType } from "../app/types/types";
 import { View } from "../view/View";
 
+// types
+import { userMessageType } from "../app/types/types";
+
 export class AppModel implements Model {
   controller: AppController;
   view: View;
@@ -28,7 +31,21 @@ export class AppModel implements Model {
       });
 
       this.socket.addEventListener("open", () => {
+        this.view.root.classList.remove("view-blur");
+        const noConnection = document.querySelector(".no-connection-container");
+        if (noConnection) noConnection.remove();
+        if (this.controller.userName && this.controller.userPassword) {
+          this.controller.reloginUser();
+        }
         resolve("Connnection is opened");
+      });
+      this.socket.addEventListener("error", (error) => {
+        console.log(`Websocket error: ${error}`);
+      });
+      this.socket.addEventListener("close", () => {
+        console.log(`no connection to server`);
+        this.view.create("no-connection");
+        this.reconnect();
       });
     });
 
@@ -44,23 +61,14 @@ export class AppModel implements Model {
 
     switch (response.type) {
       case "USER_LOGIN": {
-        globalThis.history.pushState(
-          "/",
-          "Fun Chat",
-          "/deepcd87-JSFEEN2024Q4/fun-chat/"
-        );
-        this.controller.getView();
+        this.controller.redirect("/");
         break;
       }
       case "USER_LOGOUT": {
         sessionStorage.removeItem("user");
         sessionStorage.removeItem("password");
-        globalThis.history.pushState(
-          "/login",
-          "Fun Chat",
-          "/deepcd87-JSFEEN2024Q4/fun-chat/login/"
-        );
-        this.controller.getView();
+        this.controller.redirect("/login");
+
         break;
       }
       case "USER_EXTERNAL_LOGIN": {
@@ -84,35 +92,48 @@ export class AppModel implements Model {
         break;
       }
       case "MSG_SEND": {
-        const data = [response.payload.message];
-        this.view.create("user-all-messages", data);
+        const data: userMessageType[] = [response.payload.message];
+        const messageTo = data[0].to;
+        const messageFrom = data[0].from;
+
+        const activeChat = this.view.mainView.activeChat;
+        if (activeChat === messageTo || activeChat === messageFrom) {
+          this.view.create("user-all-messages", data);
+        }
         break;
       }
       case "MSG_FROM_USER": {
         this.view.create("user-all-messages", response.payload.messages);
         break;
       }
+      case "MSG_READ": {
+        const activeChat = this.view.mainView.activeChat;
+        if (activeChat) {
+          this.view.mainView.userChat.updateMessageStatus(
+            response.payload.message
+          );
+        }
+        break;
+      }
       case "MSG_EDIT": {
-        const user = this.view.mainView.userChat.user.name;
-        if (user) this.controller.getAllMessages(user);
+        const activeChat = this.view.mainView.activeChat;
+        if (activeChat) {
+          this.view.mainView.userChat.updateMessage(response.payload.message);
+        }
         break;
       }
       case "MSG_DELETE": {
-        const user = this.view.mainView.userChat.user.name;
-        if (user) this.controller.getAllMessages(user);
+        const activeChat = this.view.mainView.activeChat;
+        if (activeChat)
+          this.view.mainView.userChat.deleteMessage(
+            response.payload.message.id
+          );
         break;
       }
       case "ERROR": {
-        console.log(response.payload.error);
-
         if (response.payload.error === "the user was not authorized") {
           sessionStorage.removeItem("user");
-          globalThis.history.pushState(
-            "/login",
-            "Fun Chat",
-            "/deepcd87-JSFEEN2024Q4/fun-chat/login/"
-          );
-          this.controller.getView();
+          this.controller.redirect("/login");
         } else {
           const pwdMessageElement =
             document.querySelector("#login-pwd-message");
@@ -127,6 +148,19 @@ export class AppModel implements Model {
         console.log(response);
       }
     }
+  }
+
+  reconnect() {
+    const interval = setInterval(() => {
+      const testConnection = new WebSocket(this.server);
+
+      testConnection.addEventListener("open", () => {
+        console.log("connection restored");
+        clearInterval(interval);
+        this.createConnection();
+        testConnection.close();
+      });
+    }, 3000);
   }
 
   // end

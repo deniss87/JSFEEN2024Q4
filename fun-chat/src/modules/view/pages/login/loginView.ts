@@ -20,23 +20,33 @@ export class LoginView extends ViewModel {
   }
 
   redirect() {
-    if (sessionStorage.getItem("auth")) {
-      globalThis.location.href = "/";
+    const sessionUser = sessionStorage.getItem("user");
+    if (sessionUser) {
+      this.controller.redirect("/");
     }
   }
 
   create() {
-    // Redirect if alredy login
-    // this.redirect();
+    // REDIRECT
+    this.redirect();
 
     // CLEAN OLD VIEW
     this.mainNode.replaceChildren();
 
     // MAIN SECTION
-    const mainContainer = this.createElement("section", this.mainNode, {
-      id: "main",
-      className: "section__main-login",
+    const mainContainer = this.createElement("main", this.mainNode, {
+      className: "main__login",
     });
+
+    // HEADER
+    const headerContainer = this.createElement("div", mainContainer, {
+      className: "container__login-header",
+    });
+    this.createElement("h1", headerContainer, {
+      className: ["text__login-header", "text__header-fun"],
+      text: "Fun Chat",
+    });
+
     // LOGIN BOX CONTAINER
     const loginContainer = this.createElement("div", mainContainer, {
       className: "container__login-box",
@@ -58,7 +68,7 @@ export class LoginView extends ViewModel {
     });
 
     this.createElement("label", parentContainer, {
-      for: "login-name-input",
+      for: "login-name",
       text: "Name:",
     });
 
@@ -112,11 +122,23 @@ export class LoginView extends ViewModel {
     parentContainer = this.createElement("div", formElement, {
       className: "container__login-button",
     });
+    // about button
+    this.createElement("button", parentContainer, {
+      type: "button",
+      text: "About",
+      className: ["button__about", "button"],
+      event: [
+        "click",
+        () => {
+          this.controller.redirect("/about");
+        },
+      ],
+    });
     this.createElement("button", parentContainer, {
       type: "button",
       text: "Login",
       id: "login-submit-btn",
-      className: "button__login-submit",
+      className: ["button__login-submit", "button"],
       disabled: "",
       event: [
         "click",

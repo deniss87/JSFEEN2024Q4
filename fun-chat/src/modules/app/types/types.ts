@@ -41,3 +41,19 @@ export type userMessageType = {
     isEdited: boolean;
   };
 };
+
+export type userEditMessageType = {
+  id: string;
+  text: string;
+  datetime: number;
+  status: {
+    isEdited: boolean;
+  };
+};
+
+export type userReadMessageType = {
+  id: string;
+  status: {
+    isReaded: boolean;
+  };
+};

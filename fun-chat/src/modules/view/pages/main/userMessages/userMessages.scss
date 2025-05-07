@@ -20,11 +20,26 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  // justify-content: flex-end;
   overflow-y: scroll;
   overflow-x: hidden;
   margin: 20px 0;
   scrollbar-color: rgb(134, 130, 130) #f0f0f0;
   scrollbar-width: thin;
+
+  .message-separator-container {
+    display: flex;
+    justify-content: center;
+
+    .message-separator-text {
+      border-radius: 20px;
+      background-color: rgba(160, 71, 71, 0.5);
+      padding: 12px 28px;
+      font-size: 14px;
+      font-style: italic;
+      color: rgb(63, 13, 13);
+    }
+  }
 
   .user-message-container {
     display: flex;
@@ -47,16 +62,36 @@
     padding: 16px 16px 8px 16px;
   }
 
-  .user-message-status {
+  .user-message-info-container {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    column-gap: 6px;
     color: rgb(38, 38, 38);
     font-size: 12px;
     padding-top: 6px;
 
-    .user-message-menu {
-      padding-left: 8px;
+    .user-message-status-container {
+      display: flex;
 
+      & path {
+        stroke: rgba(65, 65, 65, 0.575);
+      }
+
+      .user-message-status-delivered {
+        margin-right: -5px;
+        .message-status-delivered path {
+          // stroke: #0a445f;
+          stroke: #0a445f;
+        }
+      }
+      .user-message-status-read {
+        .message-status-read path {
+          stroke: #1a7536;
+        }
+      }
+    }
+    .user-message-menu {
       &:hover {
         cursor: pointer;
       }
@@ -64,10 +99,12 @@
   }
 
   .user-messages-me {
-    background-color: rgb(82, 128, 120);
+    // background-color: rgb(82, 128, 120);
+    background-color: rgb(137, 167, 192);
   }
   .user-messages-user {
-    background-color: rgb(122, 177, 149);
+    // background-color: rgb(122, 177, 149);
+    background-color: rgb(167, 207, 182);
   }
 }
 
@@ -91,8 +128,16 @@
 
     &:hover {
       cursor: pointer;
-      background-color: azure;
-      border-radius: 12px;
+    }
+
+    &-edit:hover {
+      background-color: rgb(51, 150, 76);
+      border-radius: 12px 12px 0 0;
+    }
+
+    &-delete:hover {
+      background-color: rgba(179, 67, 67, 0.925);
+      border-radius: 0 0 12px 12px;
     }
   }
 }

@@ -16,7 +16,7 @@ export class Router {
 
     this.url = globalThis.location.href;
     this.urlParts = this.url.split("/");
-    this.uri = "/" + this.urlParts[5];
+    this.uri = "/" + this.urlParts[3];
 
     for (let index = 0; index < this.registeredRoutes.length; index += 1) {
       if (this.uri === this.registeredRoutes[index].uri) {

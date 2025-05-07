@@ -23,6 +23,7 @@ export class MainView extends ViewModel {
 
   userList: UserList;
   userChat: UserMessages;
+  activeChat: string;
 
   constructor(appController: AppController, node: HTMLElement) {
     super();
@@ -30,8 +31,10 @@ export class MainView extends ViewModel {
     this.mainNode = node;
   }
 
-  create(data?: [] | object) {
-    console.log(data);
+  create() {
+    // RELOGIN USER
+    this.reloginUser();
+
     // CLEAN OLD VIEW
     this.mainNode.replaceChildren();
 
@@ -42,11 +45,8 @@ export class MainView extends ViewModel {
     new HeaderView(this.controller, headerContainer);
 
     // MAIN SECTION
-    const mainSection = this.createElement("main", this.mainNode, {
+    this.mainContainer = this.createElement("main", this.mainNode, {
       className: "main",
-    });
-    this.mainContainer = this.createElement("div", mainSection, {
-      className: "container__main",
     });
 
     // USER LIST
@@ -56,6 +56,7 @@ export class MainView extends ViewModel {
     this.chatContainer = this.createElement("div", this.mainContainer, {
       className: ["container__chat"],
     });
+    this.createNoUserSelected();
 
     // FOOTER
     const footerContainer = this.createElement("footer", this.mainNode, {
@@ -75,8 +76,20 @@ export class MainView extends ViewModel {
     this.controller.getInactiveUsers();
   }
 
+  createNoUserSelected() {
+    // select user
+    const parentNode = this.createElement("div", this.chatContainer, {
+      className: "select-user-container",
+    });
+    this.createElement("h2", parentNode, {
+      className: ["text__select-user", "text__info-italic"],
+      text: "select user for chat",
+    });
+  }
+
   createChat(user: { name: string; status: boolean }) {
     this.userChat = new UserMessages(this.controller, this.chatContainer, user);
+    this.activeChat = user.name;
   }
 
   updateUserStatus(status: boolean) {
@@ -94,11 +107,8 @@ export class MainView extends ViewModel {
     }
   }
 
-  // showNewMessage(data: userMessageType) {
-  //   if (this.userChat) {
-  //     this.userChat.showNewMessage(data);
-  //   } else {
-  //     console.log(`open chat to see new message`);
-  //   }
-  // }
+  reloginUser() {
+    const sessionUser = sessionStorage.getItem("user");
+    if (sessionUser) this.controller.reloginUser();
+  }
 }

@@ -94,13 +94,6 @@ export class UserList extends ViewModel {
 
     // MOUNT ELEMENTS
     this.mount();
-
-    // GET ALL UNREAD MESSAGES
-    // for (const user of data as activeUsersListType[]) {
-    //   if (user.login !== this.user) {
-    //     this.controller.getUnreadMessages(user.login);
-    //   }
-    // }
   }
 
   createInactiveUsers(data: activeUsersListType[]) {
@@ -157,11 +150,6 @@ export class UserList extends ViewModel {
         unreadMessages.set(message.from, count + 1);
       }
     }
-
-    console.log(unreadMessages);
-    // for (const unread of unreadMessages) {
-    //   console.log(unread);
-    // }
   }
 
   // end
