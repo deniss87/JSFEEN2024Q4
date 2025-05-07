@@ -151,12 +151,18 @@ export class UserMessages extends ViewModel {
     for (const message of messages) {
       const messageFrom = message.to === this.user.name ? "me" : "user";
       const datetime = new Date(message.datetime);
-      const time = datetime.getHours() + ":" + datetime.getMinutes();
+      const time = new Intl.DateTimeFormat("en", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      }).format(datetime);
 
       let deliveredStatus = "";
       let readStatus = "";
+      let editedStatus = "";
       if (message.status.isDelivered) deliveredStatus = "delivered";
       if (message.status.isReaded) readStatus = "readed";
+      if (message.status.isEdited) editedStatus = "edited";
       // console.log(message.status);
 
       // message separator
@@ -197,6 +203,11 @@ export class UserMessages extends ViewModel {
       this.createElement("div", messageStatusContainer, {
         className: ["user-message-time"],
         text: time,
+      });
+      this.createElement("div", messageStatusContainer, {
+        id: `message-status-edited-${message.id}`,
+        className: ["user-message-edited"],
+        text: editedStatus,
       });
       parentNode = this.createElement("div", messageStatusContainer, {
         className: "user-message-status-container",
@@ -296,8 +307,14 @@ export class UserMessages extends ViewModel {
     const messageElement: HTMLElement = document.querySelector(
       `#user-message-${message.id}`
     );
+    const statusElement: HTMLElement = document.querySelector(
+      `#message-status-edited-${message.id}`
+    );
     if (messageElement) {
       messageElement.textContent = message.text;
+    }
+    if (statusElement) {
+      statusElement.textContent = "edited";
     }
   }
 

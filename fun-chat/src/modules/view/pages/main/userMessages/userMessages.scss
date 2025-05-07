@@ -71,6 +71,11 @@
     font-size: 12px;
     padding-top: 6px;
 
+    .user-message-edited {
+      color: rgb(15, 76, 110);
+      font-style: italic;
+    }
+
     .user-message-status-container {
       display: flex;
 
@@ -81,7 +86,6 @@
       .user-message-status-delivered {
         margin-right: -5px;
         .message-status-delivered path {
-          // stroke: #0a445f;
           stroke: #0a445f;
         }
       }

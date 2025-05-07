@@ -30,8 +30,8 @@ export class AppController implements Controller {
 
   getSession() {
     const sessionId = sessionStorage.getItem("funID");
-    if (sessionId === null) {
-      this.setSession(24);
+    if (sessionId === undefined || sessionId === null) {
+      this.sessionId = this.setSession(24);
     } else {
       this.sessionId = sessionId;
       this.userName = sessionStorage.getItem("user");

@@ -30,6 +30,8 @@ export class LoginView extends ViewModel {
     // REDIRECT
     this.redirect();
 
+    //
+
     // CLEAN OLD VIEW
     this.mainNode.replaceChildren();
 
