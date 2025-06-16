@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>GraphQL vs REST API Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js/dist/theme/black.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>GraphQL vs. REST API Design</h1>
+          <p>Comparing two major API approaches</p>
+        </section>
+
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li class="fragment fade-down">Introduction to APIs</li>
+            <li class="fragment fade-down">REST Overview</li>
+            <li class="fragment fade-down">GraphQL Overview</li>
+            <li class="fragment fade-down">GraphQL vs. REST</li>
+            <li class="fragment fade-down">Choosing the Right One</li>
+          </ul>
+        </section>
+
+        <section>
+          <section><h2>What is an API?</h2></section>
+          <section>
+            <b style="color: brown">A</b>pplication
+            <b style="color: brown">P</b>rogramming
+            <b style="color: brown">I</b>nterface
+          </section>
+          <section>
+            API is a set of rules and protocols that allows different software
+            programs to communicate with each other
+          </section>
+          <section>
+            <img src="./img/api-example-1.png" />
+          </section>
+          <section>
+            <img src="./img/api-example-2.png" />
+          </section>
+        </section>
+
+        <section>
+          <h2>API architectural styles</h2>
+          <section data-transition="none">
+            <ul>
+              <li>REST (Representational State Transfer)</li>
+              <li>SOAP (Simple Object Access Protocol)</li>
+              <li>GraphQL</li>
+              <li>WebSockets</li>
+              <li>gRPC (gRPC Remote Procedure Calls)</li>
+              <li>JSON-RPC and XML-RPC</li>
+              <li>OData (Open Data Protocol)</li>
+            </ul>
+          </section>
+          <section data-transition="none">
+            <ul>
+              <li>
+                <b style="color: brown">REST</b> (Representational State
+                Transfer)
+              </li>
+              <li>SOAP (Simple Object Access Protocol)</li>
+              <li><b style="color: brown">GraphQL</b></li>
+              <li>WebSockets</li>
+              <li>gRPC (gRPC Remote Procedure Calls)</li>
+              <li>JSON-RPC and XML-RPC</li>
+              <li>OData (Open Data Protocol)</li>
+            </ul>
+          </section>
+        </section>
+        <!-- REST SECTION -->
+        <section>
+          <section>
+            <h2>What is REST?</h2>
+          </section>
+
+          <!-- REST INFO -->
+          <section>
+            <header><h2>REST</h2></header>
+            <p><b style="color: brown">Re</b>presentational <b style="color: brown">S</b>tate <b style="color: brown">T</b>ransfer</p>
+            <p class="fragment fade-down">Standardized architectural style for designing networked applications. </p>
+            <p class="fragment fade-down">It uses HTTP protocols (GET, POST, PUT, DELETE, ...) to interact with resources.</p>
+          </section>
+          <!-- REST KEY FEATURES -->
+          <section>
+            <h3>Key Features of REST</h3>
+            <ul>
+              <li class="fragment fade-down">Stateless</li>
+              <li class="fragment fade-down">Client-Server Architecture</li>
+              <li class="fragment fade-down">Cacheable</li>
+              <li class="fragment fade-down">Uniform Interface</li>
+              <li class="fragment fade-down">Layered System</li>
+            </ul>
+          </section>
+          <!-- REST EXAMPLES -->
+          <section>
+            <p style="color: brown">Request:</p>
+            <pre><code class="language-http">
+              Host: api.example.com
+
+              GET:
+                   URI: /users/123
+                   URI: /users/123/posts
+              
+              URL: http:/api.example.com/users/123 
+              URL: http:/api.example.com/users/123/posts
+          
+            </code></pre>
+          </section>
+          <section>
+            <p style="color: brown">Response:</p>
+            <pre><code class="language-http" style="max-height: 800px">
+            GET: /user/123
+                {
+                  "user": {
+                    "id": 123,
+                    "name": "John Doe",
+                    "address: {...}",
+                  }
+                }
+
+            GET: /user/123/posts
+                {
+                  "posts": [
+                    {
+                      "id": ncjd823,
+                      "title": "...",
+                      "content": "...",
+                    }
+                  ],
+                }
+            </code></pre>
+          </section>
+          <!-- REST PROS & CONS -->
+          <section>
+            <header><h3>Pros & Cons of REST</h3></header>
+            <br />
+            <ul>
+              <li class="fragment fade-down">✅ Simplicity</li>
+              <li class="fragment fade-down">✅ Scalability</li>
+              <li class="fragment fade-down">✅ Caching Supported</li>
+              <li class="fragment fade-down">❌ Over/Under Fetching</li>
+              <li class="fragment fade-down">❌ Multiple Round-Trips</li>
+            </ul>
+          </section>
+          <!-- end of REST section -->
+        </section>
+
+        <!-- GraphQL SECTION -->
+        <section>
+          <section>
+            <h2>What is GraphQL?</h2>
+          </section>
+
+          <section>
+            <p>GraphQL is an open-source data query language for APIs</p>
+            <p class="fragment fade-down">
+              It is a server-side runtime for executing the query.
+            </p>
+          </section>
+          <section>
+            <h3>Key Features of GraphQL</h3>
+            <ul>
+              <li class="fragment fade-down">Flexible Queries</li>
+              <li class="fragment fade-down">Single Endpoint</li>
+              <li class="fragment fade-down">Strongly Typed Schema</li>
+              <li class="fragment fade-down">Mutations</li>
+              <li class="fragment fade-down">Introspection</li>
+              <li class="fragment fade-down">Subscriptions (Real-Time Data)</li>
+            </ul>
+          </section>
+          <!-- GraphQL Examples -->
+          <section>
+            <p style="color: brown">Request:</p>
+            <pre><code class="language-http" style="max-height: 800px">
+              URL: api.example.com/graphql
+
+              HTTP POST:
+                  query {
+                    user(id: "123") {
+                      id
+                      name
+                      post {
+                        id
+                        title
+                      }
+                    }
+                  }
+            </code></pre>
+          </section>
+          <section>
+            <p style="color: brown">Response:</p>
+            <pre><code class="language-http" style="max-height: 800px">
+            HTTP POST:
+                {
+                  "data": {
+                    "user": {
+                      "id": "123",
+                      "name": "John Doe",
+                      "posts": [
+                        {
+                          "id": "ncjd823",
+                          "title": "...",
+                        }
+                      ]
+                    }
+                  }
+                }
+            </code></pre>
+          </section>
+          <!-- GraphQL BENEFITS -->
+          <!-- <section>
+            <header><h3>Positive Aspects of GraphQL</h3></header>
+            <br />
+            <ul>
+              <li class="fragment fade-down">Efficiency</li>
+              <li class="fragment fade-down">Flexibility</li>
+              <li class="fragment fade-down">Single Request</li>
+              <li class="fragment fade-down">Real-Time Capabilities</li>
+              <li class="fragment fade-down">Backend Control</li>
+            </ul>
+          </section> -->
+          <section>
+            <header><h3>Pros & Cons of GraphQL</h3></header>
+            <br />
+            <ul>
+              <li class="fragment fade-down">✅ Flexible Queries</li>
+              <li class="fragment fade-down">✅ Fewer Requests</li>
+              <li class="fragment fade-down">✅ Real-Time Capabilities</li>
+              <li class="fragment fade-down">❌ Complex Caching</li>
+              <li class="fragment fade-down">❌ Overhead for Small APIs</li>
+            </ul>
+          </section>
+          <!-- end of GraphQL -->
+        </section>
+
+        <!-- REST vs. GraphQL -->
+        <section>
+          <header><h2>REST / GraphQL</h2></header>
+          <br />
+          <ul>
+            <li class="fragment fade-down">
+              Fixed Endpoints / Flexible Queries
+            </li>
+            <li class="fragment fade-down">
+              Multiple Requests / Single Request
+            </li>
+            <li class="fragment fade-down">Over-fetching / Precise Data</li>
+          </ul>
+        </section>
+
+        <!-- Choosing the Right One -->
+        <section>
+          <header><h3>When to choose which one?</h3></header>
+
+          <div class="fragment fade-down">
+            <p style="color: brown">REST</p>
+            <ul>
+              <li class="fragment fade-down">
+                You need simplicity, caching, or wide compatibility
+              </li class="fragment fade-down">
+              <li class="fragment fade-down">Your data structure is stable and predictable</li>
+            </ul>
+          </div>
+
+          <div class="fragment fade-down">
+            <p style="color: brown">GraphQL</p>
+            <ul>
+              <li class="fragment fade-down">
+                You have complex frontend requirements
+              </li>
+              <li class="fragment fade-down">
+                You want to reduce network requests and avoid over-fetching
+              </li>
+              <li class="fragment fade-down">Real-time updates (subscriptions)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <p>Thank you!</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        transition: "slide", // Options: none/fade/slide/convex/concave/zoom
+        plugins: [RevealHighlight],
+      });
+    </script>
+  </body>
+</html>
