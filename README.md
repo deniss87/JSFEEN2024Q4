@@ -11,6 +11,7 @@ Each project includes a detailed README, live demo, and source code.
 | Project                                                                                  | Technologies                                           | Links                                                                                                                                                               |
 | ---------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [**Christmas Shop**](https://github.com/deniss87/JSFEEN2024Q4/tree/christmas-shop-part3) | HTML, CSS / Sass, JavaScript, Responsive Design, Figma | [📘 README](https://github.com/deniss87/JSFEEN2024Q4/blob/christmas-shop-part3/README.md) · [🌍 Live Demo](https://deniss87.github.io/JSFEEN2024Q4/christmas-shop/) |
+| [**Hangman**](https://github.com/deniss87/JSFEEN2024Q4/blob/hangman/)                    | HTML, CSS / Sass, JavaScript                           | [📘 README](https://github.com/deniss87/JSFEEN2024Q4/blob/hangman/README.md) · [🎮 Play Online](https://deniss87.github.io/JSFEEN2024Q4/hangman/)                   |
 
 ---
 
