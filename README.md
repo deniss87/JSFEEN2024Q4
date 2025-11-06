@@ -8,9 +8,9 @@ Each project includes a detailed README, live demo, and source code.
 
 ## 🚀 Projects
 
-| Project                                                                                  | Technologies                                           | Links                                                                                                     |
-| ---------------------------------------------------------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
-| [**Christmas Shop**](https://github.com/deniss87/JSFEEN2024Q4/tree/christmas-shop-part3) | HTML, CSS / Sass, JavaScript, Responsive Design, Figma | [📘 README](./christmas-shop/README.md) · [🌍 Live Demo](https://your-username.github.io/christmas-shop/) |
+| Project                                                                                  | Technologies                                           | Links                                                                                                                                                               |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [**Christmas Shop**](https://github.com/deniss87/JSFEEN2024Q4/tree/christmas-shop-part3) | HTML, CSS / Sass, JavaScript, Responsive Design, Figma | [📘 README](https://github.com/deniss87/JSFEEN2024Q4/blob/christmas-shop-part3/README.md) · [🌍 Live Demo](https://deniss87.github.io/JSFEEN2024Q4/christmas-shop/) |
 
 ---
 
