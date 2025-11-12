@@ -87,8 +87,13 @@ To run the project locally, you need to start both the **frontend** and the **AP
 
 ```bash
 # Clone the repository
-git clone https://github.com/deniss87/JSFEEN2024Q4/async-race.git
+git clone https://github.com/deniss87/JSFEEN2024Q4.git
 
+# Navigate to the repository folder
+cd JSFEEN2024Q4
+
+# Switch to the project branch
+git checkout async-race
 ```
 
 ### ⚙️ 2. Start the API Server
@@ -98,7 +103,7 @@ The server code is located in the `async-race-api` folder (copied from the offic
 Make sure the API server is running before starting the frontend, otherwise engine requests will fail.
 
 ```bash
-# Go to the API folder
+# Navigate to the API folder (from repository folder)
 cd async-race-api
 
 # Install dependencies
@@ -111,8 +116,8 @@ npm start
 ### 🚗 3. Start the Frontend Application
 
 ```bash
-# Navigate to the project folder
-cd ../async-race
+# Navigate to the project folder (from repository folder)
+cd async-race
 
 # Install dependencies
 npm install
