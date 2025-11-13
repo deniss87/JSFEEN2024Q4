@@ -79,6 +79,18 @@ This creates a **fully reactive simulation**, where network responses directly i
 
 ---
 
+## 📸 Preview
+
+![Async Race Preview](./assets/rs-school-async-race-preview.png)
+
+---
+
+## 🌐 Live Demo
+
+🔗 [View Async Race](https://deniss87.github.io/JSFEEN2024Q4/async-race/)
+
+---
+
 ## 📂 Project Setup
 
 To run the project locally, you need to start both the **frontend** and the **API server**.
@@ -100,7 +112,8 @@ git checkout async-race
 
 The project requires a running **backend** to handle engine control and race logic.  
 The server code is located in the `async-race-api` folder (copied from the official _Rolling Scopes School_ mock server).  
-Make sure the API server is running before starting the frontend, otherwise engine requests will fail.
+Make sure the API server is running before starting the frontend, otherwise engine requests will fail.  
+**Use node 14.x or higher.**
 
 ```bash
 # Navigate to the API folder (from repository folder)
