@@ -52,7 +52,7 @@ It’s built to demonstrate real-time interactions, message synchronization, aut
 
 ## 🌐 Live Demo
 
-🔗 [Try Fun Chat](https://deniss87.github.io/JSFEEN2024Q4/fun-chat/)
+🔗 [Try Fun Chat](https://deniss87-fun-chat.netlify.app/)
 
 ---
 
