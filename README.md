@@ -532,4 +532,5 @@ At the end of this week, all students will be required to use typescript and adh
 
 ### 🔗 Links
 
-[Rolling Scope School - JS / Front-end Course ](https://rs.school/courses/javascript)
+[Course Website](https://rs.school/courses/javascript)
+[Course GitHub ](https://github.com/rolling-scopes-school/js-fe-course-en/blob/main/README.md)
