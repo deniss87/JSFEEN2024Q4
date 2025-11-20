@@ -1,6 +1,6 @@
 # 📘 JS / Frontend Development Course (_Rolling Scopes School - 2024Q4_)
 
-Welcome to my learning journey through the **RS School JS / Front-end Course** — an intensive 15-week program followed by a 4-week final project.  
+The **RS School JS / Front-end Course** — is an intensive **26-week program** followed by a **7-week final team project**.  
 This README summarizes the course structure, topics and the technologies covered.
 
 ---
@@ -527,3 +527,9 @@ At the end of this week, all students will be required to use typescript and adh
   - [Final task. Sprint 4](https://github.com/rolling-scopes-school/js-fe-course-en/blob/main/tasks/eCommerce-Application/Sprints/Sprint%234.md)
 
 </details>
+
+---
+
+### 🔗 Links
+
+[Rolling Scope School - JS / Front-end Course ](https://rs.school/courses/javascript)
