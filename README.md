@@ -63,6 +63,19 @@ The final stage is **7-week team development sprint**, simulating real work in a
 - SPA architecture
 - Functional programming, design patterns, SOLID principles
 
+## 🚀 Course Projects
+
+| Project                                                                                  | Technologies                                                                      | Links                                                                                                                                                                           |
+| ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [**Christmas Shop**](https://github.com/deniss87/JSFEEN2024Q4/tree/christmas-shop-part3) | HTML, **CSS / Sass**, **JavaScript**, **Responsive Design**, **Figma**            | [📘 README](https://github.com/deniss87/JSFEEN2024Q4/blob/christmas-shop-part3/README.md) · [🌍 Live Demo](https://deniss87.github.io/JSFEEN2024Q4/christmas-shop/)             |
+| [**Hangman**](https://github.com/deniss87/JSFEEN2024Q4/blob/hangman/)                    | HTML, CSS / Sass, **JavaScript**, Responsive Design                               | [📘 README](https://github.com/deniss87/JSFEEN2024Q4/blob/hangman/README.md) · [🌍 Live Demo](https://deniss87.github.io/JSFEEN2024Q4/hangman/)                                 |
+| [**News API**](https://github.com/deniss87/JSFEEN2024Q4/tree/news-api)                   | HTML, CSS, **TypeScript**, **Webpack**, **REST API**, Responsive Design           | [📘 README](https://github.com/deniss87/JSFEEN2024Q4/blob/news-api/README.md) · [🌍 Live Demo](https://deniss87.github.io/JSFEEN2024Q4/news-api/)                               |
+| [**Async Race**](https://github.com/deniss87/JSFEEN2024Q4/tree/async-race)               | HTML, CSS, **TypeScript**, **REST API**, **Web Animations API**, Webpack          | [📘 README](https://github.com/deniss87/JSFEEN2024Q4/blob/async-race/README.md) · [🌍 Live Demo](https://deniss87.github.io/JSFEEN2024Q4/async-race/)                           |
+| [**Fun Chat**](https://github.com/deniss87/JSFEEN2024Q4/tree/fun-chat)                   | HTML, CSS, **TypeScript**, **WebSocket**, **SPA**, Webpack                        | [📘 README](https://github.com/deniss87/JSFEEN2024Q4/blob/fun-chat/README.md) · [🌍 Live Demo](https://deniss87-fun-chat.netlify.app/)                                          |
+| [**eCommerce App (Teamwork)**](https://github.com/deepcd87/rss-ecomm-task)               | **React**, **TypeScript**, **Commercetools API**, SPA, Webpack, Responsive Design | [📘 README](https://github.com/deepcd87/rss-ecomm-task/blob/main/README.md) · [🔄 Pull requests](https://github.com/deepcd87/rss-ecomm-task/pulls?page=1&q=is%3Apr+is%3Aclosed) |
+
+---
+
 ## Full Course Program
 
 <details>
@@ -532,5 +545,5 @@ At the end of this week, all students will be required to use typescript and adh
 
 ### 🔗 Links
 
-[Course Website](https://rs.school/courses/javascript)
+[Course Website](https://rs.school/courses/javascript)  
 [Course GitHub ](https://github.com/rolling-scopes-school/js-fe-course-en/blob/main/README.md)
